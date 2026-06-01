@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Asset CDN — not for indexing
+Disallow: /headshots/
