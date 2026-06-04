@@ -29,7 +29,7 @@ const schemaEpisodes = episodes.map((e) => ({
 
   <ul class="episode-list" id="ep-list">
     {episodes.map((e) => (
-      <li class="episode-item" data-search={`${e.data.title} ${e.data.guest} ${e.data.pillarPrimary}`.toLowerCase()}>
+      <li class="episode-item" data-search={`#${e.data.episode} ${e.data.title} ${e.data.guest} ${e.data.pillarPrimary}`.toLowerCase()}>
         {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
         <div>
           <a href={`/podcast/introverted-leader/${e.data.slug}/`}><strong>#{e.data.episode} {e.data.title}</strong></a>
