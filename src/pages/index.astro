@@ -1,20 +1,21 @@
 ---
+import Base from '../layouts/Base.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Greg Weinger — The Introverted Leader</title>
-		<meta name="description" content="Greg Weinger helps introverted leaders embrace their quiet strengths to get promoted and earn what they deserve." />
-	</head>
-	<body>
-		<main>
-			<h1>Greg Weinger</h1>
-			<p>Host of <a href="/podcast/introverted-leader/">The Introverted Leader</a></p>
-		</main>
-	</body>
-</html>
+<Base
+  title="Greg Weinger — The Introverted Leader"
+  description="Greg Weinger helps introverted leaders embrace their quiet strengths to get promoted and earn what they deserve."
+>
+  <h1>Greg Weinger</h1>
+  <p style="font-size:1.15rem">
+    Helping introverted leaders embrace their quiet strengths to get promoted and earn what they
+    deserve.
+  </p>
+  <p>
+    Host of <strong>The Introverted Leader</strong> — a podcast for quiet professionals who want to
+    lead without becoming someone else.
+  </p>
+  <div class="platform-buttons">
+    <a href="/podcast/introverted-leader/">Browse the podcast →</a>
+  </div>
+</Base>

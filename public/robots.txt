@@ -3,3 +3,5 @@ Allow: /
 
 # Asset CDN — not for indexing
 Disallow: /headshots/
+
+Sitemap: https://gweinger.com/sitemap-index.xml
