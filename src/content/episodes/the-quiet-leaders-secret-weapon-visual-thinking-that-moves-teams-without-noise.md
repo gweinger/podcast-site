@@ -32,7 +32,7 @@ pullQuotes:
   That's when I discovered what visual thinking could do.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
-thumbnail: /headshots/christoph-steinlehner.jpg
+thumbnail: /episode-covers/christoph-steinlehner.png
 ---
 
 ## Key Stories

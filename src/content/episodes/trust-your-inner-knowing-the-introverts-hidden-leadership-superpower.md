@@ -28,7 +28,7 @@ pullQuotes:
   the only reality in the room — and everyone else's knowing gets extinguished.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
-thumbnail: /headshots/amy-vasterling.jpg
+thumbnail: /episode-covers/amy-vasterling.png
 ---
 
 ## Key Stories

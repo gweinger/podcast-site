@@ -27,7 +27,7 @@ pullQuotes:
   — and you get to design it.
 hasTranscript: false
 pillarSecondary: Get Promoted Without Becoming Someone Else
-thumbnail: /headshots/jecara-rivera.jpg
+thumbnail: /episode-covers/jecara-rivera.png
 ---
 
 ## Key Stories

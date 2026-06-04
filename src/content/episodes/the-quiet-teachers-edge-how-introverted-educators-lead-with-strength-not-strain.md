@@ -35,7 +35,7 @@ pullQuotes:
   urges that keep me from making bad decisions.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
-thumbnail: /headshots/heidi-kasevich.jpg
+thumbnail: /episode-covers/heidi-kasevich.png
 ---
 
 ## Key Stories

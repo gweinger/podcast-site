@@ -28,7 +28,7 @@ pullQuotes:
   often better at this than anyone.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
-thumbnail: /headshots/david-rosmarin.png
+thumbnail: /episode-covers/david-rosmarin.png
 ---
 
 ## Key Stories

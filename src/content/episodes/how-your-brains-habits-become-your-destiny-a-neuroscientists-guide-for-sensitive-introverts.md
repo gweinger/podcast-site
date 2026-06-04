@@ -28,7 +28,7 @@ pullQuotes:
   of why that felt like the only safe option.
 hasTranscript: false
 pillarSecondary: Beat Imposter Syndrome
-thumbnail: /headshots/norman-farb.jpg
+thumbnail: /episode-covers/norman-farb.jpg
 ---
 
 ## Key Stories

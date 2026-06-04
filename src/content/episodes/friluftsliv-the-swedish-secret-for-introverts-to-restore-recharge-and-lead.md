@@ -28,7 +28,7 @@ pullQuotes:
   of returning to what restores you.
 hasTranscript: false
 pillarSecondary: Beat Imposter Syndrome
-thumbnail: /headshots/linda-mcgurk.png
+thumbnail: /episode-covers/linda-mcgurk.png
 ---
 
 ## Key Stories

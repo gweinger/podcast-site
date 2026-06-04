@@ -27,7 +27,7 @@ pullQuotes:
   told, in a hundred small ways, that who they are isn't enough.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
-thumbnail: /headshots/steve-friedman.jpg
+thumbnail: /episode-covers/steve-friedman.png
 ---
 
 ## Key Stories
