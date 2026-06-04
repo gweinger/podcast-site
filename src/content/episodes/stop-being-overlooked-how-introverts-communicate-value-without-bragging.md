@@ -30,6 +30,7 @@ pullQuotes:
   you haven't yet done. All of this is clouding that value — like mining for a diamond.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

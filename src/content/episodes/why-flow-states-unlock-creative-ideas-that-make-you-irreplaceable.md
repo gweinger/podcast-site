@@ -29,6 +29,7 @@ pullQuotes:
   the plains. But you've also got to eat antelope.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

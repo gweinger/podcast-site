@@ -34,6 +34,7 @@ pullQuotes:
 - There's a lot of positive in here—I worry about it because I care.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

@@ -24,6 +24,7 @@ pullQuotes:
 - A mistake is just a speed bump, if we let it be.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

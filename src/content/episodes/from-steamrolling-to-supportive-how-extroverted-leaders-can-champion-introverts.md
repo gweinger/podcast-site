@@ -29,6 +29,7 @@ pullQuotes:
 - Don't do it for yourself. Do it for the betterment of your company and your team.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

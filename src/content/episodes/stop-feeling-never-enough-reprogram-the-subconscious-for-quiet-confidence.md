@@ -27,6 +27,7 @@ pullQuotes:
   everything.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

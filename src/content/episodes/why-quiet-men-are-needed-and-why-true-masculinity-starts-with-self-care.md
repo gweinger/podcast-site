@@ -31,6 +31,7 @@ pullQuotes:
   it comes back to you with great dividends.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

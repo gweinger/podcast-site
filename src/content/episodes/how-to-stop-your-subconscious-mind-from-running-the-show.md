@@ -28,6 +28,7 @@ pullQuotes:
 - If we can't show up for ourselves, why do we expect everyone else to?
 hasTranscript: false
 pillarSecondary: Get Promoted Without Becoming Someone Else
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

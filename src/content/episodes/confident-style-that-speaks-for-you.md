@@ -31,6 +31,7 @@ pullQuotes:
 - Limitation is actually made premium. For being you, it just cannot be replicated.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

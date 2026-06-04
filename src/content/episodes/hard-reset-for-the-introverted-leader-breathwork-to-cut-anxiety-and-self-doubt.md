@@ -32,6 +32,7 @@ pullQuotes:
   hold people back.
 hasTranscript: false
 pillarSecondary: Beat Imposter Syndrome
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

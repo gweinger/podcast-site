@@ -32,6 +32,7 @@ pullQuotes:
   really important. So we can't just call people too quiet, too sensitive.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

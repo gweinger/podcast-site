@@ -29,6 +29,7 @@ pullQuotes:
   killer.
 hasTranscript: false
 pillarSecondary: Beat Imposter Syndrome
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

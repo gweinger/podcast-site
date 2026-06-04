@@ -29,6 +29,7 @@ pullQuotes:
   weakness — that's smart in the mountains.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

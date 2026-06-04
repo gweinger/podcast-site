@@ -28,6 +28,7 @@ pullQuotes:
   wanting to say something — it's a matter of feeling comfortable and safe.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

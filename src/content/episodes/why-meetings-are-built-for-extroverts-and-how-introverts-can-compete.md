@@ -26,6 +26,7 @@ pullQuotes:
   we need to do as introverts. We need to let people into our heads.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

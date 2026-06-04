@@ -30,6 +30,7 @@ pullQuotes:
   people. It's hard to stand out.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

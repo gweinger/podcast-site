@@ -26,6 +26,7 @@ pullQuotes:
   go to work.
 hasTranscript: false
 pillarSecondary: Get Promoted Without Becoming Someone Else
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

@@ -29,6 +29,7 @@ pullQuotes:
   that makes me the best version of myself for my team.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

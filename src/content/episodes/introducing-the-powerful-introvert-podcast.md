@@ -27,6 +27,7 @@ pullQuotes:
   to be someone you're not.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

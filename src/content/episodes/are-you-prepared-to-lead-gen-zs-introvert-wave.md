@@ -29,6 +29,7 @@ pullQuotes:
   sure they have a space and a medium to bring that genius out.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

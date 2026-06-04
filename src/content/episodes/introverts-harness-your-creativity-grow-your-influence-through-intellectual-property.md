@@ -25,6 +25,7 @@ pullQuotes:
 - Hold on to what is uniquely you.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

@@ -28,6 +28,7 @@ pullQuotes:
   it becomes easier for us.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

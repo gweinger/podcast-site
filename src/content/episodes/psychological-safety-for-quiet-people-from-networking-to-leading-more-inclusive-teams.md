@@ -26,6 +26,7 @@ pullQuotes:
 - You won't hear much out of this one.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

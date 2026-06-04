@@ -29,6 +29,7 @@ pullQuotes:
   inputs that are kind of shortening your attention span.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

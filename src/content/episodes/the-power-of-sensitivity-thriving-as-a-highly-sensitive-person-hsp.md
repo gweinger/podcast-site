@@ -30,6 +30,7 @@ pullQuotes:
 - I say follow the nervous system the way others say follow the money.
 hasTranscript: false
 pillarSecondary: Beat Imposter Syndrome
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

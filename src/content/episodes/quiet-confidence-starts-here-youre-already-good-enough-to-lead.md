@@ -30,6 +30,7 @@ pullQuotes:
   think it exists.
 hasTranscript: false
 pillarSecondary: Get Promoted Without Becoming Someone Else
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

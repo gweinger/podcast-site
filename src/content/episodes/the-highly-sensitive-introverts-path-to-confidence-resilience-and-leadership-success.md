@@ -34,6 +34,7 @@ pullQuotes:
 - Leadership starts the moment you decide to share what you're seeing.
 hasTranscript: false
 pillarSecondary: Speak Up in Meetings with Quiet Authority
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

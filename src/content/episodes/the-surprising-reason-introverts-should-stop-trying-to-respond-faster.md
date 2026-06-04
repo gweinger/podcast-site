@@ -31,6 +31,7 @@ pullQuotes:
   be trapped in my own mind. This conversation is cathartic for me.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

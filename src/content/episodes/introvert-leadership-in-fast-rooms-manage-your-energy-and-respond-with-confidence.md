@@ -23,6 +23,7 @@ pullQuotes:
 - I was in the middle of nowhere. You're isolated. Nobody bothered me.
 hasTranscript: false
 pillarSecondary: Speak Up in Meetings with Quiet Authority
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

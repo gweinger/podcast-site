@@ -27,6 +27,7 @@ pullQuotes:
   approach — if we could allow everyone to come to the table — that goes to coherence.
 hasTranscript: false
 pillarSecondary: Get Promoted Without Becoming Someone Else
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

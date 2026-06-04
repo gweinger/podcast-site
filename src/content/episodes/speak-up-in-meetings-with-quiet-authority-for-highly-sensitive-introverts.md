@@ -26,6 +26,7 @@ pullQuotes:
 - That confidence doesn't come from pretending to be extroverted.
 hasTranscript: false
 pillarSecondary: Beat Imposter Syndrome
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

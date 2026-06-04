@@ -31,6 +31,7 @@ pullQuotes:
   share it, often enough.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

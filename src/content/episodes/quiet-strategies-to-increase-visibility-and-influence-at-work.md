@@ -29,6 +29,7 @@ pullQuotes:
   introverts are less capable — research proves the opposite.
 hasTranscript: false
 pillarSecondary: Speak Up in Meetings with Quiet Authority
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

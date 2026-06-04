@@ -28,6 +28,7 @@ pullQuotes:
   is what you're afraid of finding when you use it.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

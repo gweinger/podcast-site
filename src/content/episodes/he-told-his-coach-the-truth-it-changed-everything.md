@@ -26,6 +26,7 @@ pullQuotes:
 - I can fix a lot of things. I cannot fix apathy.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

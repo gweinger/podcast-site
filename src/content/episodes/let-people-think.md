@@ -27,6 +27,7 @@ pullQuotes:
 - I suck at faking. So you know exactly where I stand.
 hasTranscript: false
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

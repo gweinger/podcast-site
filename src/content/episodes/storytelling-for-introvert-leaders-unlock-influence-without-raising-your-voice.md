@@ -31,6 +31,7 @@ pullQuotes:
   on those words you choose to say.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

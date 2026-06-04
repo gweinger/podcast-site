@@ -27,6 +27,7 @@ pullQuotes:
   a lot more energy — they're deeply processing everything.
 hasTranscript: false
 pillarSecondary: Increase Visibility & Influence Authentically
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

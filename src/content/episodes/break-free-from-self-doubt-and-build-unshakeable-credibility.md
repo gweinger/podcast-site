@@ -31,6 +31,7 @@ pullQuotes:
   are so many people who genuinely want everyone to succeed.
 hasTranscript: false
 pillarSecondary: Get Promoted Without Becoming Someone Else
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories

@@ -25,6 +25,7 @@ pullQuotes:
   — actually gets me more energized where before I would have shrunk away.
 hasTranscript: false
 pillarSecondary: Communicate Like a Leader
+thumbnail: /show-cover.jpg
 ---
 
 ## Key Stories
