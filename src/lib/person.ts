@@ -8,6 +8,7 @@ export const PERSON = {
   name: 'Greg Weinger',
   url: 'https://gweinger.com/',
   jobTitle: 'Podcast Host & Leadership Advisor',
+  image: 'https://gweinger.com/greg-weinger.png',
   sameAs: [
     'https://www.linkedin.com/in/gregweinger/',
     'https://www.powerfulintrovertpodcast.com/',
