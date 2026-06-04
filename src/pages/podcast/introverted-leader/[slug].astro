@@ -15,6 +15,7 @@ const { Content } = await render(entry);
 const all = await getCollection('episodes');
 const related = all
   .filter((e) => e.data.slug !== d.slug && e.data.pillarPrimary === d.pillarPrimary)
+  .sort((a, b) => b.data.episode - a.data.episode)
   .slice(0, 3);
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -28,7 +29,6 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
     url={pageUrl}
     episodeNumber={d.episode}
     datePublished={d.publishDate}
-    audioUrl={d.urls.apple}
   />
   <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
     <a href="/podcast/introverted-leader/">Podcast</a> › <span>#{d.episode}</span>
@@ -47,7 +47,7 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
     <div class="embed-wrap"><iframe src={`https://www.youtube.com/embed/${ytId}`} title="YouTube player" allowfullscreen loading="lazy"></iframe></div>
   )}
   {d.simplecastEmbedId && (
-    <iframe height="200" width="100%" frameborder="no" scrolling="no" loading="lazy"
+    <iframe height="200" width="100%" loading="lazy" style="border:0"
       src={`https://player.simplecast.com/${d.simplecastEmbedId}?dark=false`}></iframe>
   )}
 
