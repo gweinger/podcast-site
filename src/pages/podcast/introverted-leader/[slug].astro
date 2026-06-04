@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import EpisodeSchema from '../../../components/EpisodeSchema.astro';
+
+export async function getStaticPaths() {
+  const episodes = await getCollection('episodes');
+  return episodes.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+
+const all = await getCollection('episodes');
+const related = all
+  .filter((e) => e.data.slug !== d.slug && e.data.pillarPrimary === d.pillarPrimary)
+  .slice(0, 3);
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1];
+---
+<Base title={`#${d.episode} ${d.title}`} description={d.summary}>
+  <EpisodeSchema
+    slot="head"
+    title={d.title}
+    description={d.summary}
+    url={pageUrl}
+    episodeNumber={d.episode}
+    datePublished={d.publishDate}
+    audioUrl={d.urls.apple}
+  />
+  <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
+    <a href="/podcast/introverted-leader/">Podcast</a> › <span>#{d.episode}</span>
+  </nav>
+  <h1>{d.title}</h1>
+  <p style="color:var(--muted)">{d.guest} · Episode {d.episode}
+    {d.publishDate && <span> · {d.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>}
+  </p>
+  <span class="pillar-badge">{d.pillarPrimary}</span>
+
+  {d.thumbnail && <img src={d.thumbnail} alt={d.guest} style="max-width:100%;border-radius:8px;margin:1rem 0" />}
+
+  <p class="lead" style="font-size:1.15rem">{d.summary}</p>
+
+  {ytId && (
+    <div class="embed-wrap"><iframe src={`https://www.youtube.com/embed/${ytId}`} title="YouTube player" allowfullscreen loading="lazy"></iframe></div>
+  )}
+  {d.simplecastEmbedId && (
+    <iframe height="200" width="100%" frameborder="no" scrolling="no" loading="lazy"
+      src={`https://player.simplecast.com/${d.simplecastEmbedId}?dark=false`}></iframe>
+  )}
+
+  <div class="platform-buttons">
+    {d.urls.apple && <a href={d.urls.apple}>Apple Podcasts</a>}
+    {d.urls.spotify && <a href={d.urls.spotify}>Spotify</a>}
+    {d.urls.youtube && <a href={d.urls.youtube}>YouTube</a>}
+    {d.urls.substack && <a href={d.urls.substack}>Substack</a>}
+  </div>
+
+  {d.pullQuotes.map((q) => <blockquote class="pull-quote">{q}</blockquote>)}
+
+  <Content />
+
+  {related.length > 0 && (
+    <section>
+      <h2>Related episodes</h2>
+      <ul>
+        {related.map((e) => (
+          <li><a href={`/podcast/introverted-leader/${e.data.slug}/`}>#{e.data.episode} {e.data.title}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <p style="margin-top:2rem"><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
+</Base>
