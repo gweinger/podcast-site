@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import SeriesSchema from '../../../components/SeriesSchema.astro';
+
+const episodes = (await getCollection('episodes')).sort((a, b) => {
+  const da = a.data.publishDate ? a.data.publishDate.getTime() : 0;
+  const db = b.data.publishDate ? b.data.publishDate.getTime() : 0;
+  if (da !== db) return db - da;
+  return b.data.episode - a.data.episode;
+});
+
+const schemaEpisodes = episodes.map((e) => ({
+  title: e.data.title,
+  url: `https://gweinger.com/podcast/introverted-leader/${e.data.slug}/`,
+}));
+---
+<Base title="The Introverted Leader — Podcast" description="Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.">
+  <SeriesSchema slot="head" episodes={schemaEpisodes} />
+  <h1>The Introverted Leader</h1>
+  <p>Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.</p>
+  <div class="platform-buttons">
+    <a href="https://podcasts.apple.com/us/podcast/id1794604735">Apple Podcasts</a>
+    <a href="https://www.youtube.com/@theintrovertedleader">YouTube</a>
+    <a href="https://www.powerfulintrovertpodcast.com/">Newsletter</a>
+  </div>
+
+  <input id="ep-search" type="search" placeholder="Search episodes…" style="width:100%;padding:.6rem;margin:1.5rem 0;border:1px solid #ccc;border-radius:6px" />
+
+  <ul class="episode-list" id="ep-list">
+    {episodes.map((e) => (
+      <li class="episode-item" data-search={`${e.data.title} ${e.data.guest} ${e.data.pillarPrimary}`.toLowerCase()}>
+        {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
+        <div>
+          <a href={`/podcast/introverted-leader/${e.data.slug}/`}><strong>#{e.data.episode} {e.data.title}</strong></a>
+          <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+          <span class="pillar-badge">{e.data.pillarPrimary}</span>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <script is:inline>
+    const input = document.getElementById('ep-search');
+    const items = Array.from(document.querySelectorAll('.episode-item'));
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      for (const li of items) {
+        li.style.display = !q || li.dataset.search.includes(q) ? '' : 'none';
+      }
+    });
+  </script>
+</Base>

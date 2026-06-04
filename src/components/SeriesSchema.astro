@@ -1,0 +1,25 @@
+---
+import { PERSON, SERIES } from '../lib/person';
+interface Props { episodes: { title: string; url: string }[]; }
+const { episodes } = Astro.props;
+const data = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    PERSON,
+    { ...SERIES, author: { '@id': PERSON['@id'] } },
+    {
+      '@type': 'ItemList',
+      itemListElement: episodes.map((e, i) => ({
+        '@type': 'ListItem', position: i + 1, name: e.title, url: e.url,
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Podcast', item: SERIES.url },
+      ],
+    },
+  ],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(data)} />
