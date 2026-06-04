@@ -13,7 +13,7 @@ export const PERSON = {
     'https://www.powerfulintrovertpodcast.com/',
     'https://podcasts.apple.com/us/podcast/id1794604735',
     'https://open.spotify.com/show/5Sv8RRa1sn6uMVM0yiPIM1',
-    'https://www.youtube.com/@theintrovertedleader',
+    'https://www.youtube.com/@powerfulintrovert',
   ],
 };
 
