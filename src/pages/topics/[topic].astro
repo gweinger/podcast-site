@@ -1,0 +1,132 @@
+---
+import fs from 'node:fs';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import TopicSchema from '../../components/TopicSchema.astro';
+import { PILLARS, topicSlugForPillar, partitionEpisodes, type EpisodeLike } from '../../lib/pillars';
+import { collageFor } from '../../lib/headshots';
+
+export async function getStaticPaths() {
+  const topics = await getCollection('topics');
+  return topics.map((entry) => ({ params: { topic: entry.data.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const t = entry.data;
+const { Content } = await render(entry);
+
+const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
+const { core, secondary, minisodes } = partitionEpisodes(allEpisodes, t.pillar);
+
+// Headshot collage: read the CDN directory once at build time.
+const headshotFiles = fs.readdirSync('public/headshots');
+const faces = collageFor([...core, ...secondary, ...minisodes], headshotFiles, 8);
+const totalCount = core.length + secondary.length + minisodes.length;
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const schemaEpisodes = [...core, ...secondary].map((e) => ({
+  title: e.data.title,
+  url: `https://gweinger.com/podcast/introverted-leader/${e.data.slug}/`,
+}));
+
+const relatedPillars = PILLARS.filter((p) => p !== t.pillar);
+const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
+---
+<Base title={t.title} description={t.metaDescription}>
+  <TopicSchema slot="head" title={t.title} description={t.metaDescription} url={pageUrl} episodes={schemaEpisodes} />
+
+  <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
+    <a href="/topics/">Topics</a> › <span>{t.title}</span>
+  </nav>
+
+  <h1>{t.title}</h1>
+
+  <Content />
+
+  {t.painChips.length > 0 && (
+    <div style="margin:.8rem 0">
+      {t.painChips.map((c) => <span class="pain-chip">{c}</span>)}
+    </div>
+  )}
+
+  {faces.length > 0 && (
+    <>
+      <div class="topic-collage">
+        {faces.map((f) => <img src={f.url} alt={f.name} loading="lazy" />)}
+        <span class="more">Featuring {totalCount} conversations</span>
+      </div>
+    </>
+  )}
+
+  {t.resources.length > 0 && (
+    <section>
+      <div class="topic-section-label">Start here</div>
+      <ul class="resource-list">
+        {t.resources.map((r) => (
+          <li>
+            <a href={r.url}>{r.title}</a>
+            {r.blurb && <div class="blurb">{r.blurb}</div>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {minisodes.length > 0 && (
+    <section>
+      <div class="topic-section-label">Quick takes</div>
+      <ul class="episode-list">
+        {minisodes.map((e) => (
+          <li class="episode-item">
+            {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
+            <div>
+              <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
+              <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section>
+    <div class="topic-section-label">Core episodes ({core.length})</div>
+    <ul class="episode-list">
+      {core.map((e) => (
+        <li class="episode-item">
+          {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
+          <div>
+            <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
+            <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {secondary.length > 0 && (
+    <section>
+      <div class="topic-section-label">Also explores this topic ({secondary.length})</div>
+      <ul class="episode-list">
+        {secondary.map((e) => (
+          <li class="episode-item">
+            {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
+            <div>
+              <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
+              <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="topic-related">
+    <div class="topic-section-label">Related topics</div>
+    {relatedPillars.map((p) => (
+      <a class="pillar-badge" href={`/topics/${topicSlugForPillar(p)}/`}>{p}</a>
+    ))}
+  </section>
+
+  <p style="margin-top:2rem"><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
+</Base>
