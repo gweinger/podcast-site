@@ -78,4 +78,11 @@ describe('partitionEpisodes', () => {
     const { core } = partitionEpisodes([a, b], P);
     expect(core.map((e) => e.data.slug)).toEqual(['b', 'a']);
   });
+
+  it('sorts core by publishDate (newest first) when dates differ, ignoring episode number', () => {
+    const older = ep({ slug: 'old', episode: 99, pillarPrimary: P, publishDate: new Date('2023-01-01') });
+    const newer = ep({ slug: 'new', episode: 1, pillarPrimary: P, publishDate: new Date('2024-01-01') });
+    const { core } = partitionEpisodes([older, newer], P);
+    expect(core.map((e) => e.data.slug)).toEqual(['new', 'old']);
+  });
 });

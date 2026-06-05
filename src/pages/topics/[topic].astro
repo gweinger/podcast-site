@@ -19,7 +19,10 @@ const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[
 const { core, secondary, minisodes } = partitionEpisodes(allEpisodes, t.pillar);
 
 // Headshot collage: read the CDN directory once at build time.
-const headshotFiles = fs.readdirSync('public/headshots');
+// Filter to image files so stray entries (.DS_Store, .gitkeep) can't match a guest slug.
+const headshotFiles = fs
+  .readdirSync('public/headshots')
+  .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
 const faces = collageFor([...core, ...secondary, ...minisodes], headshotFiles, 8);
 const totalCount = core.length + secondary.length + minisodes.length;
 
@@ -89,20 +92,22 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
     </section>
   )}
 
-  <section>
-    <div class="topic-section-label">Core episodes ({core.length})</div>
-    <ul class="episode-list">
-      {core.map((e) => (
-        <li class="episode-item">
-          {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
-          <div>
-            <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
-            <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
-          </div>
-        </li>
-      ))}
-    </ul>
-  </section>
+  {core.length > 0 && (
+    <section>
+      <div class="topic-section-label">Core episodes ({core.length})</div>
+      <ul class="episode-list">
+        {core.map((e) => (
+          <li class="episode-item">
+            {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
+            <div>
+              <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
+              <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   {secondary.length > 0 && (
     <section>
