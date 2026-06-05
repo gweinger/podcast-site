@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { PILLARS, partitionEpisodes, type EpisodeLike } from '../../lib/pillars';
+
+const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order);
+
+// Guard: every pillar must have exactly one hub file (catches a forgotten topic).
+if (topics.length !== PILLARS.length) {
+  throw new Error(`Expected ${PILLARS.length} topic hubs, found ${topics.length}`);
+}
+
+const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
+const counts = new Map<string, number>();
+for (const t of topics) {
+  const { core, secondary, minisodes } = partitionEpisodes(allEpisodes, t.data.pillar);
+  counts.set(t.data.slug, core.length + secondary.length + minisodes.length);
+}
+---
+<Base title="Topics — Greg Weinger" description="Browse Greg Weinger's writing and podcast conversations by topic: imposter syndrome, speaking up, visibility, executive presence, energy, and promotion for introverted leaders.">
+  <h1>Topics</h1>
+  <p>The themes behind The Introverted Leader — each with the conversations and resources that go deepest on it.</p>
+
+  <ul class="episode-list">
+    {topics.map((t) => (
+      <li class="episode-item">
+        <div>
+          <a href={`/topics/${t.data.slug}/`}><strong>{t.data.title}</strong></a>
+          <div style="color:var(--muted);font-size:.9rem">{t.data.metaDescription}</div>
+          <div style="margin-top:.4rem">
+            {t.data.painChips.map((c) => <span class="pain-chip">{c}</span>)}
+          </div>
+          <div style="color:var(--muted);font-size:.85rem;margin-top:.3rem">{counts.get(t.data.slug)} episodes</div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>

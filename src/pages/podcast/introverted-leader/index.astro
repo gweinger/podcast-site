@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SeriesSchema from '../../../components/SeriesSchema.astro';
+import { topicSlugForPillar } from '../../../lib/pillars';
 
 const episodes = (await getCollection('episodes')).sort((a, b) => {
   const da = a.data.publishDate ? a.data.publishDate.getTime() : 0;
@@ -35,7 +36,7 @@ const schemaEpisodes = episodes.map((e) => ({
         <div>
           <a href={`/podcast/introverted-leader/${e.data.slug}/`}><strong>#{e.data.episode} {e.data.title}</strong></a>
           <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
-          <span class="pillar-badge">{e.data.pillarPrimary}</span>
+          <a class="pillar-badge" href={`/topics/${topicSlugForPillar(e.data.pillarPrimary)}/`}>{e.data.pillarPrimary}</a>
         </div>
       </li>
     ))}

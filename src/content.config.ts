@@ -1,15 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
-
-const PILLARS = [
-  'Beat Imposter Syndrome',
-  'Speak Up in Meetings with Quiet Authority',
-  'Increase Visibility & Influence Authentically',
-  'Communicate Like a Leader',
-  'Manage Your Energy & Thrive in Extroverted Cultures',
-  'Get Promoted Without Becoming Someone Else',
-] as const;
+import { PILLARS } from './lib/pillars';
 
 const episodes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/episodes' }),
@@ -40,4 +32,25 @@ const episodes = defineCollection({
   }),
 });
 
-export const collections = { episodes };
+const topics = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/topics' }),
+  schema: z.object({
+    pillar: z.enum(PILLARS),
+    slug: z.string(),
+    title: z.string(),
+    metaDescription: z.string(),
+    painChips: z.array(z.string()).default([]),
+    resources: z
+      .array(
+        z.object({
+          title: z.string(),
+          url: z.string(),
+          blurb: z.string().optional(),
+        }),
+      )
+      .default([]),
+    order: z.number().default(0),
+  }),
+});
+
+export const collections = { episodes, topics };
