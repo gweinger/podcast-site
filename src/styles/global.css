@@ -29,3 +29,16 @@ a { color: var(--accent); }
 .embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 details.transcript { margin-top: 2rem; }
 details.transcript summary { cursor: pointer; font-weight: 600; }
+/* Topic hub pages */
+.pain-chip { display: inline-block; font-size: .8rem; background: #fbeeee; color: #a23a3a; padding: .15rem .5rem; border-radius: 999px; margin: 0 .35rem .35rem 0; }
+.topic-collage { display: flex; align-items: center; margin: 1rem 0 .3rem; }
+.topic-collage img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; margin-left: -10px; }
+.topic-collage img:first-child { margin-left: 0; }
+.topic-collage .more { font-size: .8rem; color: var(--muted); margin-left: .6rem; }
+.topic-section-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; margin: 1.8rem 0 .6rem; }
+.resource-list { list-style: none; padding: 0; }
+.resource-list li { padding: .5rem 0; border-bottom: 1px solid #eee; }
+.resource-list .blurb { color: var(--muted); font-size: .9rem; }
+.topic-related a { margin: 0 .35rem .35rem 0; text-decoration: none; }
+a.pillar-badge { text-decoration: none; }
+a.pillar-badge:hover { background: #dde7f7; }
