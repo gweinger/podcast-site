@@ -33,6 +33,7 @@ pullQuotes:
   and speak up for yourself.
 - Leadership starts the moment you decide to share what you're seeing.
 hasTranscript: false
+publishDate: '2025-11-24'
 pillarSecondary: Speak Up in Meetings with Quiet Authority
 thumbnail: /show-cover.jpg
 ---

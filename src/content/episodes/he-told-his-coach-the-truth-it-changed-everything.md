@@ -25,6 +25,7 @@ pullQuotes:
 - Having a coach is one of the most selfish things I do. It is 100% for me.
 - I can fix a lot of things. I cannot fix apathy.
 hasTranscript: false
+publishDate: '2025-05-16'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

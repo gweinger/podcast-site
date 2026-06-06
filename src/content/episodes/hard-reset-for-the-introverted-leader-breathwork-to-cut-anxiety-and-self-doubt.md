@@ -31,6 +31,7 @@ pullQuotes:
   It goes straight through and accesses those deep places to release blockages that
   hold people back.
 hasTranscript: false
+publishDate: '2025-12-10'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /show-cover.jpg
 ---

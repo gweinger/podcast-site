@@ -26,6 +26,7 @@ pullQuotes:
   feelings of imposter syndrome — to rewire the belief that I was enough — that changed
   everything.
 hasTranscript: false
+publishDate: '2026-02-23'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

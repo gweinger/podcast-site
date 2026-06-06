@@ -31,6 +31,7 @@ pullQuotes:
 - I came into a meeting with my map just to ask if I'd understood things correctly.
   That's when I discovered what visual thinking could do.
 hasTranscript: false
+publishDate: '2026-04-13'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /episode-covers/christoph-steinlehner.png
 ---

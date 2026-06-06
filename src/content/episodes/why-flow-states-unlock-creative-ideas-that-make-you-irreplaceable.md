@@ -28,6 +28,7 @@ pullQuotes:
 - The most beautiful moments I have are sitting on a rock in the sun looking out across
   the plains. But you've also got to eat antelope.
 hasTranscript: false
+publishDate: '2025-10-28'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

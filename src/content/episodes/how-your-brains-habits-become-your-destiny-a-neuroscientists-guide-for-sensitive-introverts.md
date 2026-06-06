@@ -27,6 +27,7 @@ pullQuotes:
 - I was the kid hiding in doorways at parties. The science I do now is an explanation
   of why that felt like the only safe option.
 hasTranscript: false
+publishDate: '2026-06-01'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /episode-covers/norman-farb.jpg
 ---

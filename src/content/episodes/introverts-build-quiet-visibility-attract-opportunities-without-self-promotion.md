@@ -24,6 +24,7 @@ pullQuotes:
 - Make it less about you shining the spotlight on yourself. Shine it on the person
   you want to impact.
 hasTranscript: false
+publishDate: '2026-03-02'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

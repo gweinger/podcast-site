@@ -30,6 +30,7 @@ pullQuotes:
   can be very clear in our minds but other people might not understand it if we don't
   share it, often enough.
 hasTranscript: false
+publishDate: '2025-07-21'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

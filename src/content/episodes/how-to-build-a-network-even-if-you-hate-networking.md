@@ -27,6 +27,7 @@ pullQuotes:
 - I go with something called a servant's heart. I'm looking to give value, not receive
   it.
 hasTranscript: false
+publishDate: '2025-08-07'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

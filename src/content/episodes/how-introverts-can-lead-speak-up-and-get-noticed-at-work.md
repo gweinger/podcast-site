@@ -28,6 +28,7 @@ pullQuotes:
 - The worst behavior you'll tolerate and not act upon is the new low for your entire
   team.
 hasTranscript: false
+publishDate: '2025-08-04'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

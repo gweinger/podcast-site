@@ -31,6 +31,7 @@ pullQuotes:
 - Influence is not determined off of doing things some of the time. It's what you
   do all the time.
 hasTranscript: false
+publishDate: '2025-09-14'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

@@ -24,6 +24,7 @@ pullQuotes:
 - Turning the curiosity up — why does somebody have this different point of view?
   — actually gets me more energized where before I would have shrunk away.
 hasTranscript: false
+publishDate: '2026-03-12'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

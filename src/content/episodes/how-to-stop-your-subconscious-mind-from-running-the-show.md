@@ -27,6 +27,7 @@ pullQuotes:
   are so powerful.
 - If we can't show up for ourselves, why do we expect everyone else to?
 hasTranscript: false
+publishDate: '2025-07-07'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

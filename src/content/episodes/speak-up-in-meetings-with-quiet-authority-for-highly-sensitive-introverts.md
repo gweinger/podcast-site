@@ -25,6 +25,7 @@ pullQuotes:
   that give you the tools to contribute in ways that feel natural.
 - That confidence doesn't come from pretending to be extroverted.
 hasTranscript: false
+publishDate: '2025-11-29'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /show-cover.jpg
 ---

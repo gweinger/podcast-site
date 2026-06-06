@@ -68,6 +68,7 @@ a.pillar-badge:hover { background: #dde7f7; }
 .episode-card { text-align: center; }
 .episode-card-img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto .6rem; }
 .episode-card-guest { color: var(--muted); font-size: .9rem; }
+.episode-card-date { color: var(--muted); font-size: .8rem; display: block; margin-top: .2rem; }
 
 .about-teaser { display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0; }
 .about-teaser-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }

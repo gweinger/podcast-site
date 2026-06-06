@@ -27,6 +27,7 @@ pullQuotes:
 - Selling is more listening than talking. And if you think about it that way, then
   it becomes easier for us.
 hasTranscript: false
+publishDate: '2025-11-03'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

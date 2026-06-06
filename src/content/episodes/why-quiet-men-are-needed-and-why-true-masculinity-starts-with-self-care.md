@@ -30,6 +30,7 @@ pullQuotes:
   a scrap for our own. But it's exactly what you said—when we act out of service,
   it comes back to you with great dividends.
 hasTranscript: false
+publishDate: '2025-08-11'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

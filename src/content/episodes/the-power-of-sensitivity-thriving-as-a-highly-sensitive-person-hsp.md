@@ -29,6 +29,7 @@ pullQuotes:
 - Rejection is protection. It's safe.
 - I say follow the nervous system the way others say follow the money.
 hasTranscript: false
+publishDate: '2025-08-18'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /show-cover.jpg
 ---

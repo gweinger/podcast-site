@@ -27,6 +27,7 @@ pullQuotes:
   it — is one of the most powerful things you can learn to do. And introverts are
   often better at this than anyone.
 hasTranscript: false
+publishDate: '2026-05-26'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /episode-covers/david-rosmarin.png
 ---

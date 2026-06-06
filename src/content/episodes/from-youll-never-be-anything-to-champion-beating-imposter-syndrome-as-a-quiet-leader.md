@@ -30,6 +30,7 @@ pullQuotes:
 - Potential cannot be measured. Every blockage, every glass ceiling is broken when
   we understand that.
 hasTranscript: false
+publishDate: '2025-12-02'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

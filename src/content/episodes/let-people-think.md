@@ -26,6 +26,7 @@ pullQuotes:
   the quality that delivers the best results.
 - I suck at faking. So you know exactly where I stand.
 hasTranscript: false
+publishDate: '2025-02-06'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

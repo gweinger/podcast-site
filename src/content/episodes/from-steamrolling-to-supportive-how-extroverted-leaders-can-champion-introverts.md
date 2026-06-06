@@ -28,6 +28,7 @@ pullQuotes:
   most of us are shooting from the hip.
 - Don't do it for yourself. Do it for the betterment of your company and your team.
 hasTranscript: false
+publishDate: '2025-06-02'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

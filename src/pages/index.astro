@@ -63,6 +63,11 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
             {img && <img class="episode-card-img" src={img} alt={e.data.guest} loading="lazy" />}
             <strong>#{e.data.episode} {e.data.title}</strong>
             <span class="episode-card-guest">{e.data.guest}</span>
+            {e.data.publishDate && (
+              <span class="episode-card-date">
+                {e.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+              </span>
+            )}
           </a>
         );
       })}

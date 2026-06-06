@@ -26,6 +26,7 @@ pullQuotes:
 - Less meeting time is so impactful for introverts because introverts are burning
   a lot more energy — they're deeply processing everything.
 hasTranscript: false
+publishDate: '2025-04-14'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

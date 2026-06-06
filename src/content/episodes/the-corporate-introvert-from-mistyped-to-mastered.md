@@ -26,6 +26,7 @@ pullQuotes:
 - The corporate introvert isn't someone who hates people. It's someone who has been
   told, in a hundred small ways, that who they are isn't enough.
 hasTranscript: false
+publishDate: '2026-05-19'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /episode-covers/steve-friedman.png
 ---

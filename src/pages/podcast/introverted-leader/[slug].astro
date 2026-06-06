@@ -36,7 +36,7 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
   </nav>
   <h1>{d.title}</h1>
   <p style="color:var(--muted)">{d.guest} · Episode {d.episode}
-    {d.publishDate && <span> · {d.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>}
+    {d.publishDate && <span> · {d.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>}
   </p>
   <a class="pillar-badge" href={`/topics/${topicSlugForPillar(d.pillarPrimary)}/`}>{d.pillarPrimary}</a>
 

@@ -29,6 +29,7 @@ pullQuotes:
 - You have so much value wrapped up in your struggles, your mistakes, and the things
   you haven't yet done. All of this is clouding that value — like mining for a diamond.
 hasTranscript: false
+publishDate: '2025-12-23'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

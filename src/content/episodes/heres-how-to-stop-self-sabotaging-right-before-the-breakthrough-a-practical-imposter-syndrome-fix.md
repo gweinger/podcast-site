@@ -27,6 +27,7 @@ pullQuotes:
 - If you keep saying you're too busy, do a time audit. The time is there. The question
   is what you're afraid of finding when you use it.
 hasTranscript: false
+publishDate: '2026-01-13'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---
