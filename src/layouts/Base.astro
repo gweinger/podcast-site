@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import { LINKS } from '../lib/links';
 interface Props { title: string; description?: string; canonical?: string; }
 const { title, description = '', canonical } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
@@ -21,12 +23,15 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     <header class="site-header">
       <div class="container">
         <a class="brand" href="/">Greg Weinger</a>
-        <nav><a href="/podcast/introverted-leader/">Podcast</a> <a href="/topics/">Topics</a></nav>
+        <nav>
+          <a href="/podcast/introverted-leader/">Podcast</a>
+          <a href="/topics/">Topics</a>
+          <a href="/about">About</a>
+          <a class="nav-cta" href={LINKS.newsletter}>Subscribe</a>
+        </nav>
       </div>
     </header>
     <main class="container"><slot /></main>
-    <footer class="site-footer">
-      <div class="container"><span>© {new Date().getFullYear()} Greg Weinger</span></div>
-    </footer>
+    <Footer />
   </body>
 </html>
