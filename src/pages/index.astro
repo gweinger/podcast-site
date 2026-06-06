@@ -56,13 +56,16 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
       <a href="/podcast/introverted-leader/">See all →</a>
     </div>
     <div class="card-grid">
-      {recent.map((e) => (
-        <a class="card episode-card" href={epHref(e.data.slug)}>
-          {epImage(e) && <img class="episode-card-img" src={epImage(e)} alt={e.data.guest} loading="lazy" />}
-          <strong>#{e.data.episode} {e.data.title}</strong>
-          <span class="episode-card-guest">{e.data.guest}</span>
-        </a>
-      ))}
+      {recent.map((e) => {
+        const img = epImage(e);
+        return (
+          <a class="card episode-card" href={epHref(e.data.slug)}>
+            {img && <img class="episode-card-img" src={img} alt={e.data.guest} loading="lazy" />}
+            <strong>#{e.data.episode} {e.data.title}</strong>
+            <span class="episode-card-guest">{e.data.guest}</span>
+          </a>
+        );
+      })}
     </div>
   </section>
 
