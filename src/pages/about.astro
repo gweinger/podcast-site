@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import ProfileSchema from '../components/ProfileSchema.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { LINKS } from '../lib/links';
+---
+<Base
+  title="About Greg Weinger"
+  description="Greg Weinger — 25 years in leadership, and an introvert. Why he hosts The Introverted Leader and what he believes about leading with quiet strengths."
+>
+  <ProfileSchema slot="head" />
+
+  <h1>About Greg Weinger</h1>
+  <img src="/greg-weinger.png" alt="Greg Weinger" width="200" height="200" style="border-radius:50%;object-fit:cover;margin:0 0 1.5rem" />
+
+  <p class="lead" style="font-size:1.15rem">I spent 25 years in leadership — and I'm an introvert. For most of that time I assumed those two facts were in tension.</p>
+
+  <p>The rooms that seemed to reward the loudest voice, the fastest answer, and easy charisma weren't built for the way I work: thinking before speaking, going deep instead of wide, leading through preparation and trust rather than volume. So I spent years quietly trying to perform a version of leadership that wasn't mine.</p>
+
+  <p>What I slowly learned is that the traits I'd treated as liabilities were where my best leadership actually came from — the listening, the writing, the one well-placed question. I started The Introverted Leader to have the conversations I wish I'd had earlier in my career, with researchers, coaches, and leaders who've figured out how to rise without becoming someone else.</p>
+
+  <h2>What I believe</h2>
+  <p>Quiet strengths are underrated, not second-rate. You don't have to become an extrovert to lead, to be visible, or to get promoted. You have to understand how your strengths actually create value — and make that value legible to the people who decide. That's the whole project.</p>
+
+  <h2>Background</h2>
+  <p>Twenty-five years of leadership experience — and yes, I am an introvert. I host The Introverted Leader podcast and write its companion newsletter, where I share what I'm learning from each conversation.</p>
+
+  <h2>Connect</h2>
+  <div class="platform-buttons">
+    <a href={LINKS.linkedin}>LinkedIn</a>
+    <a href={LINKS.substack}>Substack</a>
+    <a href={LINKS.apple}>Apple Podcasts</a>
+    <a href={LINKS.spotify}>Spotify</a>
+    <a href={LINKS.youtube}>YouTube</a>
+  </div>
+
+  <Newsletter />
+</Base>
