@@ -27,6 +27,7 @@ pullQuotes:
 - Narcissistic social disordering is what happens when one person's reality becomes
   the only reality in the room — and everyone else's knowing gets extinguished.
 hasTranscript: false
+publishDate: '2026-05-04'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /episode-covers/amy-vasterling.png
 ---

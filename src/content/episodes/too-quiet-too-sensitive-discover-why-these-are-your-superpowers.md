@@ -31,6 +31,7 @@ pullQuotes:
 - Being seen and heard is something that is really important. Feeling validated is
   really important. So we can't just call people too quiet, too sensitive.
 hasTranscript: false
+publishDate: '2025-06-30'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

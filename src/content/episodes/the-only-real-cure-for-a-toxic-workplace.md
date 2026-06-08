@@ -28,6 +28,7 @@ pullQuotes:
 - Please stop trying to be the smartest person in the room — if I am a student forever,
   that makes me the best version of myself for my team.
 hasTranscript: false
+publishDate: '2025-05-02'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

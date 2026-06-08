@@ -30,6 +30,7 @@ pullQuotes:
   you're going to have insights that others may not. Stories give you huge impact
   on those words you choose to say.
 hasTranscript: false
+publishDate: '2025-10-02'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

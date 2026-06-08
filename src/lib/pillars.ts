@@ -48,7 +48,7 @@ export interface EpisodeLike {
 
 // Newest first: by publishDate desc, tie-break by episode number desc.
 // Mirrors the sort used on the podcast index page.
-function byNewest(a: EpisodeLike, b: EpisodeLike): number {
+export function byNewest(a: EpisodeLike, b: EpisodeLike): number {
   const da = a.data.publishDate ? a.data.publishDate.getTime() : 0;
   const db = b.data.publishDate ? b.data.publishDate.getTime() : 0;
   if (da !== db) return db - da;

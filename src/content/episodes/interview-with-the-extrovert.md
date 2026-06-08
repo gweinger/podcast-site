@@ -29,6 +29,7 @@ pullQuotes:
 - In product management when I started, it was very niche. Now it's just flooded with
   people. It's hard to stand out.
 hasTranscript: false
+publishDate: '2024-12-16'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

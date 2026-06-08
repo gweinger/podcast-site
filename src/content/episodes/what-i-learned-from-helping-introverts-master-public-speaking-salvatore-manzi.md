@@ -26,6 +26,7 @@ pullQuotes:
 - Not about me, not about me, not about me — I'll say it ten times before a contentious
   conversation.
 hasTranscript: false
+publishDate: '2025-07-14'
 pillarSecondary: Speak Up in Meetings with Quiet Authority
 thumbnail: /show-cover.jpg
 ---

@@ -28,6 +28,7 @@ pullQuotes:
 - Only 2 to 4 percent of senior leaders are introverts. Folks, this is not because
   introverts are less capable — research proves the opposite.
 hasTranscript: false
+publishDate: '2025-11-17'
 pillarSecondary: Speak Up in Meetings with Quiet Authority
 thumbnail: /show-cover.jpg
 ---

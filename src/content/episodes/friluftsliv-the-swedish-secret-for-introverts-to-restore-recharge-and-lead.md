@@ -27,6 +27,7 @@ pullQuotes:
 - Friluftsliv isn't hiking or camping. It's just being outside. It's a daily practice
   of returning to what restores you.
 hasTranscript: false
+publishDate: '2026-05-11'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /episode-covers/linda-mcgurk.png
 ---

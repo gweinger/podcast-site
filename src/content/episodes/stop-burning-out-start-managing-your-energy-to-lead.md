@@ -30,6 +30,7 @@ pullQuotes:
 - Just move over for a little bit — you'll realize there's half the population sitting
   here with things to say.
 hasTranscript: false
+publishDate: '2026-01-06'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

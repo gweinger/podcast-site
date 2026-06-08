@@ -1,28 +1,86 @@
 ---
+import fs from 'node:fs';
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
----
+import HomeSchema from '../components/HomeSchema.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { recentEpisodes } from '../lib/episodes';
+import { headshotFor } from '../lib/headshots';
+import type { EpisodeLike } from '../lib/pillars';
+import { LINKS } from '../lib/links';
 
+const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order);
+const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
+const recent = recentEpisodes(allEpisodes, 6);
+
+// Card image: guest headshot if available, else the episode's resolved thumbnail.
+const headshotFiles = fs
+  .readdirSync('public/headshots')
+  .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
+const epImage = (e: EpisodeLike) => headshotFor(e.data.guest, headshotFiles) ?? e.data.thumbnail;
+const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
+---
 <Base
   title="Greg Weinger — The Introverted Leader"
-  description="Greg Weinger helps introverted leaders embrace their quiet strengths to get promoted and earn what they deserve."
+  description="Greg Weinger helps introverted leaders embrace their quiet strengths to get promoted and earn what they deserve. Host of The Introverted Leader podcast."
 >
-  <img
-    src="/greg-weinger.png"
-    alt="Greg Weinger"
-    width="220"
-    height="220"
-    style="display:block;width:220px;height:220px;object-fit:contain;margin:0 0 1rem"
-  />
-  <h1>Greg Weinger</h1>
-  <p style="font-size:1.15rem">
-    Helping introverted leaders embrace their quiet strengths to get promoted and earn what they
-    deserve.
-  </p>
-  <p>
-    Host of <strong>The Introverted Leader</strong> — a podcast for quiet professionals who want to
-    lead without becoming someone else.
-  </p>
-  <div class="platform-buttons">
-    <a href="/podcast/introverted-leader/">Browse the podcast →</a>
-  </div>
+  <HomeSchema slot="head" />
+
+  <section class="hero">
+    <img class="hero-portrait" src="/greg-weinger.png" alt="Greg Weinger" width="160" height="160" />
+    <div class="hero-text">
+      <h1>Greg Weinger</h1>
+      <p class="hero-tagline">Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.</p>
+      <p class="hero-sub">Host of <strong>The Introverted Leader</strong>.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="/podcast/introverted-leader/">Listen to the podcast</a>
+        <a class="btn-secondary" href={LINKS.newsletter}>Subscribe</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="home-section-label">Browse by topic</h2>
+    <div class="card-grid">
+      {topics.map((t) => (
+        <a class="card topic-card" href={`/topics/${t.data.slug}/`}>
+          <strong>{t.data.title}</strong>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="home-section-head">
+      <h2 class="home-section-label">Recent episodes</h2>
+      <a href="/podcast/introverted-leader/">See all →</a>
+    </div>
+    <div class="card-grid">
+      {recent.map((e) => {
+        const img = epImage(e);
+        return (
+          <a class="card episode-card" href={epHref(e.data.slug)}>
+            {img && <img class="episode-card-img" src={img} alt={e.data.guest} loading="lazy" />}
+            <strong>#{e.data.episode} {e.data.title}</strong>
+            <span class="episode-card-guest">{e.data.guest}</span>
+            {e.data.publishDate && (
+              <span class="episode-card-date">
+                {e.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+              </span>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="about-teaser">
+    <img class="about-teaser-img" src="/greg-weinger.png" alt="Greg Weinger" width="80" height="80" />
+    <div>
+      <h2 class="home-section-label" style="margin-top:0">About Greg</h2>
+      <p>25 years in leadership — and an introvert. I help quiet professionals rise without becoming someone else. <a href="/about">More about Greg →</a></p>
+    </div>
+  </section>
+
+  <Newsletter />
 </Base>

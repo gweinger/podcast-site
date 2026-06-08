@@ -25,6 +25,7 @@ pullQuotes:
 - There needs to be some sort of wholeness. I can't be myself all the time when I
   go to work.
 hasTranscript: false
+publishDate: '2026-02-16'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

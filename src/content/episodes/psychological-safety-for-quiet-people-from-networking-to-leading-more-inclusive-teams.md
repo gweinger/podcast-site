@@ -25,6 +25,7 @@ pullQuotes:
   as an introvert and really own it and see it as a gift.
 - You won't hear much out of this one.
 hasTranscript: false
+publishDate: '2026-02-02'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

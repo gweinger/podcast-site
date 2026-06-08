@@ -1,0 +1,21 @@
+---
+import { LINKS } from '../lib/links';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav">
+      <a href="/podcast/introverted-leader/">Podcast</a>
+      <a href="/topics/">Topics</a>
+      <a href="/about">About</a>
+    </nav>
+    <nav class="footer-social">
+      <a href={LINKS.linkedin}>LinkedIn</a>
+      <a href={LINKS.substack}>Substack</a>
+      <a href={LINKS.apple}>Apple</a>
+      <a href={LINKS.spotify}>Spotify</a>
+      <a href={LINKS.youtube}>YouTube</a>
+    </nav>
+    <span class="footer-copy">© {year} Greg Weinger</span>
+  </div>
+</footer>

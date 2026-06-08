@@ -30,6 +30,7 @@ pullQuotes:
 - I can hear myself saying things that if we weren't on this podcast would simply
   be trapped in my own mind. This conversation is cathartic for me.
 hasTranscript: false
+publishDate: '2025-12-18'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

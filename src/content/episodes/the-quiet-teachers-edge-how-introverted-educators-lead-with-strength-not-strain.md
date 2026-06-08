@@ -34,6 +34,7 @@ pullQuotes:
 - My IQ is not higher than anyone else's. I just have the temperament to control the
   urges that keep me from making bad decisions.
 hasTranscript: false
+publishDate: '2026-04-06'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /episode-covers/heidi-kasevich.png
 ---

@@ -26,6 +26,7 @@ pullQuotes:
 - You have a lot to say and all the potential to lead with confidence without pretending
   to be someone you're not.
 hasTranscript: false
+publishDate: '2024-10-06'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

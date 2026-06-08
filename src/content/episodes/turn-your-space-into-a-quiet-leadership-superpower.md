@@ -29,6 +29,7 @@ pullQuotes:
 - Your phone is more of a symptom than a cause. If your space feels really good, you're
   less drawn to your phone.
 hasTranscript: false
+publishDate: '2025-08-24'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

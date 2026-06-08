@@ -28,6 +28,7 @@ pullQuotes:
 - The mountain is always stronger than I am. Turning around is not fear, it's not
   weakness — that's smart in the mountains.
 hasTranscript: false
+publishDate: '2025-11-10'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

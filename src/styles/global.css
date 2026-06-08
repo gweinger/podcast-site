@@ -42,3 +42,51 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
 .topic-related a { margin: 0 .35rem .35rem 0; text-decoration: none; }
 a.pillar-badge { text-decoration: none; }
 a.pillar-badge:hover { background: #dde7f7; }
+
+/* Homepage + shared (sub-project C) */
+.btn-primary, .btn-secondary { display: inline-block; padding: .6rem 1rem; border-radius: 6px; text-decoration: none; min-height: 44px; line-height: 1.7; box-sizing: border-box; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-secondary { border: 1px solid var(--accent); color: var(--accent); }
+.lead { font-size: 1.15rem; }
+
+.hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; margin: 1rem 0 2.5rem; }
+.hero-portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+.hero-text { flex: 1 1 0; min-width: 0; }
+.hero-tagline { font-size: 1.15rem; margin: .3rem 0; }
+.hero-sub { color: var(--muted); margin: .3rem 0 1rem; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; width: 100%; }
+.hero-cta a { flex: 1 1 auto; text-align: center; }
+
+.home-section-label { font-size: 1.15rem; margin: 1.8rem 0 .8rem; }
+.home-section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; }
+.card { display: block; border: 1px solid #eee; border-radius: 8px; padding: 1rem; text-decoration: none; color: var(--ink); }
+.card:hover { border-color: var(--accent); }
+.card strong { color: var(--accent); display: block; }
+/* .topic-card / .episode-card are card variants — style hooks for a future design phase */
+.episode-card { text-align: center; }
+.episode-card-img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto .6rem; }
+.episode-card-guest { color: var(--muted); font-size: .9rem; }
+.episode-card-date { color: var(--muted); font-size: .8rem; display: block; margin-top: .2rem; }
+
+.about-teaser { display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0; }
+.about-teaser-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
+
+.newsletter-band { background: #f5f8fd; border: 1px solid #dde6f5; border-radius: 8px; padding: 1.5rem; text-align: center; margin: 2.5rem 0; }
+.newsletter-band .btn-primary { width: 100%; max-width: 320px; }
+
+/* Header nav: wrap on narrow screens, Subscribe as a button */
+.site-header nav { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+.nav-cta { background: var(--accent); color: #fff !important; padding: .35rem .8rem; border-radius: 6px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Footer */
+.site-footer .container { flex-wrap: wrap; gap: 1rem; }
+.footer-nav, .footer-social { display: flex; flex-wrap: wrap; gap: .8rem; }
+.footer-copy { color: var(--muted); }
+
+@media (min-width: 600px) {
+  .hero { flex-direction: row; text-align: left; align-items: center; }
+  .hero-cta { justify-content: flex-start; }
+  .hero-cta a { flex: 0 0 auto; }
+}

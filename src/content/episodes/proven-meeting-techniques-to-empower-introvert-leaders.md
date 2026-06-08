@@ -27,6 +27,7 @@ pullQuotes:
 - Some of the most talkative people I know are introverts. It's not a matter of not
   wanting to say something — it's a matter of feeling comfortable and safe.
 hasTranscript: false
+publishDate: '2025-09-23'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

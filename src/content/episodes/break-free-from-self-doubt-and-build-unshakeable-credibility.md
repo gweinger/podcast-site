@@ -30,6 +30,7 @@ pullQuotes:
 - Once you get over the fear of judging yourself and judging others, you realize there
   are so many people who genuinely want everyone to succeed.
 hasTranscript: false
+publishDate: '2025-07-28'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

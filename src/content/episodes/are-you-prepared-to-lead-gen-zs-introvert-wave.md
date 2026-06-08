@@ -28,6 +28,7 @@ pullQuotes:
   the loudest in the room, and you have to take advantage of these assets and make
   sure they have a space and a medium to bring that genius out.
 hasTranscript: false
+publishDate: '2025-09-07'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

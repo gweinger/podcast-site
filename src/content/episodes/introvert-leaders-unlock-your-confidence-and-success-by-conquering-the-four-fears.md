@@ -33,6 +33,7 @@ pullQuotes:
   busy.
 - There's a lot of positive in here—I worry about it because I care.
 hasTranscript: false
+publishDate: '2025-09-11'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

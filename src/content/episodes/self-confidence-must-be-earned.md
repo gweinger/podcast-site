@@ -23,6 +23,7 @@ pullQuotes:
 - Put yourself in a situation where the only option is to try.
 - A mistake is just a speed bump, if we let it be.
 hasTranscript: false
+publishDate: '2025-03-31'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

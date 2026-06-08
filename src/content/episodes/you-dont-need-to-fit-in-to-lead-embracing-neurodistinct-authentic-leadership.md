@@ -28,6 +28,7 @@ pullQuotes:
 - There is no neurotypical. The only thing typical about the human brain is that everyone
   has one.
 hasTranscript: false
+publishDate: '2025-10-23'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

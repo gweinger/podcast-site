@@ -30,6 +30,7 @@ pullQuotes:
   who you are, your personality, your authenticity, your character.
 - Limitation is actually made premium. For being you, it just cannot be replicated.
 hasTranscript: false
+publishDate: '2025-08-31'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

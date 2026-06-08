@@ -25,6 +25,7 @@ pullQuotes:
 - Voicing what you need and verbalizing what you're thinking are very important things
   we need to do as introverts. We need to let people into our heads.
 hasTranscript: false
+publishDate: '2025-11-20'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
 thumbnail: /show-cover.jpg
 ---

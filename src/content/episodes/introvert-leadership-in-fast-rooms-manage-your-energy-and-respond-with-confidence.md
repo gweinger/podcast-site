@@ -22,6 +22,7 @@ pullQuotes:
 - Don't put on a mask. Let's be frank, let's be honest, let's share.
 - I was in the middle of nowhere. You're isolated. Nobody bothered me.
 hasTranscript: false
+publishDate: '2026-01-26'
 pillarSecondary: Speak Up in Meetings with Quiet Authority
 thumbnail: /show-cover.jpg
 ---

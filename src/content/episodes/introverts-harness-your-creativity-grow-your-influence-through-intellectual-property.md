@@ -24,6 +24,7 @@ pullQuotes:
   to percolate longer.
 - Hold on to what is uniquely you.
 hasTranscript: false
+publishDate: '2026-02-09'
 pillarSecondary: Communicate Like a Leader
 thumbnail: /show-cover.jpg
 ---

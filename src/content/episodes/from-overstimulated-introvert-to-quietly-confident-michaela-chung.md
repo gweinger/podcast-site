@@ -28,6 +28,7 @@ pullQuotes:
 - Introverts are known for being really hard on ourselves — and that is a transformation
   killer.
 hasTranscript: false
+publishDate: '2025-06-23'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /show-cover.jpg
 ---

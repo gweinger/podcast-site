@@ -29,6 +29,7 @@ pullQuotes:
 - Every brain is wired differently. Even identical twins. So neuro-typical? I don't
   think it exists.
 hasTranscript: false
+publishDate: '2025-10-13'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---

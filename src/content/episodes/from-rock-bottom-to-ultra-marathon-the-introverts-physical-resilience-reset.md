@@ -27,6 +27,7 @@ pullQuotes:
   I can''t. Something had to change.'
 - Once I got the body right, everything else became possible. Not easy — possible.
 hasTranscript: false
+publishDate: '2026-04-20'
 pillarSecondary: Beat Imposter Syndrome
 thumbnail: /headshots/david-hooper.png
 ---

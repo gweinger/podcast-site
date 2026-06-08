@@ -28,6 +28,7 @@ pullQuotes:
 - If you are struggling with introversion, it's made worse by having too many external
   inputs that are kind of shortening your attention span.
 hasTranscript: false
+publishDate: '2024-11-13'
 pillarSecondary: Increase Visibility & Influence Authentically
 thumbnail: /show-cover.jpg
 ---

@@ -26,6 +26,7 @@ pullQuotes:
 - If we could just take heart-centered knowledge and mix it with that data-driven
   approach — if we could allow everyone to come to the table — that goes to coherence.
 hasTranscript: false
+publishDate: '2026-03-17'
 pillarSecondary: Get Promoted Without Becoming Someone Else
 thumbnail: /show-cover.jpg
 ---
