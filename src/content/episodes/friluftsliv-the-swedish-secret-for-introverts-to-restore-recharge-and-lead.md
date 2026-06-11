@@ -29,7 +29,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-05-11'
 pillarSecondary: Beat Imposter Syndrome
-thumbnail: /episode-covers/linda-mcgurk.png
+thumbnail: /episode-covers/ep65.jpg
 ---
 
 ## Key Stories

@@ -28,7 +28,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-04-27'
 pillarSecondary: Get Promoted Without Becoming Someone Else
-thumbnail: /episode-covers/jecara-rivera.png
+thumbnail: /episode-covers/ep61.jpg
 ---
 
 ## Key Stories

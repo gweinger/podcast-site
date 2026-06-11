@@ -33,7 +33,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-04-13'
 pillarSecondary: Communicate Like a Leader
-thumbnail: /episode-covers/christoph-steinlehner.png
+thumbnail: /episode-covers/ep58.jpg
 ---
 
 ## Key Stories

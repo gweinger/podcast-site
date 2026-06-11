@@ -27,7 +27,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-03-30'
 pillarSecondary: Increase Visibility & Influence Authentically
-thumbnail: /headshots/lissa-appiah.jpg
+thumbnail: /episode-covers/ep55.jpg
 ---
 
 ## Key Stories

@@ -29,7 +29,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-04-20'
 pillarSecondary: Beat Imposter Syndrome
-thumbnail: /headshots/david-hooper.png
+thumbnail: /episode-covers/ep60.jpg
 ---
 
 ## Key Stories

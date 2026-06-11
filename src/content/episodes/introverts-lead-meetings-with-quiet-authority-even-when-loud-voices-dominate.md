@@ -26,7 +26,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-03-12'
 pillarSecondary: Communicate Like a Leader
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep53.jpg
 ---
 
 ## Key Stories

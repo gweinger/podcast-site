@@ -29,7 +29,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-05-26'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
-thumbnail: /episode-covers/david-rosmarin.png
+thumbnail: /episode-covers/ep68.jpg
 ---
 
 ## Key Stories

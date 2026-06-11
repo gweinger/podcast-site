@@ -29,7 +29,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-06-01'
 pillarSecondary: Beat Imposter Syndrome
-thumbnail: /episode-covers/norman-farb.jpg
+thumbnail: /episode-covers/ep69.jpg
 ---
 
 ## Key Stories

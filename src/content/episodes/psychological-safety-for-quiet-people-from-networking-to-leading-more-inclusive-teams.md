@@ -27,7 +27,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-02-02'
 pillarSecondary: Increase Visibility & Influence Authentically
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep48.jpg
 ---
 
 ## Key Stories
