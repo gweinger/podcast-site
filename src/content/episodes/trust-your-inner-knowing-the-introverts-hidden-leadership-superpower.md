@@ -29,7 +29,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-05-04'
 pillarSecondary: Communicate Like a Leader
-thumbnail: /episode-covers/amy-vasterling.png
+thumbnail: /episode-covers/ep63.jpg
 ---
 
 ## Key Stories

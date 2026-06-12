@@ -36,7 +36,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-04-06'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
-thumbnail: /episode-covers/heidi-kasevich.png
+thumbnail: /episode-covers/ep56.jpg
 ---
 
 ## Key Stories

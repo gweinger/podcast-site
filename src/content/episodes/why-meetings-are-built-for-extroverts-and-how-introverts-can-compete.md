@@ -27,7 +27,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2025-11-20'
 pillarSecondary: Manage Your Energy & Thrive in Extroverted Cultures
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep37.jpg
 ---
 
 ## Key Stories

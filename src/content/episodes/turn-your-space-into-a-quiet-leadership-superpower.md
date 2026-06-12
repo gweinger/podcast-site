@@ -31,7 +31,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2025-08-24'
 pillarSecondary: Get Promoted Without Becoming Someone Else
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep20.jpg
 ---
 
 ## Key Stories

@@ -35,7 +35,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2025-11-24'
 pillarSecondary: Speak Up in Meetings with Quiet Authority
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep38.jpg
 ---
 
 ## Key Stories

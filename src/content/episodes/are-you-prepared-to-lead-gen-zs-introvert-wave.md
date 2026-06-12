@@ -30,7 +30,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2025-09-07'
 pillarSecondary: Increase Visibility & Influence Authentically
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep23.jpg
 ---
 
 ## Key Stories

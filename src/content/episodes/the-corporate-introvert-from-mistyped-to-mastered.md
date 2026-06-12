@@ -28,7 +28,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2026-05-19'
 pillarSecondary: Increase Visibility & Influence Authentically
-thumbnail: /episode-covers/steve-friedman.png
+thumbnail: /episode-covers/ep67.jpg
 ---
 
 ## Key Stories

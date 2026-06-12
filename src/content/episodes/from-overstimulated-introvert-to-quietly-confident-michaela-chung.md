@@ -30,7 +30,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2025-06-23'
 pillarSecondary: Beat Imposter Syndrome
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep10.jpg
 ---
 
 ## Key Stories

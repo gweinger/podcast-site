@@ -32,7 +32,7 @@ pullQuotes:
 hasTranscript: true
 publishDate: '2025-07-21'
 pillarSecondary: Communicate Like a Leader
-thumbnail: /show-cover.jpg
+thumbnail: /episode-covers/ep14.jpg
 ---
 
 ## Key Stories
