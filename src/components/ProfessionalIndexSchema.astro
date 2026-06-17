@@ -1,0 +1,24 @@
+---
+interface Props {
+  url: string;
+  professionals: { name: string; slug: string }[];
+}
+const { url, professionals } = Astro.props;
+const data = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': url,
+  name: 'Introvert Army — Introvert & HSP-Friendly Professionals',
+  url,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: professionals.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.name,
+      url: `https://gweinger.com/introvert-army/${p.slug}/`,
+    })),
+  },
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(data)} />
