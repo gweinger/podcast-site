@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProfessionalIndexSchema from '../../components/ProfessionalIndexSchema.astro';
+import { sortProfessionals, SPECIALTIES } from '../../lib/professionals';
+
+const allProfessionals = await getCollection('professionals');
+const professionals = sortProfessionals(allProfessionals);
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+<Base
+  title="Introvert Army — Introvert & HSP-Friendly Professionals"
+  description="A curated directory of coaches, therapists, authors, and experts who specialize in helping introverts and highly sensitive people thrive — handpicked by Greg Weinger."
+>
+  <ProfessionalIndexSchema
+    slot="head"
+    url={pageUrl}
+    professionals={professionals.map(p => ({ name: p.data.name, slug: p.data.slug }))}
+  />
+
+  <div class="army-hero">
+    <h1>Introvert Army</h1>
+    <p class="lead">A curated directory of coaches, therapists, authors, and experts who get it — handpicked from Greg's own experience and from guests on the podcast.</p>
+  </div>
+
+  <div class="army-filter">
+    <input id="army-search" type="search" placeholder="Search by name or specialty…" aria-label="Search professionals" />
+    <div class="army-chips" role="group" aria-label="Filter by specialty">
+      <button class="army-chip active" data-filter="all">All</button>
+      {SPECIALTIES.map(s => (
+        <button class="army-chip" data-filter={s}>
+          {s.charAt(0).toUpperCase() + s.slice(1)}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <ul class="professional-list" id="army-list">
+    {professionals.map(p => (
+      <li
+        class="professional-item"
+        data-name={p.data.name.toLowerCase()}
+        data-title={p.data.title.toLowerCase()}
+        data-specialty={p.data.specialty.join(',')}
+      >
+        <a href={`/introvert-army/${p.data.slug}/`} class="professional-card">
+          <img src={p.data.headshot} alt={p.data.name} class="professional-avatar" loading="lazy" width="56" height="56" />
+          <div class="professional-card-body">
+            <div class="professional-card-header">
+              <span class="professional-name">{p.data.name}</span>
+              {p.data.featured && <span class="featured-badge">★ Featured</span>}
+            </div>
+            <div class="professional-title">{p.data.title}</div>
+            <div class="professional-tags">
+              {p.data.specialty.map(s => <span class="specialty-tag">{s}</span>)}
+            </div>
+            {p.data.gregNote && (
+              <p class="greg-note-teaser">
+                "{p.data.gregNote.length > 100 ? p.data.gregNote.slice(0, 100) + '…' : p.data.gregNote}"
+              </p>
+            )}
+            {p.data.guestEpisodes.length > 0 && (
+              <span class="episode-badge">🎙 On the podcast</span>
+            )}
+          </div>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <script is:inline>
+    const search = document.getElementById('army-search');
+    const chips = Array.from(document.querySelectorAll('.army-chip'));
+    const items = Array.from(document.querySelectorAll('.professional-item'));
+    let activeFilter = 'all';
+
+    function applyFilters() {
+      const q = search.value.trim().toLowerCase();
+      for (const item of items) {
+        const matchesFilter =
+          activeFilter === 'all' ||
+          item.dataset.specialty.split(',').includes(activeFilter);
+        const matchesSearch =
+          !q ||
+          item.dataset.name.includes(q) ||
+          item.dataset.title.includes(q);
+        item.style.display = matchesFilter && matchesSearch ? '' : 'none';
+      }
+    }
+
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        activeFilter = chip.dataset.filter;
+        chips.forEach(c => c.classList.toggle('active', c === chip));
+        applyFilters();
+      });
+    }
+
+    search.addEventListener('input', applyFilters);
+  </script>
+</Base>
