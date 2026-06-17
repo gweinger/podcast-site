@@ -90,3 +90,46 @@ a.pillar-badge:hover { background: #dde7f7; }
   .hero-cta { justify-content: flex-start; }
   .hero-cta a { flex: 0 0 auto; }
 }
+
+/* Introvert Army — /introvert-army/ */
+.army-hero { margin: 1.5rem 0 2rem; }
+.army-filter { margin-bottom: 1.5rem; }
+.army-filter input[type="search"] { width: 100%; padding: .6rem; margin-bottom: .8rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
+.army-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.army-chip { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 999px; padding: .3rem .9rem; font-size: .85rem; cursor: pointer; color: var(--ink); font-family: inherit; }
+.army-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.professional-list { list-style: none; padding: 0; margin: 0; }
+.professional-item { border-bottom: 1px solid #eee; }
+.professional-card { display: flex; gap: 1rem; padding: 1rem 0; text-decoration: none; color: var(--ink); align-items: flex-start; }
+.professional-card:hover .professional-name { color: var(--accent); }
+.professional-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.professional-card-body { flex: 1; min-width: 0; }
+.professional-card-header { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: .2rem; }
+.professional-name { font-weight: 700; font-size: 1rem; }
+.featured-badge { font-size: .75rem; background: #ede9fe; color: #5b21b6; border-radius: 4px; padding: .1rem .45rem; }
+.professional-title { font-size: .9rem; color: var(--muted); margin-bottom: .4rem; }
+.professional-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .35rem; }
+.specialty-tag { font-size: .75rem; background: #f3f4f6; color: #374151; border-radius: 999px; padding: .1rem .5rem; text-transform: capitalize; }
+.greg-note-teaser { font-size: .85rem; color: var(--muted); font-style: italic; margin: .2rem 0 0; }
+.episode-badge { font-size: .8rem; color: var(--accent); margin-top: .2rem; display: inline-block; }
+
+/* Professional profile page */
+.professional-profile-header { display: flex; gap: 1.2rem; align-items: flex-start; margin: 1.5rem 0 2rem; }
+.professional-profile-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.professional-profile-meta { flex: 1; }
+.professional-profile-name-row { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.professional-profile-name { margin: 0; font-size: 1.4rem; }
+.professional-profile-title { color: var(--muted); margin-bottom: .5rem; font-size: 1rem; }
+.greg-note-callout { border-left: 3px solid var(--accent); background: #f5f8fd; border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin: 1.5rem 0; }
+.greg-note-label { font-size: .75rem; font-weight: 700; color: var(--accent); letter-spacing: .05em; margin-bottom: .5rem; }
+.greg-note-quote { margin: 0 0 .5rem; font-style: italic; color: #374151; border: none; padding: 0; font-size: 1rem; }
+.greg-note-attribution { font-size: .85rem; color: var(--accent); font-weight: 600; }
+.professional-bio p { margin: 0 0 1rem; }
+.episode-backlinks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .6rem; }
+.episode-backlink-card { display: flex; gap: .8rem; align-items: flex-start; border: 1px solid #ede9fe; background: #f9f7ff; border-radius: 8px; padding: .75rem 1rem; }
+.episode-backlink-icon { font-size: 1.2rem; flex-shrink: 0; line-height: 1.4; }
+.episode-backlink-body { flex: 1; }
+.episode-backlink-title { font-weight: 700; font-size: .95rem; color: var(--ink); text-decoration: none; display: block; margin-bottom: .2rem; }
+.episode-backlink-title:hover { color: var(--accent); }
+.episode-backlink-summary { font-size: .85rem; color: var(--muted); }
+.professional-socials { display: flex; gap: 1rem; margin-top: .8rem; }
