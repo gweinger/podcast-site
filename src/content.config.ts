@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
 import { PILLARS } from './lib/pillars';
+import { SPECIALTIES } from './lib/professionals';
 
 const episodes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/episodes' }),
@@ -53,4 +54,22 @@ const topics = defineCollection({
   }),
 });
 
-export const collections = { episodes, topics };
+const professionals = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/professionals' }),
+  schema: z.object({
+    name: z.string(),
+    slug: z.string(),
+    title: z.string(),
+    specialty: z.array(z.enum(SPECIALTIES)),
+    bio: z.string(),
+    headshot: z.string(),
+    website: z.string().url(),
+    featured: z.boolean().default(false),
+    gregNote: z.string().optional(),
+    guestEpisodes: z.array(z.string()).default([]),
+    linkedin: z.string().url().optional(),
+    instagram: z.string().url().optional(),
+  }),
+});
+
+export const collections = { episodes, topics, professionals };
