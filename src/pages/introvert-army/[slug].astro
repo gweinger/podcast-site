@@ -1,0 +1,123 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProfessionalProfileSchema from '../../components/ProfessionalProfileSchema.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+export async function getStaticPaths() {
+  const professionals = await getCollection('professionals');
+  return professionals.map(entry => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const p = entry.data;
+
+// Resolve episode backlinks — throws at build time if a slug doesn't exist
+const allEpisodes = await getCollection('episodes');
+const episodeMap = new Map(allEpisodes.map(e => [e.data.slug, e]));
+
+const resolvedEpisodes = p.guestEpisodes.map(slug => {
+  const ep = episodeMap.get(slug);
+  if (!ep) {
+    throw new Error(
+      `Professional "${p.name}" references unknown episode slug: "${slug}". ` +
+      `Check src/content/professionals/${p.slug}.md`
+    );
+  }
+  return ep;
+});
+
+const displayWebsite = p.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
+---
+<Base title={`${p.name} — Introvert Army`} description={p.bio.slice(0, 160)}>
+  <ProfessionalProfileSchema
+    slot="head"
+    name={p.name}
+    website={p.website}
+    jobTitle={p.title}
+    bio={p.bio}
+    linkedin={p.linkedin}
+    instagram={p.instagram}
+  />
+
+  <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
+    <a href="/">Home</a> › <a href="/introvert-army/">Introvert Army</a> › <span>{p.name}</span>
+  </nav>
+
+  <div class="professional-profile-header">
+    <img src={p.headshot} alt={p.name} class="professional-profile-avatar" width="80" height="80" />
+    <div class="professional-profile-meta">
+      <div class="professional-profile-name-row">
+        <h1 class="professional-profile-name">{p.name}</h1>
+        {p.featured && <span class="featured-badge">★ Featured</span>}
+      </div>
+      <div class="professional-profile-title">{p.title}</div>
+      <div class="professional-tags">
+        {p.specialty.map(s => <span class="specialty-tag">{s}</span>)}
+      </div>
+    </div>
+  </div>
+
+  {p.gregNote && (
+    <div class="greg-note-callout">
+      <div class="greg-note-label">WHY I RECOMMEND {p.name.toUpperCase().split(' ')[0]}</div>
+      <p class="greg-note-quote">"{p.gregNote}"</p>
+      <div class="greg-note-attribution">— Greg Weinger</div>
+    </div>
+  )}
+
+  <section style="margin-bottom:1.5rem">
+    <div class="topic-section-label">ABOUT {p.name.toUpperCase().split(' ')[0]}</div>
+    <div class="professional-bio">
+      {p.bio.split('\n\n').map(para => <p>{para}</p>)}
+    </div>
+  </section>
+
+  {resolvedEpisodes.length > 0 && (
+    <section style="margin-bottom:1.5rem">
+      <div class="topic-section-label">HEARD ON THE PODCAST</div>
+      <ul class="episode-backlinks">
+        {resolvedEpisodes.map(ep => (
+          <li class="episode-backlink-card">
+            <span class="episode-backlink-icon">🎙</span>
+            <div class="episode-backlink-body">
+              <a
+                href={`/podcast/introverted-leader/${ep.data.slug}/`}
+                class="episode-backlink-title"
+              >
+                Ep. {ep.data.episode} — {ep.data.title}
+              </a>
+              <div class="episode-backlink-summary">
+                {ep.data.summary.length > 120
+                  ? ep.data.summary.slice(0, 120) + '…'
+                  : ep.data.summary}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section style="margin-bottom:1.5rem">
+    <div class="topic-section-label">WORK WITH {p.name.toUpperCase().split(' ')[0]}</div>
+    <a href={p.website} class="btn-primary" rel="noopener noreferrer">
+      Visit {displayWebsite} →
+    </a>
+    {(p.linkedin || p.instagram) && (
+      <div class="professional-socials">
+        {p.linkedin && <a href={p.linkedin} rel="noopener noreferrer">LinkedIn</a>}
+        {p.instagram && <a href={p.instagram} rel="noopener noreferrer">Instagram</a>}
+      </div>
+    )}
+  </section>
+
+  <p style="border-top:1px solid #eee;padding-top:1rem">
+    <a href="/introvert-army/">← Back to Introvert Army</a>
+  </p>
+
+  <Newsletter />
+</Base>
