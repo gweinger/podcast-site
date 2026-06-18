@@ -25,11 +25,11 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
   </div>
 
   <div class="army-filter">
-    <input id="army-search" type="search" placeholder="Search by name or specialty…" aria-label="Search professionals" />
+    <input id="army-search" type="search" placeholder="Search by name or title…" aria-label="Search professionals" />
     <div class="army-chips" role="group" aria-label="Filter by specialty">
-      <button class="army-chip active" data-filter="all">All</button>
+      <button class="army-chip active" aria-pressed="true" data-filter="all">All</button>
       {SPECIALTIES.map(s => (
-        <button class="army-chip" data-filter={s}>
+        <button class="army-chip" aria-pressed="false" data-filter={s}>
           {s.charAt(0).toUpperCase() + s.slice(1)}
         </button>
       ))}
@@ -92,7 +92,10 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
     for (const chip of chips) {
       chip.addEventListener('click', () => {
         activeFilter = chip.dataset.filter;
-        chips.forEach(c => c.classList.toggle('active', c === chip));
+        chips.forEach(c => {
+          c.classList.toggle('active', c === chip);
+          c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+        });
         applyFilters();
       });
     }
