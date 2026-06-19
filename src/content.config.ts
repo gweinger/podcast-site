@@ -39,6 +39,7 @@ const topics = defineCollection({
     pillar: z.enum(PILLARS),
     slug: z.string(),
     title: z.string(),
+    navLabel: z.string().optional(),
     metaDescription: z.string(),
     painChips: z.array(z.string()).default([]),
     resources: z

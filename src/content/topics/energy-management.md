@@ -2,6 +2,7 @@
 pillar: Manage Your Energy & Thrive in Extroverted Cultures
 slug: energy-management
 title: Energy Management for Introverts in Extroverted Workplaces
+navLabel: Manage Your Energy
 metaDescription: Energy management for introverts in extroverted workplaces — beat overwhelm and burnout, protect focus, and lead sustainably.
 painChips:
   - Overwhelm

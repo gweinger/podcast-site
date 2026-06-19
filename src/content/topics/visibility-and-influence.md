@@ -2,6 +2,7 @@
 pillar: Increase Visibility & Influence Authentically
 slug: visibility-and-influence
 title: Building Visibility & Influence Without Self-Promotion
+navLabel: Build Visibility & Influence
 metaDescription: Build visibility and influence as an introvert without performing extroversion. Make your work seen and advocate for yourself authentically.
 painChips:
   - Invisible work

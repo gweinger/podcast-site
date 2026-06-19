@@ -2,6 +2,7 @@
 pillar: Beat Imposter Syndrome
 slug: imposter-syndrome
 title: Beating Imposter Syndrome as an Introverted Leader
+navLabel: Beat Imposter Syndrome
 metaDescription: Imposter syndrome hits introverted leaders hardest. Build real self-belief and credibility — episodes and resources for quiet professionals who doubt themselves.
 painChips:
   - Self-doubt

@@ -2,6 +2,7 @@
 pillar: Get Promoted Without Becoming Someone Else
 slug: get-promoted
 title: Get Promoted as an Introvert — Without Faking Extroversion
+navLabel: Get Promoted
 metaDescription: Get promoted as an introvert without faking extroversion — decode promotion blockers and advance using your quiet strengths.
 painChips:
   - Stalled advancement

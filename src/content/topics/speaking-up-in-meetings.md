@@ -2,6 +2,7 @@
 pillar: Speak Up in Meetings with Quiet Authority
 slug: speaking-up-in-meetings
 title: How to Speak Up in Meetings as an Introvert
+navLabel: Speak Up in Meetings
 metaDescription: Learn to speak up in meetings as an introvert with quiet authority — handle interruptions, dominant personalities, and fast rooms without competing on volume.
 painChips:
   - Getting interrupted

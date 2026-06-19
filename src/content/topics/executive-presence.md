@@ -2,6 +2,7 @@
 pillar: Communicate Like a Leader
 slug: executive-presence
 title: Executive Presence & Communication for Introverts
+navLabel: Executive Presence & Communication
 metaDescription: Executive presence and communication for introverts — public speaking, storytelling, and speaking to senior leaders the quiet, authentic way.
 painChips:
   - Executive presence
