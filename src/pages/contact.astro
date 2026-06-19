@@ -1,12 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import { LINKS } from '../lib/links';
-
-// To activate the contact form:
-// 1. Sign up free at https://formspree.io
-// 2. Create a new form and copy your form ID
-// 3. Replace YOUR_FORM_ID below with it (e.g. "xpwzgkqr")
-const FORMSPREE_ID = 'YOUR_FORM_ID';
 ---
 <Base
   title="Contact — Greg Weinger"
@@ -27,17 +21,13 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
     <section class="contact-form-section">
       <h2>Send me a message</h2>
 
-      {FORMSPREE_ID === 'YOUR_FORM_ID' ? (
-        <div class="contact-notice">
-          <p>⚠️ Contact form not yet configured. To activate: sign up at <a href="https://formspree.io" target="_blank" rel="noopener">formspree.io</a>, create a form, and replace <code>YOUR_FORM_ID</code> in <code>src/pages/contact.astro</code>.</p>
-        </div>
-      ) : null}
+      <div id="contact-success" class="contact-success" style="display:none">
+        <p>Message sent — I'll get back to you soon.</p>
+      </div>
 
-      <form
-        action={`https://formspree.io/f/${FORMSPREE_ID}`}
-        method="POST"
-        class="contact-form"
-      >
+      <div id="contact-error" class="contact-error" style="display:none"></div>
+
+      <form id="contact-form" class="contact-form">
         <div class="form-field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required placeholder="Your name" />
@@ -66,4 +56,40 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
     </section>
 
   </div>
+
+  <script is:inline>
+    const form = document.getElementById('contact-form');
+    const successEl = document.getElementById('contact-success');
+    const errorEl = document.getElementById('contact-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      errorEl.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        if (data.ok) {
+          form.style.display = 'none';
+          successEl.style.display = 'block';
+        } else {
+          errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+          errorEl.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+        }
+      } catch {
+        errorEl.textContent = 'Network error. Please try again.';
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      }
+    });
+  </script>
 </Base>

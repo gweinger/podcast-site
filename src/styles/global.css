@@ -499,6 +499,26 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
 
 .contact-form-section { margin: var(--space-8) 0; }
 
+.contact-success {
+  background: #f0faf0;
+  border: 1px solid #4caf50;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.contact-error {
+  background: #fff5f5;
+  border: 1px solid #e53e3e;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  color: #c53030;
+  font-size: var(--text-sm);
+}
+
 .contact-notice {
   background: #fffbea;
   border: 1px solid var(--brand-gold);
