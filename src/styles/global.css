@@ -251,6 +251,30 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 .episode-card-guest { color: var(--color-text-muted); font-size: var(--text-sm); }
 .episode-card-date { color: var(--color-text-muted); font-size: 0.8rem; display: block; margin-top: var(--space-1); }
 
+/* Topics index — display-font topic hubs */
+.topic-hub-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+.topic-hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+.topic-hub-name {
+  font-size: var(--text-2xl);
+  color: var(--color-accent);
+  margin: 0;
+  transition: color 0.15s;
+}
+.topic-hub-card:hover .topic-hub-name { color: var(--color-accent-dark); }
+.topic-hub-card .topic-meta { margin: 0; }
+.topic-hub-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.topic-hub-count {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-top: auto;
+}
+
 /* ============================================================
    Homepage
    ============================================================ */

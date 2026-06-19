@@ -22,19 +22,17 @@ for (const t of topics) {
   <h1>Topics</h1>
   <p>The themes behind The Introverted Leader — each with the conversations and resources that go deepest on it.</p>
 
-  <ul class="episode-list">
+  <div class="card-grid topic-hub-grid">
     {topics.map((t) => (
-      <li class="episode-item">
-        <div>
-          <a href={`/topics/${t.data.slug}/`}><strong>{t.data.title}</strong></a>
-          <div class="topic-meta">{t.data.metaDescription}</div>
-          <div style="margin-top:.4rem">
-            {t.data.painChips.map((c) => <span class="pain-chip">{c}</span>)}
-          </div>
-          <div class="topic-meta">{counts.get(t.data.slug)} episodes</div>
+      <a class="card topic-hub-card" href={`/topics/${t.data.slug}/`}>
+        <h2 class="topic-hub-name">{t.data.navLabel ?? t.data.title}</h2>
+        <p class="topic-meta">{t.data.metaDescription}</p>
+        <div class="topic-hub-chips">
+          {t.data.painChips.map((c) => <span class="pain-chip">{c}</span>)}
         </div>
-      </li>
+        <span class="topic-hub-count">{counts.get(t.data.slug)} episodes</span>
+      </a>
     ))}
-  </ul>
+  </div>
   </div>
 </Base>
