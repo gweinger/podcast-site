@@ -1,0 +1,16 @@
+{
+  "name": "gweinger-contact",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "mimetext": "^3.0.24"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "wrangler": "^4.103.0"
+  }
+}

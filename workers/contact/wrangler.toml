@@ -1,0 +1,13 @@
+name = "gweinger-contact"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+# Outbound email via Cloudflare Email Routing (only sends to verified destinations)
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "gweinger@gmail.com"
+
+# Intercept this exact path on the live domain; everything else stays on Pages
+[[routes]]
+pattern = "gweinger.com/api/contact"
+zone_name = "gweinger.com"
