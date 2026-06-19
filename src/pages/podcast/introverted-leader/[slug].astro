@@ -31,18 +31,18 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
     episodeNumber={d.episode}
     datePublished={d.publishDate}
   />
-  <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
+  <nav aria-label="Breadcrumb" class="ep-meta" style="margin-bottom:1rem">
     <a href="/podcast/introverted-leader/">Podcast</a> › <span>#{d.episode}</span>
   </nav>
   <h1>{d.title}</h1>
-  <p style="color:var(--muted)">{d.guest} · Episode {d.episode}
+  <p class="ep-meta">{d.guest} · Episode {d.episode}
     {d.publishDate && <span> · {d.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>}
   </p>
   <a class="pillar-badge" href={`/topics/${topicSlugForPillar(d.pillarPrimary)}/`}>{d.pillarPrimary}</a>
 
-  {d.thumbnail && <img src={d.thumbnail} alt={d.guest} style="max-width:100%;border-radius:8px;margin:1rem 0" />}
+  {d.thumbnail && <img src={d.thumbnail} alt={d.guest} class="ep-thumbnail" />}
 
-  <p class="lead" style="font-size:1.15rem">{d.summary}</p>
+  <p class="lead">{d.summary}</p>
 
   {ytId && (
     <div class="embed-wrap"><iframe src={`https://www.youtube.com/embed/${ytId}`} title="YouTube player" allowfullscreen loading="lazy"></iframe></div>
@@ -74,5 +74,5 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
     </section>
   )}
 
-  <p style="margin-top:2rem"><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
+  <p><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
 </Base>

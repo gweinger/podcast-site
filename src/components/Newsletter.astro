@@ -4,7 +4,7 @@ interface Props { heading?: string; }
 const { heading = 'Quiet-strength leadership in your inbox' } = Astro.props;
 ---
 <section class="newsletter-band">
-  <h2 class="home-section-label" style="margin-top:0">{heading}</h2>
+  <h2 class="home-section-label">{heading}</h2>
   <p>Join the newsletter for introverted leaders who want to rise without becoming someone else.</p>
   <a class="btn-primary" href={LINKS.newsletter}>Subscribe on Substack</a>
 </section>

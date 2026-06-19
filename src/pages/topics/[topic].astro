@@ -38,7 +38,7 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
 <Base title={t.title} description={t.metaDescription}>
   <TopicSchema slot="head" title={t.title} description={t.metaDescription} url={pageUrl} episodes={schemaEpisodes} />
 
-  <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
+  <nav aria-label="Breadcrumb" class="ep-meta" style="margin-bottom:1rem">
     <a href="/topics/">Topics</a> › <span>{t.title}</span>
   </nav>
 
@@ -84,7 +84,7 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
             {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
             <div>
               <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
-              <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+              <div class="ep-meta">{e.data.guest}</div>
             </div>
           </li>
         ))}
@@ -101,7 +101,7 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
             {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
             <div>
               <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
-              <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+              <div class="ep-meta">{e.data.guest}</div>
             </div>
           </li>
         ))}
@@ -118,7 +118,7 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
             {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
             <div>
               <a href={epHref(e.data.slug)}><strong>#{e.data.episode} {e.data.title}</strong></a>
-              <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+              <div class="ep-meta">{e.data.guest}</div>
             </div>
           </li>
         ))}
@@ -133,5 +133,5 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
     ))}
   </section>
 
-  <p style="margin-top:2rem"><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
+  <p><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
 </Base>

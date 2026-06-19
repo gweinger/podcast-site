@@ -13,6 +13,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
   title="Introvert Army — Introvert & HSP-Friendly Professionals"
   description="A curated directory of coaches, therapists, authors, and experts who specialize in helping introverts and highly sensitive people thrive — handpicked by Greg Weinger."
 >
+  <meta slot="head" name="robots" content="noindex, nofollow" />
   <ProfessionalIndexSchema
     slot="head"
     url={pageUrl}

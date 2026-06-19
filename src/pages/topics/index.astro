@@ -26,11 +26,11 @@ for (const t of topics) {
       <li class="episode-item">
         <div>
           <a href={`/topics/${t.data.slug}/`}><strong>{t.data.title}</strong></a>
-          <div style="color:var(--muted);font-size:.9rem">{t.data.metaDescription}</div>
+          <div class="topic-meta">{t.data.metaDescription}</div>
           <div style="margin-top:.4rem">
             {t.data.painChips.map((c) => <span class="pain-chip">{c}</span>)}
           </div>
-          <div style="color:var(--muted);font-size:.85rem;margin-top:.3rem">{counts.get(t.data.slug)} episodes</div>
+          <div class="topic-meta">{counts.get(t.data.slug)} episodes</div>
         </div>
       </li>
     ))}

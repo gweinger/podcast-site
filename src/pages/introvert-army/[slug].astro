@@ -33,6 +33,7 @@ const resolvedEpisodes = p.guestEpisodes.map(slug => {
 const displayWebsite = p.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
 ---
 <Base title={`${p.name} — Introvert Army`} description={p.bio.slice(0, 160)}>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
   <ProfessionalProfileSchema
     slot="head"
     name={p.name}
@@ -43,7 +44,7 @@ const displayWebsite = p.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
     instagram={p.instagram}
   />
 
-  <nav aria-label="Breadcrumb" style="font-size:.9rem;margin-bottom:1rem">
+  <nav aria-label="Breadcrumb" class="ep-meta" style="margin-bottom:1rem">
     <a href="/">Home</a> › <a href="/introvert-army/">Introvert Army</a> › <span>{p.name}</span>
   </nav>
 

@@ -18,7 +18,7 @@ const schemaEpisodes = episodes.map((e) => ({
 ---
 <Base title="The Introverted Leader — Podcast" description="Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.">
   <SeriesSchema slot="head" episodes={schemaEpisodes} />
-  <img src="/The-Introverted-Leader-Podcast-Cover.png" alt="The Introverted Leader Podcast" style="width:200px;height:200px;border-radius:12px;display:block;margin-bottom:1.5rem" />
+  <img src="/The-Introverted-Leader-Podcast-Cover.png" alt="The Introverted Leader Podcast" class="podcast-cover-img" />
   <h1>The Introverted Leader</h1>
   <p>Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.</p>
   <div class="platform-buttons">
@@ -28,7 +28,7 @@ const schemaEpisodes = episodes.map((e) => ({
     <a href="https://www.powerfulintrovertpodcast.com/">Newsletter</a>
   </div>
 
-  <input id="ep-search" type="search" placeholder="Search episodes…" style="width:100%;padding:.6rem;margin:1.5rem 0;border:1px solid #ccc;border-radius:6px" />
+  <input id="ep-search" type="search" placeholder="Search episodes…" class="ep-search" />
 
   <ul class="episode-list" id="ep-list">
     {episodes.map((e) => (
@@ -36,7 +36,7 @@ const schemaEpisodes = episodes.map((e) => ({
         {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
         <div>
           <a href={`/podcast/introverted-leader/${e.data.slug}/`}><strong>#{e.data.episode} {e.data.title}</strong></a>
-          <div style="color:var(--muted);font-size:.9rem">{e.data.guest}</div>
+          <div class="ep-meta">{e.data.guest}</div>
           <a class="pillar-badge" href={`/topics/${topicSlugForPillar(e.data.pillarPrimary)}/`}>{e.data.pillarPrimary}</a>
         </div>
       </li>
