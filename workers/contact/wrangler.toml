@@ -7,7 +7,11 @@ compatibility_date = "2024-11-01"
 name = "SEND_EMAIL"
 destination_address = "gweinger@gmail.com"
 
-# Intercept this exact path on the live domain; everything else stays on Pages
+# Intercept this exact path on both apex and www; everything else stays on Pages
 [[routes]]
 pattern = "gweinger.com/api/contact"
+zone_name = "gweinger.com"
+
+[[routes]]
+pattern = "www.gweinger.com/api/contact"
 zone_name = "gweinger.com"
