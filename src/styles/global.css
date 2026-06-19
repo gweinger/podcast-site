@@ -251,6 +251,20 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 .episode-card-guest { color: var(--color-text-muted); font-size: var(--text-sm); }
 .episode-card-date { color: var(--color-text-muted); font-size: 0.8rem; display: block; margin-top: var(--space-1); }
 
+/* Homepage Topics — full-width display-font chips */
+.topic-chip-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.topic-chip { padding: var(--space-4) var(--space-6); }
+.topic-chip-name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  transition: color 0.15s;
+}
+.topic-chip:hover .topic-chip-name { color: var(--color-accent-dark); }
+
 /* Topics index — display-font topic hubs */
 .topic-hub-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
 .topic-hub-card {

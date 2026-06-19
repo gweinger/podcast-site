@@ -43,10 +43,10 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
 
   <section>
     <h2 class="home-section-label">Topics</h2>
-    <div class="card-grid">
+    <div class="topic-chip-list">
       {topics.map((t) => (
-        <a class="card topic-card" href={`/topics/${t.data.slug}/`}>
-          <strong>{t.data.navLabel ?? t.data.title}</strong>
+        <a class="card topic-chip" href={`/topics/${t.data.slug}/`}>
+          <span class="topic-chip-name">{t.data.navLabel ?? t.data.title}</span>
         </a>
       ))}
     </div>
