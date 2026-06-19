@@ -13,7 +13,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;700&display=swap" rel="stylesheet">
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
@@ -23,6 +23,9 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     <slot name="head" />
   </head>
   <body>
+    <div class="announcement-bar">
+      Join the movement of introverted professionals on <a href={LINKS.newsletter}>my Substack</a>
+    </div>
     <header class="site-header">
       <div class="container">
         <a class="brand" href="/">Greg Weinger</a>
@@ -30,11 +33,11 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
           <a href="/podcast/introverted-leader/">Podcast</a>
           <a href="/topics/">Topics</a>
           <a href="/about">About</a>
-          <a class="nav-cta" href={LINKS.newsletter}>Subscribe</a>
+          <a href={LINKS.newsletter}>Subscribe</a>
         </nav>
       </div>
     </header>
-    <main class="container"><slot /></main>
+    <main><slot /></main>
     <Footer />
   </body>
 </html>

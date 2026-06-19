@@ -27,26 +27,36 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
   <HomeSchema slot="head" />
 
   <section class="hero">
-    <img class="hero-portrait" src="/greg-weinger.png" alt="Greg Weinger" width="160" height="160" />
+    <img class="hero-portrait" src="/greg-weinger.png" alt="Greg Weinger" />
     <div class="hero-text">
       <h1>Greg Weinger</h1>
       <p class="hero-tagline">Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.</p>
       <p class="hero-sub">Host of <strong>The Introverted Leader</strong>.</p>
       <div class="hero-cta">
-        <a class="btn-primary" href="/podcast/introverted-leader/">Listen to the podcast</a>
-        <a class="btn-secondary" href={LINKS.newsletter}>Subscribe</a>
+        <a class="btn-gold" href="/podcast/introverted-leader/">Listen to the podcast</a>
+        <a class="btn-primary" href={LINKS.newsletter}>Subscribe</a>
       </div>
     </div>
   </section>
 
+  <div class="container">
+
   <section>
-    <h2 class="home-section-label">Browse by topic</h2>
+    <h2 class="home-section-label">Topics</h2>
     <div class="card-grid">
       {topics.map((t) => (
         <a class="card topic-card" href={`/topics/${t.data.slug}/`}>
           <strong>{t.data.title}</strong>
         </a>
       ))}
+    </div>
+  </section>
+
+  <section class="about-teaser">
+    <img class="about-teaser-img" src="/greg-weinger.png" alt="Greg Weinger" width="80" height="80" />
+    <div>
+      <h2 class="home-section-label">About Greg</h2>
+      <p>25 years in leadership — and an introvert. I help quiet professionals rise without becoming someone else. <a href="/about">More about Greg →</a></p>
     </div>
   </section>
 
@@ -74,13 +84,7 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
     </div>
   </section>
 
-  <section class="about-teaser">
-    <img class="about-teaser-img" src="/greg-weinger.png" alt="Greg Weinger" width="80" height="80" />
-    <div>
-      <h2 class="home-section-label">About Greg</h2>
-      <p>25 years in leadership — and an introvert. I help quiet professionals rise without becoming someone else. <a href="/about">More about Greg →</a></p>
-    </div>
-  </section>
-
   <Newsletter />
+
+  </div>
 </Base>

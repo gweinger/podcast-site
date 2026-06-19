@@ -19,7 +19,7 @@
   --color-surface:       #F4F9FD;
 
   /* Typography */
-  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-display: 'Jost', Helvetica, Arial, Lucida, sans-serif;
   --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* Type scale */
@@ -72,9 +72,10 @@ a:hover { color: var(--color-accent-dark); }
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 h1 { font-size: var(--text-3xl); margin: 0 0 var(--space-4); }
@@ -85,6 +86,25 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
    Layout
    ============================================================ */
 .container { max-width: var(--maxw); margin: 0 auto; padding: var(--space-6); }
+
+/* ============================================================
+   Announcement bar
+   ============================================================ */
+.announcement-bar {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+  text-align: center;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.announcement-bar a {
+  color: var(--brand-navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.announcement-bar a:hover { opacity: 0.75; color: var(--brand-navy); }
 
 /* ============================================================
    Header & nav
@@ -100,11 +120,12 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 }
 .brand {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-lg);
   text-decoration: none;
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 .brand:hover {
   color: var(--color-text);
@@ -116,30 +137,26 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-2);
   align-items: center;
 }
 .site-header nav a {
+  display: inline-block;
+  background: var(--brand-blue);
+  color: #fff;
   text-decoration: none;
-  color: var(--color-text-muted);
   font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-.site-header nav a:hover { color: var(--color-accent); }
-.nav-cta {
-  background: var(--color-accent);
-  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  min-height: 36px;
-  display: inline-flex;
-  align-items: center;
-  font-size: var(--text-sm) !important;
-  transition: background 0.15s;
+  border-radius: var(--radius-full);
+  transition: background 0.15s, color 0.15s;
 }
-.nav-cta:hover { background: var(--color-accent-dark) !important; color: #fff !important; }
+.site-header nav a:hover {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+}
 
 /* ============================================================
    Footer
@@ -168,7 +185,7 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 /* ============================================================
    Buttons
    ============================================================ */
-.btn-primary, .btn-secondary {
+.btn-primary, .btn-secondary, .btn-gold {
   display: inline-block;
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-md);
@@ -190,6 +207,12 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   color: var(--color-accent);
 }
 .btn-secondary:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+.btn-gold {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+  font-weight: 700;
+}
+.btn-gold:hover { background: #e0a400; color: var(--brand-navy); }
 
 /* ============================================================
    Cards
@@ -237,19 +260,22 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   align-items: center;
   text-align: center;
   gap: var(--space-6);
-  margin: var(--space-8) 0 var(--space-12);
+  margin: 0 0 var(--space-12);
+  padding: var(--space-8) var(--space-6);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hero-portrait {
-  width: 160px;
-  height: 160px;
-  border-radius: var(--radius-full);
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.hero-text { flex: 1 1 0; min-width: 0; }
+.hero-text { width: 100%; }
 .hero-tagline { font-size: var(--text-lg); margin: var(--space-2) 0; color: var(--color-text-muted); }
 .hero-sub { color: var(--color-text-muted); margin: var(--space-2) 0 var(--space-6); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; width: 100%; }
-.hero-cta a { flex: 1 1 auto; text-align: center; }
+.hero-cta a { flex: 0 0 auto; }
 
 .home-section-label {
   font-family: var(--font-display);
@@ -546,8 +572,18 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
 /* ============================================================
    Responsive
    ============================================================ */
-@media (min-width: 600px) {
-  .hero { flex-direction: row; text-align: left; align-items: center; }
+@media (min-width: 700px) {
+  .hero {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-8);
+  }
+  .hero-portrait {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+  .hero-text { flex: 1 1 0; }
   .hero-cta { justify-content: flex-start; }
   .hero-cta a { flex: 0 0 auto; }
 }

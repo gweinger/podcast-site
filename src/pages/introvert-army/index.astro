@@ -20,6 +20,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
     professionals={professionals.map(p => ({ name: p.data.name, slug: p.data.slug }))}
   />
 
+  <div class="container">
   <div class="army-hero">
     <h1>Introvert Army</h1>
     <p class="lead">A curated directory of coaches, therapists, authors, and experts who get it — handpicked from Greg's own experience and from guests on the podcast.</p>
@@ -103,4 +104,5 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
 
     search.addEventListener('input', applyFilters);
   </script>
+  </div>
 </Base>

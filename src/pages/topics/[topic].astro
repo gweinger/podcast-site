@@ -38,6 +38,7 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
 <Base title={t.title} description={t.metaDescription}>
   <TopicSchema slot="head" title={t.title} description={t.metaDescription} url={pageUrl} episodes={schemaEpisodes} />
 
+  <div class="container">
   <nav aria-label="Breadcrumb" class="ep-meta" style="margin-bottom:1rem">
     <a href="/topics/">Topics</a> › <span>{t.title}</span>
   </nav>
@@ -134,4 +135,5 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
   </section>
 
   <p><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
+  </div>
 </Base>

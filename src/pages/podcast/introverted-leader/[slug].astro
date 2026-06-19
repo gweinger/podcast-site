@@ -31,6 +31,7 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
     episodeNumber={d.episode}
     datePublished={d.publishDate}
   />
+  <div class="container">
   <nav aria-label="Breadcrumb" class="ep-meta" style="margin-bottom:1rem">
     <a href="/podcast/introverted-leader/">Podcast</a> › <span>#{d.episode}</span>
   </nav>
@@ -75,4 +76,5 @@ const ytId = d.urls.youtube?.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/)?.[1
   )}
 
   <p><a href="https://www.powerfulintrovertpodcast.com/">Subscribe to the newsletter →</a></p>
+  </div>
 </Base>
