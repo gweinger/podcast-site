@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import { LINKS } from '../lib/links';
+
+// To activate the contact form:
+// 1. Sign up free at https://formspree.io
+// 2. Create a new form and copy your form ID
+// 3. Replace YOUR_FORM_ID below with it (e.g. "xpwzgkqr")
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+---
+<Base
+  title="Contact — Greg Weinger"
+  description="Get in touch with Greg Weinger — podcast guest inquiries, speaking, media, or just to connect."
+>
+  <div class="container">
+
+    <h1>Contact</h1>
+    <p class="lead">Got a guest idea, a question about the show, or just want to connect? Fill out the form below and I'll get back to you.</p>
+
+    <ul class="contact-reasons">
+      <li>Podcast guest pitches</li>
+      <li>Speaking &amp; media inquiries</li>
+      <li>Feedback on the show or newsletter</li>
+      <li>Anything else</li>
+    </ul>
+
+    <section class="contact-form-section">
+      <h2>Send me a message</h2>
+
+      {FORMSPREE_ID === 'YOUR_FORM_ID' ? (
+        <div class="contact-notice">
+          <p>⚠️ Contact form not yet configured. To activate: sign up at <a href="https://formspree.io" target="_blank" rel="noopener">formspree.io</a>, create a form, and replace <code>YOUR_FORM_ID</code> in <code>src/pages/contact.astro</code>.</p>
+        </div>
+      ) : null}
+
+      <form
+        action={`https://formspree.io/f/${FORMSPREE_ID}`}
+        method="POST"
+        class="contact-form"
+      >
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required rows="6" placeholder="What's on your mind?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary contact-submit">Send message</button>
+      </form>
+    </section>
+
+    <section class="contact-connect">
+      <h2>Or find me here</h2>
+      <div class="platform-buttons">
+        <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={LINKS.substack} target="_blank" rel="noopener noreferrer">Substack</a>
+        <a href={LINKS.apple} target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+        <a href={LINKS.spotify} target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </section>
+
+  </div>
+</Base>
