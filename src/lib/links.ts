@@ -7,5 +7,5 @@ export const LINKS = {
   apple: 'https://podcasts.apple.com/us/podcast/id1794604735',
   spotify: 'https://open.spotify.com/show/5Sv8RRa1sn6uMVM0yiPIM1',
   youtube: 'https://www.youtube.com/@powerfulintrovert',
-  linkedin: 'https://www.linkedin.com/in/gregweinger/',
+  linkedin: 'https://www.linkedin.com/in/gregoryweinger/',
 } as const;

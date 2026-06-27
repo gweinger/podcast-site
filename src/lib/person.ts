@@ -10,7 +10,7 @@ export const PERSON = {
   jobTitle: 'Podcast Host & Leadership Advisor',
   image: 'https://gweinger.com/greg-weinger.png',
   sameAs: [
-    'https://www.linkedin.com/in/gregweinger/',
+    'https://www.linkedin.com/in/gregoryweinger/',
     'https://www.powerfulintrovertpodcast.com/',
     'https://podcasts.apple.com/us/podcast/id1794604735',
     'https://open.spotify.com/show/5Sv8RRa1sn6uMVM0yiPIM1',
