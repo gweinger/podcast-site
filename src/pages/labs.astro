@@ -1,11 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// TODO: replace with the real Kit form ID once the 'labs-landing' form is
-// created in Kit — see the "Kit Setup" section of
-// _showrunner/labs-landing-page.md (podcast-studio repo) for the steps
-// (custom field, tags, form, welcome automation, link-trigger rule).
-const KIT_FORM_ID = 'REPLACE_WITH_KIT_FORM_ID';
+// Kit form 'labs-landing' — numeric form ID from its raw HTML embed
+// (action="https://app.kit.com/forms/9705434/subscriptions"). This is
+// distinct from the data-uid ("b56b520835") used by Kit's JS embed/styling.
+const KIT_FORM_ID = '9705434';
 const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
 ---
 <Base
