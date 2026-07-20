@@ -18,7 +18,7 @@ Main landing page, built with the `Base` layout.
 - **Styling**: this codebase has no scoped `<style>` blocks anywhere — every page uses shared utility classes defined in `src/styles/global.css`. New labs-specific classes (topics grid, sessions table, host section) get added to `global.css` under a clearly labeled banner comment, following the existing pattern (see `.hero`, `.card`, `.platform-buttons`, etc.). No new component files needed for a single-page build like this.
 
 ### `src/pages/labs/thank-you.astro`
-Confirmation page. Copy from the source doc's "Confirmation / Thank-You Copy" section. Links to `/masterclass` (placeholder — that page doesn't exist yet in this repo; the link will 404 until it ships separately, which is expected and acceptable for this build).
+Confirmation page. Copy from the source doc's "Confirmation / Thank-You Copy" section, minus the masterclass cross-link paragraph — the masterclass gate page doesn't exist yet (it's a separate build item, see `_showrunner/masterclass/critical-path.md`) and isn't part of this build. Add the link back in when that page ships.
 
 ## Signup Form
 
