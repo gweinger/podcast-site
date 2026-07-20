@@ -111,8 +111,8 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
         </div>
         <div class="form-field">
           <label for="leadership_challenge">One question — what leadership challenge are you working through right now?</label>
-          <input type="text" id="leadership_challenge" name="fields[leadership_challenge]" placeholder="One sentence is plenty" />
-          <p class="labs-form-note">I read every one. Your answer decides what we cover in the live sessions.</p>
+          <input type="text" id="leadership_challenge" name="fields[leadership_challenge]" placeholder="One sentence is plenty" aria-describedby="leadership-challenge-note" />
+          <p class="labs-form-note" id="leadership-challenge-note">I read every one. Your answer decides what we cover in the live sessions.</p>
         </div>
         <button type="submit" class="btn-primary contact-submit">Sign me up for the next Lab</button>
       </form>
