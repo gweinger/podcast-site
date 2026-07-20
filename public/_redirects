@@ -60,3 +60,7 @@
 /il/67 /podcast/introverted-leader/the-corporate-introvert-from-mistyped-to-mastered/ 301
 /leaderlabs /labs 301
 /leader-labs /labs 301
+# Temporary until the masterclass page ships (end of July 2026).
+# Delete this line when src/pages/masterclass.astro exists — the real
+# page at /masterclass takes over and /labs gets a proper link to it.
+/masterclass /labs 302
