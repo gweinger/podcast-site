@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # obsidian setting folder
 .obsidian/
+
+# local git worktrees
+.worktrees/
