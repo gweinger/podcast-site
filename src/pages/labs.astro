@@ -6,19 +6,35 @@ import Base from '../layouts/Base.astro';
 // distinct from the data-uid ("b56b520835") used by Kit's JS embed/styling.
 const KIT_FORM_ID = '9705434';
 const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
+
+// Single source of truth for the Lab schedule — the hero's Next Lab card,
+// the Upcoming Sessions table, and the signup section reminder all read
+// from this so the dates/topics can't drift out of sync.
+const SESSIONS = [
+  {
+    number: 1,
+    topic: 'Identity',
+    date: 'Friday, August 21, 2026',
+    time: '8:00am PT / 11:00am ET',
+    status: 'Registration open',
+  },
+  { number: 2, topic: 'Inner Knowing', date: 'September 2026', time: null, status: null },
+  { number: 3, topic: 'Discomfort', date: 'September 2026', time: null, status: null },
+  { number: 4, topic: 'Visibility', date: 'October 2026', time: null, status: null },
+];
+const nextSession = SESSIONS[0];
 ---
 <Base
   title="Leadership Labs — Free Live Sessions for Introverted Leaders | Greg Weinger"
-  description="A free monthly live session for introverted leaders. Bring your real situations — we work through them together. Hosted by Greg Weinger of The Introverted Leader podcast."
+  description="A free monthly live session for introverted leaders. Bring your real challenges — we work through them together. Hosted by Greg Weinger of The Introverted Leader podcast."
   minimalHeader
 >
   <section class="labs-hero">
     <h1>The Leadership Labs</h1>
-    <p class="lead">Free live sessions for introverted leaders — bring your real situations, and we'll work through them together.</p>
-    <p>You don't need another lecture about speaking up. You need a room where your way of leading is the starting point, not the problem.</p>
-    <p>Once a month, I host a free live session — about an hour. I present one topic to start, then we open it up: your questions, your actual situations, live discussion with other introverted leaders working through the same things.</p>
-    <p>It's free. It's live. And it's where the conversation gets real.</p>
-    <div class="labs-hero-cta">
+    <p class="lead">Free live sessions for introverted leaders — bring your real challenges, and we'll work through them together.</p>
+    <div class="labs-next-card">
+      <p class="labs-next-card-label">Next Lab · #{nextSession.number} · {nextSession.topic}</p>
+      <p class="labs-next-card-date">{nextSession.date} · {nextSession.time}</p>
       <a class="btn-gold" href="#signup">Join the next Lab →</a>
     </div>
   </section>
@@ -27,19 +43,19 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
 
     <section>
       <h2 class="home-section-label">The Four Topics</h2>
-      <p>The Labs rotate through the four things that hold introverted leaders back. They're not four separate topics — they're four legs of the same table.</p>
+      <p>The Labs rotate through the four things that hold introverted leaders back.</p>
       <div class="card-grid">
         <div class="card">
           <h3>Identity</h3>
-          <p>Undoing the belief that who you are is the problem. Until this shifts, tactics don't stick. It's where we start.</p>
+          <p>Undoing the programming you've received that who you are is the problem. Until this shifts, tactics don't stick. We start here.</p>
         </div>
         <div class="card">
           <h3>Inner Knowing</h3>
-          <p>Learning to trust your read on a room, a person, a situation. Introverts are wired for this — and trained to ignore it. That read is trainable.</p>
+          <p>Learning to trust your intuitive read on a room, a person, a situation. Introverts are wired for this — and trained to ignore it. But you can tap in again.</p>
         </div>
         <div class="card">
           <h3>Discomfort</h3>
-          <p>Using anxiety, friction, and uncertainty as fuel instead of brakes. The capacity to sit with discomfort is a strength — most of us were never told.</p>
+          <p>Using anxiety, friction, and uncertainty as fuel instead of brakes. The capacity to sit with discomfort is a strength.</p>
         </div>
         <div class="card">
           <h3>Visibility</h3>
@@ -61,30 +77,14 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>#1</td>
-              <td>Identity</td>
-              <td>Thursday, August 20, 2026 — 9:00am PT / 12:00pm ET</td>
-              <td>Registration opens soon</td>
-            </tr>
-            <tr>
-              <td>#2</td>
-              <td>Inner Knowing</td>
-              <td>September 2026</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td>#3</td>
-              <td>Discomfort</td>
-              <td>September 2026</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td>#4</td>
-              <td>Visibility</td>
-              <td>October 2026</td>
-              <td>—</td>
-            </tr>
+            {SESSIONS.map((session) => (
+              <tr>
+                <td>#{session.number}</td>
+                <td>{session.topic}</td>
+                <td>{session.date}{session.time ? ` — ${session.time}` : ''}</td>
+                <td>{session.status ?? '—'}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -103,6 +103,7 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
 
     <section id="signup" class="contact-form-section">
       <h2 class="home-section-label">Join the next free Lab</h2>
+      <p class="labs-next-reminder">Next Lab: {nextSession.topic} — {nextSession.date}.</p>
       <form class="contact-form" method="post" action={KIT_FORM_ACTION}>
         <div class="form-field">
           <label for="email_address">Email address</label>
@@ -110,7 +111,7 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
         </div>
         <div class="form-field">
           <label for="leadership_challenge">One question — what leadership challenge are you working through right now?</label>
-          <input type="text" id="leadership_challenge" name="fields[leadership_challenge]" placeholder="One sentence is plenty" aria-describedby="leadership-challenge-note" />
+          <input type="text" id="leadership_challenge" name="fields[leadership_challenge]" placeholder="One sentence please" aria-describedby="leadership-challenge-note" />
           <p class="labs-form-note" id="leadership-challenge-note">I read every one. Your answer decides what we cover in the live sessions.</p>
         </div>
         <button type="submit" class="btn-primary contact-submit">Sign me up for the next Lab</button>

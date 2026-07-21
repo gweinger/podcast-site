@@ -622,7 +622,29 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   padding: var(--space-8) var(--space-6) 0;
 }
 .labs-hero .lead { margin: var(--space-4) 0; }
-.labs-hero-cta { margin-top: var(--space-6); }
+
+.labs-next-card {
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-light);
+}
+.labs-next-card-label {
+  margin: 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.labs-next-card-date {
+  margin: var(--space-2) 0 var(--space-4);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.labs-next-reminder { margin: 0 0 var(--space-4); color: var(--color-text-muted); }
 
 .labs-table-wrap { overflow-x: auto; margin: var(--space-4) 0; }
 .labs-sessions-table { width: 100%; border-collapse: collapse; }
