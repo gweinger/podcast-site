@@ -379,7 +379,7 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   display: flex;
   gap: var(--space-6);
   align-items: center;
-  margin: var(--space-8) 0;
+  margin: 0 0 var(--space-8);
   padding: var(--space-6);
   background: var(--brand-navy);
   border-radius: var(--radius-lg);
