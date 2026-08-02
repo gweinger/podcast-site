@@ -11,6 +11,6 @@ painChips:
 order: 6
 ---
 
-You're doing all the right things and still not advancing. It's the most demoralizing pattern in an introvert's career: the work is strong, the reviews are good, and the promotion keeps not happening. Usually it's not about effort — it's about which signals decision-makers actually read, and whether anyone has named what's really blocking you.
+Getting promoted is about more than doing great work. Promotions are based on how decision-makers perceive your readiness for the next level—not just your performance in your current role. If your work is consistently strong but your career has stalled, the gap often isn't effort. It's understanding the signals leaders look for and making your impact visible in ways that feel authentic.
 
-Getting promoted without becoming someone else means rising because of your quiet strengths, not despite them — understanding the unwritten criteria, making your impact visible to the people who decide, and advocating for yourself in a way you can live with. That's the brand promise of this whole project. The conversations below cover decoding promotion blockers, building influence, and advancing while staying authentically you. Start with the core episodes below.
+Getting promoted doesn't require becoming louder, more political, or someone you're not. It means understanding the unwritten criteria for advancement, communicating your value with confidence, and building influence through the quiet strengths that make you an effective leader. The conversations below explore promotion blockers, visibility, influence, and practical strategies to help you advance on your own terms.

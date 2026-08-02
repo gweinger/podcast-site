@@ -11,6 +11,6 @@ painChips:
 order: 5
 ---
 
-You can lead well — but only if you're not depleted. For introverts in extroverted cultures, energy isn't a soft topic; it's the constraint everything else runs on. Back-to-back meetings, open-plan noise, and the expectation to be "on" all day drain the exact resource your best thinking depends on. Manage it badly and even strong skills don't show up.
+Energy management is a leadership skill, not a luxury. Your ability to think clearly, make good decisions, and lead others depends on having the mental and emotional capacity to do your best work. For many introverted leaders, that capacity is constantly challenged by back-to-back meetings, interruptions, and the expectation to be "on" all day. When your energy is depleted, even your strongest leadership skills become harder to access.
 
-Managing your energy means designing your day, your team, and your workflow around how you actually recharge — protecting deep-focus time, recovering between high-stimulation events, and building rhythms that let you perform without burning out. The conversations below cover avoiding overwhelm, thriving in extroverted environments, and the physical and structural habits that keep quiet leaders sustainable. Start with the core episodes below.
+Managing your energy means intentionally designing how you work. It's protecting time for deep thinking, recovering after high-stimulation situations, and building sustainable rhythms that help you perform consistently instead of running on empty. The conversations below explore energy management, avoiding overwhelm, thriving in extroverted workplaces, and practical habits that help quiet leaders do their best work over the long term.

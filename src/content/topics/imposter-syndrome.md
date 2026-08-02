@@ -11,6 +11,6 @@ painChips:
 order: 1
 ---
 
-Most quiet professionals don't have a competence problem — they have a permission problem. You've done the work, earned the results, and still feel like you're one meeting away from being found out. That gap between what you've accomplished and what you let yourself believe is imposter syndrome, and for introverts it often runs louder because we process it privately instead of out loud.
+Imposter syndrome isn't a reflection of your ability. It's the gap between what you've accomplished and what you're able to believe about yourself. You can have the experience, the results, and the respect of others and still feel like you're one meeting away from being found out. For many introverted leaders, those doubts stay internal, making it easy to mistake them for the truth.
 
-The fix isn't faking confidence. It's building the kind of internal belief that holds up under pressure — evidence you can return to, a relationship with your inner critic that doesn't run the show, and a definition of credibility that fits how you actually lead. The conversations below feature people who moved from self-doubt to self-trust without becoming someone they're not. Start with the core episodes, then explore the rest.
+Overcoming imposter syndrome isn't about pretending to be confident. It's about building confidence that's grounded in evidence, learning to challenge your inner critic instead of believing it, and developing a definition of credibility that reflects how you actually lead. The conversations below explore practical strategies for replacing self-doubt with self-trust so you can lead with greater confidence and clarity.

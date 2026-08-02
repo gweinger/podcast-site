@@ -11,6 +11,6 @@ painChips:
 order: 2
 ---
 
-You know what you want to say. The moment just moves too fast. By the time you've shaped the thought, the conversation has moved on, someone louder has the floor, or the idea you were holding gets said by somebody else. Speaking up in meetings is the number-two pain point introverted leaders name — not because we lack ideas, but because most meetings are built for fast talkers.
+Every meeting shapes how people perceive your leadership. Speaking up isn't about contributing to every discussion—it's about making sure your thinking is part of the decisions that matter. For many introverted leaders, the challenge isn't having valuable ideas. It's finding a way to share them before the moment passes.
 
-Quiet authority is the alternative: calm presence, clear framing, and a few repeatable moves that let you contribute on your terms instead of competing on volume. You don't have to interrupt more — you have to claim space differently. The conversations below cover handling interruptions and dominant personalities, getting credit for your thinking, and making your one well-placed sentence land harder than someone else's five. Start with the core episodes below.
+Speaking with quiet authority means contributing with clarity, confidence, and intention. It's knowing when to jump in, how to frame an idea so people listen, and how to handle interruptions or dominant personalities without trying to out-talk them. The conversations below explore practical strategies for speaking up, getting credit for your ideas, and making your voice influential in every meeting.

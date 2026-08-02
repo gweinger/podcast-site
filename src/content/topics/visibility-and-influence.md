@@ -11,6 +11,6 @@ painChips:
 order: 3
 ---
 
-Your work is exceptional and no one sees it. For introverts, that's the central tension of advancement: we're taught that good work speaks for itself, then watch louder colleagues get the visibility — and the opportunities. Self-advocacy feels like self-promotion, self-promotion feels like performing, and so the most differentiating parts of what we do stay invisible.
+Great work rarely speaks for itself. Every promotion, high-impact project, or leadership opportunity depends on someone understanding the value you bring. For many introverted leaders, that creates tension because the behaviors that increase visibility can feel uncomfortably close to self-promotion.
 
-Authentic visibility is the way through. Not performing extroversion, but making your contribution legible — describing not just what you did but how and why you did it, building influence without authority, and letting the right people see the value you create. The conversations below feature operators and coaches who built real influence without becoming self-promoters. Start with the core episodes, then explore the rest.
+Authentic visibility doesn't require becoming louder or more self-promotional. It means helping the right people understand the problems you solve, the decisions you influence, and the impact you create. The conversations below explore practical ways to build influence, expand your visibility, and earn recognition for the work you're already doing.
