@@ -307,7 +307,7 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   gap: var(--space-6);
   margin: 0 0 var(--space-12);
   padding: var(--space-8) var(--space-6);
-  max-width: 1400px;
+  max-width: var(--maxw);
   margin-left: auto;
   margin-right: auto;
 }

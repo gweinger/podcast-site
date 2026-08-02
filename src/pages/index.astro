@@ -7,7 +7,6 @@ import Newsletter from '../components/Newsletter.astro';
 import { recentEpisodes } from '../lib/episodes';
 import { headshotFor } from '../lib/headshots';
 import type { EpisodeLike } from '../lib/pillars';
-import { LINKS } from '../lib/links';
 
 const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order);
 const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
@@ -34,7 +33,6 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
       <p class="hero-sub">Host of <strong>The Introverted Leader</strong>.</p>
       <div class="hero-cta">
         <a class="btn-gold" href="/podcast/introverted-leader/">Listen to the podcast</a>
-        <a class="btn-primary" href={LINKS.newsletter}>Subscribe</a>
       </div>
     </div>
   </section>
