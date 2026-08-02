@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Unlisted YouTube upload of the masterclass. The page is only reachable
+// via the Kit form's success redirect, and is noindexed — the email gate
+// is the front door.
+const YOUTUBE_VIDEO_ID = 'qye6LlXAQng';
+
+// Chapter times are the script's estimates for a ~32-min cut.
+// TODO: replace with the real timestamps from the final Descript edit
+// (same numbers go in the YouTube description to enable player chapters).
+const CHAPTERS = [
+  { time: '00:00', title: 'The Meeting You Lost (And Why)' },
+  { time: '04:30', title: "The Real Problem Isn't Confidence" },
+  { time: '11:00', title: 'Strategic Visibility: The 3 Moments' },
+  { time: '25:00', title: 'The Full Map: Four Themes' },
+  { time: '29:00', title: 'Your Next Step' },
+];
+---
+<Base
+  title="Watch: Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong | Greg Weinger"
+  description="The free masterclass for introverted leaders, in full."
+  minimalHeader
+>
+  <meta slot="head" name="robots" content="noindex" />
+  <div class="container">
+    <h1>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h1>
+    <p class="lead">You're in — press play. About 30 minutes, best watched in one sitting.</p>
+
+    <div class="masterclass-player">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?rel=0`}
+        title="Masterclass: Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <section>
+      <h2 class="home-section-label">Chapters</h2>
+      <ol class="masterclass-chapters">
+        {CHAPTERS.map((chapter) => (
+          <li><span class="masterclass-chapter-time">{chapter.time}</span> {chapter.title}</li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="masterclass-next-step">
+      <h2 class="home-section-label">Your next step</h2>
+      <p>The masterclass covers Visibility — one of the four things holding introverted leaders back. I go deep on all four in my free monthly <strong>Leadership Labs</strong>: live sessions where you bring your real situations and we work through them together.</p>
+      <a class="btn-gold" href="/labs#signup">Join the next free Lab →</a>
+    </section>
+  </div>
+</Base>

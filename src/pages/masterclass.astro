@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Kit form 'masterclass-gate' — numeric form ID from its raw HTML embed,
+// same pattern as labs.astro (labs-landing = 9705434). Tag on submit:
+// masterclass_signup. Success behavior in Kit: redirect to /masterclass/watch.
+const KIT_FORM_ID = '9756893';
+const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
+---
+<Base
+  title="Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong | Greg Weinger"
+  description="A free masterclass for introverted leaders: why the standard advice fails you, and the three career moments where quiet preparation beats performing. ~30 minutes."
+  minimalHeader
+>
+  <section class="labs-hero">
+    <p class="masterclass-kicker">Free Masterclass · ~30 min</p>
+    <h1>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h1>
+    <p class="lead">You don't have a confidence problem. You have a strategy problem — and this session shows you the difference.</p>
+  </section>
+
+  <div class="container">
+
+    <figure class="masterclass-still">
+      <img src="/masterclass-still.webp" alt="Greg Weinger teaching the masterclass" width="1200" height="676" />
+      <figcaption class="masterclass-still-badge">30 min</figcaption>
+    </figure>
+
+    <section>
+      <h2 class="home-section-label">What you'll learn</h2>
+      <ul class="masterclass-bullets">
+        <li><strong>The real reason you're overlooked</strong> — it's not confidence, charisma, or executive presence. It's a system mismatch, and the three lies that system tells introverted leaders.</li>
+        <li><strong>The 3 Moments That Determine Advancement</strong> — a visibility framework built on preparation, precision, and depth. No performing, no becoming someone else.</li>
+        <li><strong>The four things holding introverted leaders back</strong> — the full map, and the free live Labs where we work through each one together.</li>
+      </ul>
+    </section>
+
+    <section id="signup" class="contact-form-section">
+      <h2 class="home-section-label">Watch it free</h2>
+      <p class="labs-next-reminder">Enter your email and the masterclass starts immediately.</p>
+      <form class="contact-form" method="post" action={KIT_FORM_ACTION}>
+        <div class="form-field">
+          <label for="email_address">Email address</label>
+          <input type="email" id="email_address" name="email_address" required placeholder="you@example.com" />
+        </div>
+        <button type="submit" class="btn-primary contact-submit">Watch the masterclass →</button>
+      </form>
+    </section>
+
+    <section class="about-teaser">
+      <img class="about-teaser-img" src="/greg-weinger.webp" alt="Greg Weinger" width="80" height="80" />
+      <div>
+        <h2 class="home-section-label">About Your Host</h2>
+        <p>I'm Greg Weinger. I spent over 25 years rising to the executive level of software companies as an introvert — most of those years in denial about it. For the past two years I've been interviewing the most effective introverted leaders and experts I could find on <strong>The Introverted Leader</strong> podcast. This masterclass is what I wish someone had told me earlier in my career.</p>
+      </div>
+    </section>
+
+    <p class="pull-quote">You're not wrong and you're not flawed. You're just running the wrong play.</p>
+
+  </div>
+</Base>
