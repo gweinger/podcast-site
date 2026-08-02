@@ -373,6 +373,41 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 .newsletter-band .btn-primary:hover { background: #e0a400; color: var(--brand-navy); }
 
 /* ============================================================
+   Masterclass band (homepage promo)
+   ============================================================ */
+.masterclass-band {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--brand-navy);
+  border-radius: var(--radius-lg);
+  color: #fff;
+}
+.masterclass-band-img {
+  width: 220px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex: 0 0 auto;
+}
+.masterclass-band-kicker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--text-sm);
+  color: var(--brand-gold);
+}
+.masterclass-band h2 { color: #fff; margin: var(--space-1) 0; }
+.masterclass-band p { color: rgba(255,255,255,0.85); margin: 0 0 var(--space-4); }
+@media (max-width: 640px) {
+  .masterclass-band { flex-direction: column; text-align: center; }
+  .masterclass-band-img { width: 100%; }
+}
+
+/* ============================================================
    Episode list (podcast index, topic hubs)
    ============================================================ */
 .episode-list { list-style: none; padding: 0; }
