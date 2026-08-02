@@ -1,5 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { LAB1, googleCalendarUrl } from '../../lib/lab-schedule';
+
+const gcalUrl = googleCalendarUrl(LAB1);
 ---
 <Base
   title="You're In — Leadership Labs | Greg Weinger"
@@ -10,6 +13,16 @@ import Base from '../../layouts/Base.astro';
   <div class="container">
     <h1>You're in.</h1>
     <p class="lead">Check your inbox — your confirmation is on the way, and your invitation to the next Lab will follow.</p>
+
+    <div class="labs-next-card">
+      <p class="labs-next-card-label">Save the date · {LAB1.title}</p>
+      <p class="labs-next-card-date">{LAB1.dateLabel} · {LAB1.timeLabel}</p>
+      <div class="labs-add-to-cal">
+        <a class="btn-secondary" href={gcalUrl} target="_blank" rel="noopener">Add to Google Calendar</a>
+        <a class="btn-secondary" href={LAB1.icsUrl} download>Download .ics (Outlook / Apple)</a>
+      </div>
+    </div>
+
     <p>In the meantime: if you haven't watched the masterclass yet, start there — <em>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong.</em> <a href="/masterclass">Watch it free →</a></p>
   </div>
 </Base>

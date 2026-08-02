@@ -646,6 +646,8 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
 
 .labs-next-reminder { margin: 0 0 var(--space-4); color: var(--color-text-muted); }
 
+.labs-add-to-cal { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
+
 .labs-table-wrap { overflow-x: auto; margin: var(--space-4) 0; }
 .labs-sessions-table { width: 100%; border-collapse: collapse; }
 .labs-sessions-table th,
