@@ -23,6 +23,14 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     {description && <meta property="og:description" content={description} />}
     <meta property="og:type" content="website" />
     <slot name="head" />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-VS31RSZZ8K"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VS31RSZZ8K');
+    </script>
   </head>
   <body>
     {!minimalHeader && (
