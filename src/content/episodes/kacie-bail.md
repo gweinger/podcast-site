@@ -21,7 +21,9 @@ painPoints:
 - 9
 urls:
   youtube: https://youtu.be/P9wnhdo5cG8
-  substack: https://powerfulintrovert.substack.com/publish/post/208488536
+  substack: https://www.powerfulintrovertpodcast.com/p/leadership-communication-for-introverts
+  apple: https://podcasts.apple.com/us/podcast/78-leadership-communication-for-introverts-in-tech/id1794604735?i=1000778496362&uo=4
+  spotify: https://open.spotify.com/episode/7nA6m22HxzVAhhF3RcrZ1k
 pullQuotes:
 - Leadership communication is not about being the loudest person in the room, it's
   about being the clearest.
