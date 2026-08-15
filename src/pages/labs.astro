@@ -7,9 +7,16 @@ import Base from '../layouts/Base.astro';
 const KIT_FORM_ID = '9705434';
 const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
 
-// Single source of truth for the Lab schedule — the hero's Next Lab card,
-// the Upcoming Sessions table, and the signup section reminder all read
-// from this so the dates/topics can't drift out of sync.
+// Kit form 'Labs Feedback' — created 2026-08-15 (data-uid 3a646885a2).
+// Custom field 'labs_feedback_reason' (id 1339845) captures the selected
+// reason directly from this page's raw POST; nothing in Kit's own form
+// builder needs to match it.
+const FEEDBACK_FORM_ID = '9806596';
+const FEEDBACK_FORM_ACTION = `https://app.kit.com/forms/${FEEDBACK_FORM_ID}/subscriptions`;
+
+// Single source of truth for the Lab schedule — the hero kicker, the
+// Upcoming Sessions table, and the bottom CTA reminder all read from this
+// so the dates/topics can't drift out of sync.
 const SESSIONS = [
   {
     number: 1,
@@ -30,20 +37,31 @@ const nextSession = SESSIONS[0];
   minimalHeader
 >
   <section class="labs-hero">
+    <p class="masterclass-kicker">Free Live Sessions</p>
     <h1>The Leadership Labs</h1>
-    <p class="lead">Free live sessions for introverted leaders — bring your real challenges, and we'll work through them together.</p>
-    <div class="labs-next-card">
-      <p class="labs-next-card-label">Next Lab · #{nextSession.number} · {nextSession.topic}</p>
-      <p class="labs-next-card-date">{nextSession.date} · {nextSession.time}</p>
-      <a class="btn-gold" href="#signup">Join the next Lab →</a>
+    <figure class="masterclass-still">
+      <img src="/masterclass-still.webp" alt="Greg Weinger" width="1200" height="676" />
+    </figure>
+    <div class="labs-hero-card">
+      <p class="labs-session-label">Lab #{nextSession.number} — {nextSession.topic}</p>
+      <p class="labs-date-badge">{nextSession.date} · {nextSession.time}</p>
+      <p class="lead">Undoing the belief that who you are is the problem. Bring a real situation — we work through it together, live.</p>
+      <form class="contact-form labs-hero-form" method="post" action={KIT_FORM_ACTION} id="signup">
+        <div class="form-field">
+          <label for="email_address">Email address</label>
+          <input type="email" id="email_address" name="email_address" required placeholder="you@example.com" />
+        </div>
+        <button type="submit" class="btn-primary contact-submit">Save my spot →</button>
+      </form>
     </div>
+    <p class="labs-feedback-hint"><a href="#feedback">Can't make it? Tell me why →</a></p>
   </section>
 
   <div class="container">
 
     <section>
       <h2 class="home-section-label">The Four Topics</h2>
-      <p>The Labs rotate through the four things that hold introverted leaders back.</p>
+      <p>Identity is the first of four things that hold introverted leaders back — the Labs work through all of them over time.</p>
       <div class="card-grid">
         <div class="card">
           <h3>Identity</h3>
@@ -101,20 +119,33 @@ const nextSession = SESSIONS[0];
       </ol>
     </section>
 
-    <section id="signup" class="contact-form-section">
+    <section class="contact-form-section labs-bottom-cta">
       <h2 class="home-section-label">Join the next free Lab</h2>
       <p class="labs-next-reminder">Next Lab: {nextSession.topic} — {nextSession.date}.</p>
-      <form class="contact-form" method="post" action={KIT_FORM_ACTION}>
+      <a class="btn-primary contact-submit" href="#signup">Save my spot →</a>
+    </section>
+
+    <section id="feedback" class="contact-form-section labs-feedback-section">
+      <h2 class="home-section-label">Can't make Lab #1?</h2>
+      <p class="labs-next-reminder">Takes 10 seconds — it helps me plan future sessions.</p>
+      <form class="contact-form labs-feedback-form" method="post" action={FEEDBACK_FORM_ACTION}>
+        <fieldset class="labs-feedback-reasons">
+          <legend>Why not?</legend>
+          <label><input type="radio" name="fields[labs_feedback_reason]" value="Topic doesn't interest me" required /> The topic doesn't interest me</label>
+          <label><input type="radio" name="fields[labs_feedback_reason]" value="Time doesn't work" /> The time doesn't work for me</label>
+          <label><input type="radio" name="fields[labs_feedback_reason]" value="Prefer recording" /> I'd rather watch the recording than attend live</label>
+          <label><input type="radio" name="fields[labs_feedback_reason]" value="Not for me right now" /> Just not for me right now</label>
+          <label><input type="radio" id="reason-other" name="fields[labs_feedback_reason]" value="Other" /> Something else</label>
+          <div class="labs-feedback-other-detail">
+            <label for="reason-other-text">Tell me more (optional)</label>
+            <input type="text" id="reason-other-text" name="fields[labs_feedback_other]" placeholder="What would make this a yes?" />
+          </div>
+        </fieldset>
         <div class="form-field">
-          <label for="email_address">Email address</label>
-          <input type="email" id="email_address" name="email_address" required placeholder="you@example.com" />
+          <label for="feedback_email">Email address</label>
+          <input type="email" id="feedback_email" name="email_address" required placeholder="you@example.com" />
         </div>
-        <div class="form-field">
-          <label for="leadership_challenge">One question — what leadership challenge are you working through right now?</label>
-          <input type="text" id="leadership_challenge" name="fields[leadership_challenge]" placeholder="One sentence please" aria-describedby="leadership-challenge-note" />
-          <p class="labs-form-note" id="leadership-challenge-note">I read every one. Your answer decides what we cover in the live sessions.</p>
-        </div>
-        <button type="submit" class="btn-primary contact-submit">Sign me up for the next Lab</button>
+        <button type="submit" class="btn-primary contact-submit">Send feedback</button>
       </form>
     </section>
 

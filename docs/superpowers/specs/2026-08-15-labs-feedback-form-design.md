@@ -8,7 +8,9 @@ The Aug 11 re-marketing broadcast sent 12 clicks to `/labs`, converting to only 
 
 ## Design
 
-**Placement**: a new, always-visible section on `/labs`, directly after the existing "Join the next free Lab" repeat CTA (`.labs-bottom-cta`) and before "About Your Host." No JS, no click-to-reveal — same zero-JS pattern as the rest of the page.
+**Visibility problem, caught in review**: average engagement time on `/labs` was measured at ~2 seconds (this session's earlier GA4 investigation) — most visitors likely never scroll far enough to see a bottom-of-page section at all. The form itself stays at the bottom (below), but needs an entry point visible without scrolling. Fix: a small, low-contrast text link in the hero, directly under the "Save my spot" button — "Can't make it? Tell me why →" — anchor-scrolling to the form section (`#feedback`). Deliberately low visual weight so it doesn't compete with the primary signup CTA. This is implementable now, independent of the Kit form-ID dependency below (it's pure navigation).
+
+**Placement (form itself)**: a new, always-visible section on `/labs`, directly after the existing "Join the next free Lab" repeat CTA (`.labs-bottom-cta`) and before "About Your Host." No JS, no click-to-reveal — same zero-JS pattern as the rest of the page. `id="feedback"` for the hero link to target.
 
 **Heading**: "Can't make Lab #1?"
 
