@@ -5,15 +5,19 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:lab-1-identity-20260828@gweinger.com
-DTSTAMP:20260802T203300Z
+DTSTAMP:20260824T170000Z
+SEQUENCE:1
 DTSTART:20260828T150000Z
 DTEND:20260828T160000Z
 SUMMARY:Leadership Lab #1 — Identity
 DESCRIPTION:Free live session for introverted leaders. Bring a real situati
- on and we'll work through it together. Join link emailed before the session
- . Details: https://gweinger.com/labs
-LOCATION:Online — join link emailed before the session
-URL:https://gweinger.com/labs
+ on and we'll work through it together.\n\nJoin Zoom Meeting: https://us05w
+ eb.zoom.us/j/83336139466?pwd=e4rmblbrsiXATU7lPYOKBRzkVXpYgf.1\nMeeting ID:
+  833 3613 9466\nPasscode: 905676\n\nDetails: https://gweinger.com/labs
+LOCATION:https://us05web.zoom.us/j/83336139466?pwd=e4rmblbrsiXATU7lPYOKBRzk
+ VXpYgf.1
+URL:https://us05web.zoom.us/j/83336139466?pwd=e4rmblbrsiXATU7lPYOKBRzkVXpYg
+ f.1
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR

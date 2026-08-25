@@ -4,11 +4,14 @@
 // must be updated by hand when this changes — Kit has no build step to read
 // this file.
 //
-// TODO once Zoom Pro is bought and the Lab #1 meeting exists: replace
-// DETAILS' "join link emailed before the session" with the real Zoom link,
-// rebuild, and regenerate public/downloads/lab-1-identity.ics (anyone who
-// already added it to their calendar keeps the old static copy — a known
-// limitation of static .ics files).
+// public/downloads/lab-1-identity.ics is a static file that duplicates
+// `location` and `details` below — update it by hand whenever either
+// changes. Anyone who already added the event to their calendar keeps the
+// old static copy; a known limitation of static .ics files.
+//
+// NOTE: the join link and passcode below are served publicly (the .ics URL
+// is fetchable by anyone). Accepted for Lab #1; revisit if a session ever
+// needs to be gated.
 
 export const LAB1 = {
   title: 'Leadership Lab #1 — Identity',
@@ -17,9 +20,10 @@ export const LAB1 = {
   // UTC instants — Aug 28 2026 falls in PDT (UTC-7).
   startUTC: '20260828T150000Z',
   endUTC: '20260828T160000Z',
-  location: 'Online — join link emailed before the session',
+  location:
+    'https://us05web.zoom.us/j/83336139466?pwd=e4rmblbrsiXATU7lPYOKBRzkVXpYgf.1',
   details:
-    "Free live session for introverted leaders. Bring a real situation and we'll work through it together. Join link emailed before the session. Details: https://gweinger.com/labs",
+    "Free live session for introverted leaders. Bring a real situation and we'll work through it together.\n\nJoin Zoom Meeting: https://us05web.zoom.us/j/83336139466?pwd=e4rmblbrsiXATU7lPYOKBRzkVXpYgf.1\nMeeting ID: 833 3613 9466\nPasscode: 905676\n\nDetails: https://gweinger.com/labs",
   icsUrl: '/downloads/lab-1-identity.ics',
 };
 
