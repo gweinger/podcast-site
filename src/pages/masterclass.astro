@@ -25,6 +25,17 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
       <figcaption class="masterclass-still-badge">30 min</figcaption>
     </figure>
 
+    {/* Above-the-fold capture. Only ~21% of visitors scrolled far enough to
+        reach the #signup form below, so the same ask is repeated here inline.
+        Distinct form ids so GA4's form_id shows which one converts. */}
+    <div class="mc-inline-capture">
+      <form class="mc-inline-form" id="mc-signup-top" method="post" action={KIT_FORM_ACTION}>
+        <label class="visually-hidden" for="mc_email_top">Email address</label>
+        <input type="email" id="mc_email_top" name="email_address" required placeholder="you@example.com" />
+        <button type="submit" class="btn-primary">Watch now →</button>
+      </form>
+    </div>
+
     <section>
       <h2 class="home-section-label">What you'll learn</h2>
       <ul class="masterclass-bullets">
@@ -37,7 +48,7 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
     <section id="signup" class="contact-form-section">
       <h2 class="home-section-label">Watch it free</h2>
       <p class="labs-next-reminder">Enter your email and the masterclass starts immediately.</p>
-      <form class="contact-form" method="post" action={KIT_FORM_ACTION}>
+      <form class="contact-form" id="mc-signup-main" method="post" action={KIT_FORM_ACTION}>
         <div class="form-field">
           <label for="email_address">Email address</label>
           <input type="email" id="email_address" name="email_address" required placeholder="you@example.com" />

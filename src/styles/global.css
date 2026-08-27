@@ -837,6 +837,67 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   font-variant-numeric: tabular-nums;
 }
 
+/* Compact one-line capture sitting directly under the still image, so the
+   masterclass can be started without scrolling to the #signup section. */
+.mc-inline-capture {
+  max-width: 640px;
+  /* Pull up against .masterclass-still's space-8 bottom margin so the form
+     reads as attached to the image. Scoped here — labs.astro reuses .masterclass-still. */
+  margin: calc(var(--space-4) - var(--space-8)) auto var(--space-8);
+}
+
+.mc-inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.mc-inline-form input {
+  flex: 1 1 16rem;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  min-height: 44px;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.mc-inline-form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.mc-inline-form button {
+  flex: 0 0 auto;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* Below ~480px the pair no longer fits on one line — stack full width. */
+@media (max-width: 30rem) {
+  .mc-inline-form input,
+  .mc-inline-form button { flex: 1 1 100%; }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .masterclass-bullets {
   padding-left: 1.25rem;
   display: flex;
