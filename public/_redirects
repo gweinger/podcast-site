@@ -62,3 +62,75 @@
 /il/69 /podcast/introverted-leader/how-your-brains-habits-become-your-destiny-a-neuroscientists-guide-for-sensitive-introverts/ 301
 /il/77 /podcast/introverted-leader/salvatore-manzi/ 301
 /il/67 /podcast/introverted-leader/the-corporate-introvert-from-mistyped-to-mastered/ 301
+
+# Shared blurbs put the bare URL right before a closing quote, so anyone
+# copy-pasting drags the punctuation into the link. GA4 logged 3 sessions on
+# /labs%E2%80%9D (curly close quote) on 2026-08-25, all 404s, from the guest
+# forward-requests sent 2026-08-25. Enumerated rather than a /labs* splat,
+# which would also swallow /labs/thank-you and /labs/feedback-thank-you.
+# Both literal and percent-encoded forms, since the matcher's normalization
+# of non-ASCII paths isn't something we control.
+
+/labs”  /labs/  301
+/labs%E2%80%9D  /labs/  301
+/labs“  /labs/  301
+/labs%E2%80%9C  /labs/  301
+/labs"  /labs/  301
+/labs%22  /labs/  301
+/labs’  /labs/  301
+/labs%E2%80%99  /labs/  301
+/labs‘  /labs/  301
+/labs%E2%80%98  /labs/  301
+/labs'  /labs/  301
+/labs%27  /labs/  301
+/labs.  /labs/  301
+/labs,  /labs/  301
+/labs%2C  /labs/  301
+/labs)  /labs/  301
+/labs%29  /labs/  301
+/labs]  /labs/  301
+/labs%5D  /labs/  301
+/labs.”  /labs/  301
+/labs.%E2%80%9D  /labs/  301
+/labs”.  /labs/  301
+/labs%E2%80%9D.  /labs/  301
+/labs,”  /labs/  301
+/labs%2C%E2%80%9D  /labs/  301
+/labs”,  /labs/  301
+/labs%E2%80%9D%2C  /labs/  301
+/labs".  /labs/  301
+/labs%22.  /labs/  301
+/labs."  /labs/  301
+/labs.%22  /labs/  301
+
+/masterclass”  /masterclass/  301
+/masterclass%E2%80%9D  /masterclass/  301
+/masterclass“  /masterclass/  301
+/masterclass%E2%80%9C  /masterclass/  301
+/masterclass"  /masterclass/  301
+/masterclass%22  /masterclass/  301
+/masterclass’  /masterclass/  301
+/masterclass%E2%80%99  /masterclass/  301
+/masterclass‘  /masterclass/  301
+/masterclass%E2%80%98  /masterclass/  301
+/masterclass'  /masterclass/  301
+/masterclass%27  /masterclass/  301
+/masterclass.  /masterclass/  301
+/masterclass,  /masterclass/  301
+/masterclass%2C  /masterclass/  301
+/masterclass)  /masterclass/  301
+/masterclass%29  /masterclass/  301
+/masterclass]  /masterclass/  301
+/masterclass%5D  /masterclass/  301
+/masterclass.”  /masterclass/  301
+/masterclass.%E2%80%9D  /masterclass/  301
+/masterclass”.  /masterclass/  301
+/masterclass%E2%80%9D.  /masterclass/  301
+/masterclass,”  /masterclass/  301
+/masterclass%2C%E2%80%9D  /masterclass/  301
+/masterclass”,  /masterclass/  301
+/masterclass%E2%80%9D%2C  /masterclass/  301
+/masterclass".  /masterclass/  301
+/masterclass%22.  /masterclass/  301
+/masterclass."  /masterclass/  301
+/masterclass.%22  /masterclass/  301
