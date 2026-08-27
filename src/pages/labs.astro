@@ -25,10 +25,20 @@ const SESSIONS = [
     time: '8:00am PT / 11:00am ET',
     status: 'Registration open',
   },
-  { number: 2, topic: 'Inner Knowing', date: 'September 2026', time: null, status: null },
-  { number: 3, topic: 'Discomfort', date: 'September 2026', time: null, status: null },
-  { number: 4, topic: 'Visibility', date: 'October 2026', time: null, status: null },
+  {
+    number: 2,
+    topic: 'Inner Knowing',
+    date: 'Friday, September 25, 2026',
+    time: '8:00am PT / 11:00am ET',
+    status: null,
+  },
+  { number: 3, topic: 'Discomfort', date: 'October 2026', time: null, status: null },
+  { number: 4, topic: 'Visibility', date: 'November 2026', time: null, status: null },
 ];
+// Bump to SESSIONS[1] after Lab #1 runs (Aug 28) so the hero, the bottom CTA,
+// and the feedback heading all roll forward to Inner Knowing. Lab #2 also needs
+// its own Zoom link + LAB2 entry in lib/lab-schedule.ts before thank-you.astro
+// can hand out a working calendar invite.
 const nextSession = SESSIONS[0];
 ---
 <Base
