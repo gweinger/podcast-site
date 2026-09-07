@@ -17,7 +17,7 @@ painPoints:
 - 1
 - 10
 urls:
-  youtube: https://youtu.be/wPKNLV4JCFA
+  youtube: https://youtu.be/ga7Vsjvao0E
   apple: https://podcasts.apple.com/us/podcast/65-nature-therapy-for-introverts-how-to-recharge-think/id1794604735?i=1000767107054&uo=4
   spotify: https://open.spotify.com/episode/2VAa9Z5BUCWVRx7VBWrkjj
   substack: https://www.powerfulintrovertpodcast.com/p/theres-no-such-thing-as-bad-weather

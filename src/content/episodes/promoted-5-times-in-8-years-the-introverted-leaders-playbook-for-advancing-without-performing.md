@@ -18,7 +18,8 @@ painPoints:
 - 6
 - 3
 - 5
-urls: {}
+urls:
+  youtube: https://youtu.be/uqn8NCQfe6M
 pullQuotes:
 - I watched a louder colleague get credit for work I had done in silence. That was
   the day I decided silence wasn't a virtue anymore — strategy was.
