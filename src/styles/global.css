@@ -176,13 +176,13 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   align-items: center;
   justify-content: space-between;
 }
-.footer-nav, .footer-social { display: flex; flex-wrap: wrap; gap: var(--space-4); }
-.footer-nav a, .footer-social a {
+.footer-nav, .footer-social, .footer-legal { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+.footer-nav a, .footer-social a, .footer-legal a {
   color: var(--color-text-muted);
   font-size: var(--text-sm);
   text-decoration: none;
 }
-.footer-nav a:hover, .footer-social a:hover { color: var(--color-accent); }
+.footer-nav a:hover, .footer-social a:hover, .footer-legal a:hover { color: var(--color-accent); }
 .footer-copy { font-size: var(--text-sm); color: var(--color-text-muted); }
 
 /* ============================================================
