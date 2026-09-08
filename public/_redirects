@@ -1,3 +1,14 @@
+# The Leadership Labs were retired 2026-09-07. These URLs must never 404 —
+# /labs is in the show-notes footer of all 81 podcast episodes, in published
+# YouTube descriptions, and in already-sent Kit email. Query strings (the
+# utm_content=labs tag) are preserved by Cloudflare, so labs-tagged clicks
+# stay attributable after they land on /masterclass.
+/labs /masterclass 301
+/labs/ /masterclass 301
+/labs/thank-you /masterclass 301
+/labs/feedback-thank-you /masterclass 301
+/labs/* /masterclass 301
+
 /il/63 /podcast/introverted-leader/trust-your-inner-knowing-the-introverts-hidden-leadership-superpower/ 301
 /il/79 /podcast/introverted-leader/cara-lai/ 301
 /il/74 /podcast/introverted-leader/caverly-morgan/ 301
