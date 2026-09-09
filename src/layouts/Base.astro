@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
-import { LINKS } from '../lib/links';
 interface Props { title: string; description?: string; canonical?: string; minimalHeader?: boolean; }
 const { title, description = '', canonical, minimalHeader = false } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
@@ -35,7 +34,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
   <body>
     {!minimalHeader && (
       <div class="announcement-bar">
-        Join the movement of introverted professionals on <a href={LINKS.newsletter}>my Substack</a>
+        Everything you've been told about getting ahead as an introvert is wrong. → <a href="/masterclass">Free masterclass</a>
       </div>
     )}
     <header class="site-header">
