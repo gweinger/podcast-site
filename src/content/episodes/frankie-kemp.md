@@ -24,6 +24,7 @@ urls:
   youtube: https://youtu.be/wLA42etkfuE
   apple: https://podcasts.apple.com/us/podcast/83-executive-presence-for-introverts-how-to-lead-without/id1794604735?i=1000789504096&uo=4
   spotify: https://open.spotify.com/episode/2qadQb3OitGZmPCTeFwCJx
+  substack: https://www.powerfulintrovertpodcast.com/p/executive-presence-without-the-performance?r=a9xh8
 pullQuotes:
 - You are trying to be the corporate bod, but you are completely denying your own
   self-expression.
