@@ -25,6 +25,7 @@ urls:
   youtube: https://youtu.be/M5tGF--4rKg
   substack: https://www.powerfulintrovertpodcast.com/p/public-speaking-anxiety-from-a-panic?r=a9xh8
   apple: https://podcasts.apple.com/us/podcast/84-public-speaking-anxiety-from-panic-attack-on-air/id1794604735?i=1000790892053&uo=4
+  spotify: https://open.spotify.com/episode/5D2i7mEbdCz858L0RpCxn6
 pullQuotes:
 - my natural tendency is to be an introvert that I've had to train to be an extrovert
 - The anxiety that you're projecting onto a situation that causes, you know, this
