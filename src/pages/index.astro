@@ -5,6 +5,7 @@ import Base from '../layouts/Base.astro';
 import HomeSchema from '../components/HomeSchema.astro';
 import { recentEpisodes, interviewCount } from '../lib/episodes';
 import { collageFor } from '../lib/headshots';
+import { LINKS } from '../lib/links';
 import type { EpisodeLike } from '../lib/pillars';
 import '../styles/home.css';
 
@@ -46,6 +47,48 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
       </div>
       <div class="hero-figure">
         <img class="hero-cutout" src="/headshot-cutout.webp" alt="Greg Weinger" width="900" height="900" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white">
+    <div class="band-inner">
+      <div class="band-head">
+        <p class="eyebrow">Start here — free</p>
+        <h2 class="band-title">Two ways to start.</h2>
+      </div>
+      <div class="start-grid">
+        <article class="start-card start-card--dark on-dark">
+          <img class="start-card-img" src="/masterclass-still.webp" alt="Greg Weinger teaching the free masterclass" width="440" height="248" loading="lazy" />
+          <p class="eyebrow">Free masterclass · ~30 min</p>
+          <h3>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h3>
+          <p>The 3 Moments That Determine Advancement — a visibility framework built on preparation, not performance.</p>
+          <a class="btn-gold" href="/masterclass">Watch it free →</a>
+        </article>
+        <article class="start-card start-card--light">
+          <p class="eyebrow">Weekly newsletter</p>
+          <h3>Quiet-strength leadership in your inbox</h3>
+          <p>Join the newsletter for introverted leaders who want to rise without becoming someone else.</p>
+          <a class="btn-primary" href={LINKS.newsletter}>Subscribe on Substack</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--light">
+    <div class="band-inner">
+      <div class="about-head">
+        <img class="about-head-img" src="/greg-weinger.webp" alt="Greg Weinger" width="128" height="128" loading="lazy" />
+        <div>
+          <p class="eyebrow">Greg Weinger</p>
+          <h2 class="band-title">I've spent <span class="hl">25 years</span> in leadership — as an introvert.</h2>
+        </div>
+      </div>
+      <div class="about-cols">
+        <p>For most of my career I assumed those two things didn't go together. The companies I encountered seemed to reward the loudest voice, the fastest answer, and effortless charisma — so I spent years performing a version of leadership that wasn't mine.</p>
+        <p>What I eventually learned is that the traits I'd treated as liabilities were where my best leadership came from — the listening, the writing, the thoughtful question that changes the conversation.</p>
+        <p>I started <em>The Introverted Leader</em> to have the conversations I wish I'd had earlier: with researchers, coaches, and leaders who've figured out how to rise without becoming someone else.</p>
+        <p><a href="/about">More about Greg →</a></p>
       </div>
     </div>
   </section>
