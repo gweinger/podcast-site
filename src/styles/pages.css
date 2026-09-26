@@ -70,7 +70,9 @@
 }
 
 /* ---------- Contact ---------- */
-.contact-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-8); align-items: start; }
+/* Sidebar left, form right on desktop; DOM keeps the form first so phones see it first. */
+.contact-side { order: -1; }
 .contact-card {
   padding: var(--space-8);
   background: var(--color-bg);
@@ -79,14 +81,15 @@
 }
 .contact-card h2 { margin-top: 0; }
 .contact-card .contact-form { max-width: none; }
-.contact-side .contact-reasons { margin: 0 0 var(--space-8); }
-.contact-side .link-buttons { justify-content: flex-start; }
+.contact-side .contact-reasons { margin: 0; }
+.contact-side .link-buttons { justify-content: flex-start; margin-bottom: var(--space-8); }
 
 @media (max-width: 900px) {
   .topic-hub-grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
   .topic-hub-grid2, .contact-grid { grid-template-columns: 1fr; }
+  .contact-side { order: 0; }
   .about-hero-portrait { width: 140px; height: 140px; }
   .belief-card, .contact-card { padding: var(--space-6); }
 }
