@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { recentEpisodes } from './episodes';
+import { recentEpisodes, interviewCount, cardImage, listenLinks, guestName, SHOW_COVER } from './episodes';
 import type { EpisodeLike } from './pillars';
 
 const ep = (over: Partial<EpisodeLike['data']>): EpisodeLike => ({
@@ -44,5 +44,63 @@ describe('recentEpisodes', () => {
   it('returns all available when fewer than n exist', () => {
     const out = recentEpisodes([ep({ slug: 'only', episode: 1 })], 6);
     expect(out).toHaveLength(1);
+  });
+});
+
+describe('interviewCount', () => {
+  it('counts interviews and ignores minisodes', () => {
+    const eps = [
+      ep({ status: 'interview' }),
+      ep({ status: 'minisode' }),
+      ep({ status: 'interview' }),
+    ];
+    expect(interviewCount(eps)).toBe(2);
+  });
+});
+
+describe('cardImage', () => {
+  it('prefers the guest headshot', () => {
+    const e = ep({ guest: 'Claire Alvis', thumbnail: '/episode-covers/x.png' });
+    expect(cardImage(e, ['claire-alvis.jpg'])).toBe('/headshots/claire-alvis.jpg');
+  });
+
+  it('falls back to the episode thumbnail', () => {
+    const e = ep({ guest: 'No Photo', thumbnail: '/episode-covers/x.png' });
+    expect(cardImage(e, ['someone-else.jpg'])).toBe('/episode-covers/x.png');
+  });
+
+  it('falls back to the show cover when there is neither', () => {
+    const e = ep({ guest: 'No Photo' });
+    expect(cardImage(e, [])).toBe(SHOW_COVER);
+    expect(SHOW_COVER).toBe('/show-cover.jpg');
+  });
+});
+
+describe('listenLinks', () => {
+  const fallback = { apple: 'https://apple/show', spotify: 'https://spotify/show' };
+
+  it('uses the episode URLs when present', () => {
+    const e = ep({ urls: { apple: 'https://apple/ep', spotify: 'https://spotify/ep' } });
+    expect(listenLinks(e, fallback)).toEqual({ apple: 'https://apple/ep', spotify: 'https://spotify/ep' });
+  });
+
+  it('falls back per platform when an episode URL is missing', () => {
+    const e = ep({ urls: { apple: 'https://apple/ep' } });
+    expect(listenLinks(e, fallback)).toEqual({ apple: 'https://apple/ep', spotify: 'https://spotify/show' });
+  });
+
+  it('falls back entirely when urls is absent', () => {
+    expect(listenLinks(ep({}), fallback)).toEqual(fallback);
+  });
+});
+
+describe('guestName', () => {
+  it('drops a parenthetical descriptor', () => {
+    expect(guestName('Claire Alvis (founder of X)')).toBe('Claire Alvis');
+  });
+
+  it('keeps credentials and plain names intact', () => {
+    expect(guestName('David Rosmarin, PhD')).toBe('David Rosmarin, PhD');
+    expect(guestName('Bushra Khan')).toBe('Bushra Khan');
   });
 });

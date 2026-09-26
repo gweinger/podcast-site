@@ -43,6 +43,7 @@ export interface EpisodeLike {
     pillarSecondary?: Pillar;
     thumbnail?: string;
     publishDate?: Date;
+    urls?: { apple?: string; spotify?: string };
   };
 }
 
