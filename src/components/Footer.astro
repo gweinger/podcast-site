@@ -1,23 +1,22 @@
 ---
 import { LINKS } from '../lib/links';
+import { NAV } from '../lib/nav';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
-  <div class="container">
-    <nav class="footer-nav">
-      <a href="/podcast/introverted-leader/">Podcast</a>
-      <a href="/topics/">Topics</a>
-      <a href="/about">About</a>
-      <a href="/contact/">Contact</a>
+  <div class="footer-inner">
+    <a class="brand" href="/">Greg Weinger</a>
+    <nav class="footer-nav" aria-label="Footer">
+      {NAV.map((n) => <a href={n.href}>{n.label}</a>)}
     </nav>
-    <nav class="footer-social">
+    <nav class="footer-social" aria-label="Social">
       <a href={LINKS.linkedin}>LinkedIn</a>
       <a href={LINKS.substack}>Substack</a>
       <a href={LINKS.apple}>Apple</a>
       <a href={LINKS.spotify}>Spotify</a>
       <a href={LINKS.youtube}>YouTube</a>
     </nav>
-    <nav class="footer-legal">
+    <nav class="footer-legal" aria-label="Legal">
       <a href="/privacy/">Privacy</a>
       <a href="/terms/">Terms</a>
     </nav>

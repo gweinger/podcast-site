@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import { NAV, isCurrent } from '../lib/nav';
 interface Props { title: string; description?: string; canonical?: string; minimalHeader?: boolean; }
 const { title, description = '', canonical, minimalHeader = false } = Astro.props;
+const path = Astro.url.pathname;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 ---
 <!doctype html>
@@ -32,21 +34,18 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     </script>
   </head>
   <body>
-    {!minimalHeader && (
-      <div class="announcement-bar">
-        Everything you've been told about getting ahead as an introvert is wrong. → <a href="/masterclass">Free masterclass</a>
-      </div>
-    )}
     <header class="site-header">
-      <div class="container">
+      <div class="header-inner">
         <a class="brand" href="/">Greg Weinger</a>
         {!minimalHeader && (
-          <nav>
-            <a href="/podcast/introverted-leader/">Podcast</a>
-            <a href="/topics/">Topics</a>
-            <a href="/about">About</a>
-            <a href="/contact/">Contact</a>
-          </nav>
+          <>
+            <nav class="nav-pill" aria-label="Main">
+              {NAV.map((n) => (
+                <a href={n.href} aria-current={isCurrent(path, n.href) ? 'page' : undefined}>{n.label}</a>
+              ))}
+            </nav>
+            <a class="btn-gold header-cta" href="/masterclass">Free Masterclass</a>
+          </>
         )}
       </div>
     </header>
