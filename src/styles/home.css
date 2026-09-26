@@ -252,7 +252,7 @@
 }
 @media (max-width: 600px) {
   .guest-grid, .topic-grid { grid-template-columns: 1fr; }
-  .guest-card { aspect-ratio: 4 / 3; }
+  .guest-card { aspect-ratio: 1 / 1; }
   .latest-bar-platforms { flex: 1 1 100%; flex-direction: row; }
   .latest-bar-platforms a { flex: 1; }
 }
