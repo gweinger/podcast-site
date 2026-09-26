@@ -44,6 +44,7 @@ export interface EpisodeLike {
     thumbnail?: string;
     publishDate?: Date;
     urls?: { apple?: string; spotify?: string };
+    summary?: string;
   };
 }
 

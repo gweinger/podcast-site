@@ -1,0 +1,27 @@
+/* ============================================================
+   Page bands — full-bleed sections, content at --maxw-wide
+   Shared by the homepage and the podcast index.
+   ============================================================ */
+.band { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.band--dark { background: var(--color-band-dark); color: var(--color-on-dark-muted); }
+.band--light { background: var(--color-band-light); }
+.band--white { background: var(--color-bg); }
+.band--dark h1, .band--dark h2, .band--dark h3 { color: var(--color-on-dark); }
+.band-inner { max-width: var(--maxw-wide); margin: 0 auto; padding: 0 var(--space-6); }
+.band-head { text-align: center; }
+.band-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  line-height: 1.15;
+  margin: 0 0 var(--space-8);
+}
+.band-head-split {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+.band-head-split .band-title { margin: 0; }
+.band-link { font-weight: 600; text-decoration: none; }
+.band-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }

@@ -1,8 +1,13 @@
 ---
+import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SeriesSchema from '../../../components/SeriesSchema.astro';
-import { topicSlugForPillar } from '../../../lib/pillars';
+import { topicSlugForPillar, type EpisodeLike } from '../../../lib/pillars';
+import { recentEpisodes, cardImage, guestName, SHOW_COVER } from '../../../lib/episodes';
+import { LINKS } from '../../../lib/links';
+import '../../../styles/bands.css';
+import '../../../styles/podcast.css';
 
 const episodes = (await getCollection('episodes')).sort((a, b) => {
   const da = a.data.publishDate ? a.data.publishDate.getTime() : 0;
@@ -10,6 +15,12 @@ const episodes = (await getCollection('episodes')).sort((a, b) => {
   if (da !== db) return db - da;
   return b.data.episode - a.data.episode;
 });
+const topicCount = (await getCollection('topics')).length;
+const headshotFiles = fs
+  .readdirSync('public/headshots')
+  .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
+const latest = recentEpisodes(episodes as unknown as EpisodeLike[], 1)[0];
+const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
 
 const schemaEpisodes = episodes.map((e) => ({
   title: e.data.title,
@@ -18,41 +29,108 @@ const schemaEpisodes = episodes.map((e) => ({
 ---
 <Base title="The Introverted Leader — Podcast" description="Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.">
   <SeriesSchema slot="head" episodes={schemaEpisodes} />
-  <div class="container">
-  <img src="/The-Introverted-Leader-Podcast-Cover.png" alt="The Introverted Leader Podcast" class="podcast-cover-img" />
-  <h1>The Introverted Leader</h1>
-  <p>Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.</p>
-  <div class="platform-buttons">
-    <a href="https://podcasts.apple.com/us/podcast/id1794604735">Apple Podcasts</a>
-    <a href="https://open.spotify.com/show/5Sv8RRa1sn6uMVM0yiPIM1">Spotify</a>
-    <a href="https://www.youtube.com/@powerfulintrovert">YouTube</a>
-    <a href="https://www.powerfulintrovertpodcast.com/">Newsletter</a>
-  </div>
 
-  <input id="ep-search" type="search" placeholder="Search episodes…" class="ep-search" />
-
-  <ul class="episode-list" id="ep-list">
-    {episodes.map((e) => (
-      <li class="episode-item" data-search={`#${e.data.episode} ${e.data.title} ${e.data.guest} ${e.data.pillarPrimary}`.toLowerCase()}>
-        {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
-        <div>
-          <a href={`/podcast/introverted-leader/${e.data.slug}/`}><strong>#{e.data.episode} {e.data.title}</strong></a>
-          <div class="ep-meta">{e.data.guest}</div>
-          <a class="pillar-badge" href={`/topics/${topicSlugForPillar(e.data.pillarPrimary)}/`}>{e.data.pillarPrimary}</a>
+  <section class="band band--dark on-dark show-hero">
+    <div class="band-inner show-hero-grid">
+      <img class="show-cover" src="/The-Introverted-Leader-Podcast-Cover.png" alt="The Introverted Leader Podcast" width="360" height="360" />
+      <div>
+        <p class="eyebrow">The podcast</p>
+        <h1 class="show-title">The Introverted Leader</h1>
+        <p class="show-lead">Helping introverted leaders embrace their quiet strengths to get promoted and earn what they deserve.</p>
+        <div class="band-actions">
+          <a class="btn-primary" href={LINKS.apple}>Apple Podcasts</a>
+          <a class="btn-primary" href={LINKS.spotify}>Spotify</a>
+          <a class="btn-outline-light" href={LINKS.youtube}>YouTube</a>
+          <a class="btn-outline-light" href={LINKS.newsletter}>Newsletter</a>
         </div>
-      </li>
-    ))}
-  </ul>
+        <p class="show-stats">{episodes.length} episodes · {topicCount} topics</p>
+      </div>
+    </div>
+  </section>
 
-  <script is:inline>
-    const input = document.getElementById('ep-search');
-    const items = Array.from(document.querySelectorAll('.episode-item'));
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
+  {latest && (
+    <section class="band band--white">
+      <div class="band-inner">
+        <a class="latest-feature" href={epHref(latest.data.slug)}>
+          <img class="latest-feature-img" src={cardImage(latest, headshotFiles)} alt="" loading="lazy" />
+          <div class="latest-feature-body">
+            <p class="eyebrow">Latest episode · #{latest.data.episode}</p>
+            <h2 class="latest-feature-title">{latest.data.title}</h2>
+            <p class="latest-feature-guest">with {guestName(latest.data.guest)}</p>
+            <p class="latest-feature-summary">{latest.data.summary}</p>
+            <span class="pillar-badge">{latest.data.pillarPrimary}</span>
+            <span class="btn-gold latest-feature-cta">Listen →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <section class="band band--light">
+    <div class="band-inner">
+      <div class="band-head-split">
+        <div>
+          <p class="eyebrow">Every conversation</p>
+          <h2 class="band-title">All episodes.</h2>
+        </div>
+        <input id="ep-search" type="search" placeholder="Search by guest, title, or topic…" class="ep-search ep-search--band" aria-label="Search episodes" />
+      </div>
+
+      <ul class="ep-grid" id="ep-list">
+        {episodes.map((e) => (
+          <li class="ep-card-item" data-search={`#${e.data.episode} ${e.data.title} ${e.data.guest} ${e.data.pillarPrimary}`.toLowerCase()}>
+            <a class="ep-card" href={epHref(e.data.slug)}>
+              <span class="ep-card-art">
+                <img src={e.data.thumbnail ?? SHOW_COVER} alt="" loading="lazy" />
+                {e.data.status === 'minisode' && <span class="ep-card-tag">Minisode</span>}
+              </span>
+              <span class="ep-card-body">
+                <span class="ep-card-num">#{e.data.episode}</span>
+                <strong class="ep-card-title">{e.data.title}</strong>
+                <span class="ep-card-guest">{guestName(e.data.guest)}</span>
+              </span>
+            </a>
+            <a class="pillar-badge ep-card-pillar" href={`/topics/${topicSlugForPillar(e.data.pillarPrimary)}/`}>{e.data.pillarPrimary}</a>
+          </li>
+        ))}
+      </ul>
+      <p class="ep-empty" id="ep-empty" hidden>No episodes match. <button type="button" id="ep-clear" class="ep-clear">Clear search</button></p>
+    </div>
+  </section>
+
+  <section class="band band--white">
+    <div class="band-inner band-head">
+      <p class="eyebrow">Weekly newsletter</p>
+      <h2 class="band-title">Get the one idea from every episode in your inbox.</h2>
+      <div class="band-actions show-closing-actions">
+        <a class="btn-gold" href={LINKS.newsletter}>Subscribe on Substack</a>
+        <a class="btn-secondary" href="/masterclass">Watch the masterclass →</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import { matchesQuery } from '../../../lib/search';
+
+    const input = document.getElementById('ep-search') as HTMLInputElement;
+    const empty = document.getElementById('ep-empty') as HTMLElement;
+    const clear = document.getElementById('ep-clear') as HTMLButtonElement;
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.ep-card-item'));
+
+    const apply = () => {
+      let shown = 0;
       for (const li of items) {
-        li.style.display = !q || li.dataset.search.includes(q) ? '' : 'none';
+        const hit = matchesQuery(li.dataset.search ?? '', input.value);
+        li.hidden = !hit;
+        if (hit) shown++;
       }
+      empty.hidden = shown > 0;
+    };
+    input.addEventListener('input', apply);
+    clear.addEventListener('click', () => {
+      input.value = '';
+      apply();
+      input.focus();
     });
   </script>
-  </div>
 </Base>
