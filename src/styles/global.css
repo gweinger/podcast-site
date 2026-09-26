@@ -19,6 +19,15 @@
   --color-bg:            #FFFFFF;
   --color-surface:       #F4F9FD;
 
+  /* Band colors (homepage + site chrome) */
+  --color-band-dark:        var(--brand-navy);
+  --color-band-light:       #EEF3F9;
+  --color-on-dark:          #FFFFFF;
+  --color-on-dark-muted:    rgba(255, 255, 255, 0.75);
+  /* Highlighted phrase + eyebrow color: yellow on dark, blue on light (contrast) */
+  --color-highlight-dark:   var(--brand-gold);
+  --color-highlight-light:  var(--brand-blue);
+
   /* Typography */
   --font-display: 'Jost', Helvetica, Arial, Lucida, sans-serif;
   --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -52,6 +61,7 @@
 
   /* Layout */
   --maxw: 720px;
+  --maxw-wide: 1120px;
 }
 
 /* ============================================================
@@ -188,7 +198,7 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 /* ============================================================
    Buttons
    ============================================================ */
-.btn-primary, .btn-secondary, .btn-gold {
+.btn-primary, .btn-secondary, .btn-gold, .btn-outline-light {
   display: inline-block;
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-md);
@@ -216,6 +226,11 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   font-weight: 700;
 }
 .btn-gold:hover { background: #e0a400; color: var(--brand-navy); }
+.btn-outline-light {
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: var(--color-on-dark);
+}
+.btn-outline-light:hover { border-color: var(--color-on-dark); color: var(--color-on-dark); }
 
 /* ============================================================
    Cards
@@ -1039,3 +1054,18 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   .hero-cta { justify-content: flex-start; }
   .hero-cta a { flex: 0 0 auto; }
 }
+
+/* ============================================================
+   Eyebrow labels + highlighted phrases (light default, dark override)
+   ============================================================ */
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-highlight-light);
+  margin: 0 0 var(--space-3);
+}
+.hl { color: var(--color-highlight-light); }
+.on-dark .eyebrow, .on-dark .hl { color: var(--color-highlight-dark); }
