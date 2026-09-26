@@ -1,61 +1,67 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
 import { LINKS } from '../lib/links';
+import '../styles/pages.css';
 ---
 <Base
   title="Contact — Greg Weinger"
   description="Get in touch with Greg Weinger — podcast guest inquiries, speaking, media, or just to connect."
 >
-  <div class="container">
+  <PageHero
+    eyebrow="Contact"
+    title="Let's talk."
+    lead="Got a guest idea, a question about the show, or just want to connect? Fill out the form below and I'll get back to you."
+  />
 
-    <h1>Contact</h1>
-    <p class="lead">Got a guest idea, a question about the show, or just want to connect? Fill out the form below and I'll get back to you.</p>
+  <section class="band band--light">
+    <div class="band-inner contact-grid">
+      <section class="contact-card">
+        <h2>Send me a message</h2>
 
-    <ul class="contact-reasons">
-      <li>Podcast guest pitches</li>
-      <li>Speaking &amp; media inquiries</li>
-      <li>Feedback on the show or newsletter</li>
-      <li>Anything else</li>
-    </ul>
-
-    <section class="contact-form-section">
-      <h2>Send me a message</h2>
-
-      <div id="contact-success" class="contact-success" style="display:none">
-        <p>Message sent — I'll get back to you soon.</p>
-      </div>
-
-      <div id="contact-error" class="contact-error" style="display:none"></div>
-
-      <form id="contact-form" class="contact-form">
-        <div class="form-field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name" />
+        <div id="contact-success" class="contact-success" style="display:none">
+          <p>Message sent — I'll get back to you soon.</p>
         </div>
-        <div class="form-field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <div class="form-field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required rows="6" placeholder="What's on your mind?"></textarea>
-        </div>
-        <button type="submit" class="btn-primary contact-submit">Send message</button>
-      </form>
-    </section>
 
-    <section class="contact-connect">
-      <h2>Or find me here</h2>
-      <div class="platform-buttons">
-        <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href={LINKS.substack} target="_blank" rel="noopener noreferrer">Substack</a>
-        <a href={LINKS.apple} target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
-        <a href={LINKS.spotify} target="_blank" rel="noopener noreferrer">Spotify</a>
-        <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
-      </div>
-    </section>
+        <div id="contact-error" class="contact-error" style="display:none"></div>
 
-  </div>
+        <form id="contact-form" class="contact-form">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required rows="6" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary contact-submit">Send message</button>
+        </form>
+      </section>
+
+      <aside class="contact-side">
+        <h2 class="eyebrow">What I hear about</h2>
+        <ul class="contact-reasons">
+          <li>Podcast guest pitches</li>
+          <li>Speaking &amp; media inquiries</li>
+          <li>Feedback on the show or newsletter</li>
+          <li>Anything else</li>
+        </ul>
+
+        <h2 class="eyebrow">Or find me here</h2>
+        <div class="band-actions link-buttons">
+          <a class="btn-secondary" href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn-secondary" href={LINKS.substack} target="_blank" rel="noopener noreferrer">Substack</a>
+          <a class="btn-secondary" href={LINKS.apple} target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+          <a class="btn-secondary" href={LINKS.spotify} target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a class="btn-secondary" href={LINKS.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </aside>
+    </div>
+  </section>
 
   <script is:inline>
     const form = document.getElementById('contact-form');

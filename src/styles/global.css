@@ -167,8 +167,9 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
   color: var(--color-on-dark-muted);
   margin-top: var(--space-12);
 }
-/* Homepage ends on a dark band: no gap, hairline divider instead. */
-main:has(.home) + .site-footer { margin-top: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+/* Pages that end on a full-bleed band: no white gap above the footer. */
+main:has(.home) + .site-footer,
+main:has(> section.band:last-of-type) + .site-footer { margin-top: 0; }
 .footer-inner {
   max-width: var(--maxw-wide);
   margin: 0 auto;

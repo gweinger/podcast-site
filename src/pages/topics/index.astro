@@ -1,7 +1,11 @@
 ---
+import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
 import { PILLARS, partitionEpisodes, type EpisodeLike } from '../../lib/pillars';
+import { collageFor } from '../../lib/headshots';
+import '../../styles/pages.css';
 
 const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order);
 
@@ -11,28 +15,49 @@ if (topics.length !== PILLARS.length) {
 }
 
 const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
-const counts = new Map<string, number>();
+const headshotFiles = fs
+  .readdirSync('public/headshots')
+  .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
+const stats = new Map<string, { count: number; faces: { name: string; url: string }[] }>();
 for (const t of topics) {
   const { core, secondary, minisodes } = partitionEpisodes(allEpisodes, t.data.pillar);
-  counts.set(t.data.slug, core.length + secondary.length + minisodes.length);
+  stats.set(t.data.slug, {
+    count: core.length + secondary.length + minisodes.length,
+    faces: collageFor([...core, ...secondary], headshotFiles, 5),
+  });
 }
 ---
 <Base title="Topics — Greg Weinger" description="Browse Greg Weinger's writing and podcast conversations by topic: imposter syndrome, speaking up, visibility, executive presence, energy, and promotion for introverted leaders.">
-  <div class="container">
-  <h1>Topics</h1>
-  <p>The themes behind The Introverted Leader — each with the conversations and resources that go deepest on it.</p>
+  <PageHero
+    eyebrow="Explore by topic"
+    title="Topics"
+    lead="The themes behind The Introverted Leader — each with the conversations and resources that go deepest on it."
+  />
 
-  <div class="card-grid topic-hub-grid">
-    {topics.map((t) => (
-      <a class="card topic-hub-card" href={`/topics/${t.data.slug}/`}>
-        <h2 class="topic-hub-name">{t.data.navLabel ?? t.data.title}</h2>
-        <p class="topic-meta">{t.data.metaDescription}</p>
-        <div class="topic-hub-chips">
-          {t.data.painChips.map((c) => <span class="pain-chip">{c}</span>)}
-        </div>
-        <span class="topic-hub-count">{counts.get(t.data.slug)} episodes</span>
-      </a>
-    ))}
-  </div>
-  </div>
+  <section class="band band--light">
+    <div class="band-inner">
+      <div class="topic-hub-grid2">
+        {topics.map((t) => {
+          const s = stats.get(t.data.slug)!;
+          return (
+            <a class="topic-hub-card2" href={`/topics/${t.data.slug}/`}>
+              <h2 class="topic-hub-card2-name">{t.data.navLabel ?? t.data.title}</h2>
+              <p class="topic-hub-card2-desc">{t.data.metaDescription}</p>
+              <div class="topic-hub-chips">
+                {t.data.painChips.map((c) => <span class="pain-chip">{c}</span>)}
+              </div>
+              <div class="topic-hub-card2-foot">
+                {s.faces.length > 0 && (
+                  <span class="face-row">
+                    {s.faces.map((f) => <img src={f.url} alt="" width="32" height="32" loading="lazy" />)}
+                  </span>
+                )}
+                <span class="topic-hub-card2-count">{s.count} episodes →</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
 </Base>

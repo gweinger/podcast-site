@@ -1,0 +1,19 @@
+---
+// Compact navy header band for inner pages: eyebrow, h1, optional lead,
+// optional right-hand visual via the "aside" slot. One per page.
+import '../styles/bands.css';
+interface Props { eyebrow: string; title: string; lead?: string; }
+const { eyebrow, title, lead } = Astro.props;
+const hasAside = Astro.slots.has('aside');
+---
+<section class="band band--dark on-dark page-hero">
+  <div class:list={['band-inner', 'page-hero-grid', { 'page-hero-grid--aside': hasAside }]}>
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="page-hero-title">{title}</h1>
+      {lead && <p class="page-hero-lead">{lead}</p>}
+      <slot />
+    </div>
+    {hasAside && <div class="page-hero-aside"><slot name="aside" /></div>}
+  </div>
+</section>

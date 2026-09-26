@@ -25,3 +25,15 @@
 .band-head-split .band-title { margin: 0; }
 .band-link { font-weight: 600; text-decoration: none; }
 .band-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+/* ---------- Compact inner-page header (PageHero.astro) ---------- */
+.page-hero { padding: clamp(2.5rem, 6vw, 4rem) 0; }
+.page-hero-grid--aside { display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; }
+.page-hero-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.1; margin: 0 0 var(--space-3); }
+.page-hero-lead { font-size: var(--text-lg); color: var(--color-on-dark-muted); max-width: 40rem; margin: 0; }
+@media (max-width: 720px) {
+  .page-hero-grid--aside { grid-template-columns: 1fr; }
+}
+
+/* Narrow reading column inside a wide band. */
+.band-read { max-width: var(--maxw); }

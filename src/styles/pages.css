@@ -1,0 +1,92 @@
+/* Inner pages built on bands: Topics index, About, Contact.
+   Band scaffold + PageHero styles live in bands.css. */
+
+/* ---------- Shared ---------- */
+.prose p { margin: 0 0 var(--space-4); }
+.prose p:last-child { margin-bottom: 0; }
+.link-buttons { justify-content: center; }
+.face-row { display: inline-flex; }
+.face-row img {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 2px solid #fff;
+  margin-left: -8px;
+}
+.face-row img:first-child { margin-left: 0; }
+
+/* ---------- Topics index ---------- */
+.topic-hub-grid2 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.topic-hub-card2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.topic-hub-card2:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); color: var(--color-text); }
+.topic-hub-card2-name { font-size: var(--text-xl); line-height: 1.25; margin: 0; color: var(--color-text); }
+.topic-hub-card2:hover .topic-hub-card2-name { color: var(--color-accent); }
+.topic-hub-card2-desc { margin: 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+.topic-hub-card2-foot {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.topic-hub-card2-count { font-weight: 700; font-size: var(--text-sm); color: var(--color-accent); }
+
+/* ---------- About ---------- */
+.about-hero-portrait {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+}
+.belief-card {
+  margin: 0;
+  padding: var(--space-8);
+  background: var(--color-bg);
+  border-left: 6px solid var(--brand-gold);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.belief-card p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.45;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+.contact-card {
+  padding: var(--space-8);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+.contact-card h2 { margin-top: 0; }
+.contact-card .contact-form { max-width: none; }
+.contact-side .contact-reasons { margin: 0 0 var(--space-8); }
+.contact-side .link-buttons { justify-content: flex-start; }
+
+@media (max-width: 900px) {
+  .topic-hub-grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .topic-hub-grid2, .contact-grid { grid-template-columns: 1fr; }
+  .about-hero-portrait { width: 140px; height: 140px; }
+  .belief-card, .contact-card { padding: var(--space-6); }
+}
