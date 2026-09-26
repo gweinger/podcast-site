@@ -1,8 +1,10 @@
 # Homepage & Navigation Redesign — Design
 
 **Date:** 2026-09-26
-**Status:** Approved in conversation; awaiting spec review
-**Branch:** `feat/homepage-redesign`
+**Status:** Approved
+**Branch:** `feat/homepage-redesign`, worked in the worktree
+`../podcast-site-redesign` so the main `podcast-site` checkout stays on `main`
+(the `podcast` CLI commits and pushes whatever branch is checked out there).
 
 ## Goal
 
@@ -92,10 +94,10 @@ full-bleed `<section class="band band--dark|light|white">` with an inner
    - Two columns (text left, portrait right); stacks on mobile with the
      portrait below the text.
    - Eyebrow: "Host of The Introverted Leader"
-   - H1: "Your quiet strengths are your **advantage**." (highlighted word in
-     yellow). *Draft copy — Greg to confirm.*
-   - Subtext: "I help introverted leaders embrace their underrated, quiet
-     strengths to get promoted and start earning what they deserve."
+   - H1: "Embrace your **quiet strengths**." (highlighted phrase in yellow).
+   - Subtext: "I help introverted leaders get promoted and start earning what
+     they deserve — without becoming someone else." (Reworded from the old
+     tagline so it doesn't repeat the headline.)
    - Buttons: yellow **Listen to the podcast** → `/podcast/introverted-leader/`;
      outline-white **Watch the masterclass →** → `/masterclass`.
    - Social-proof row: five overlapping circular guest headshots (latest
@@ -173,7 +175,9 @@ The six recent-episode `card-grid` on the homepage is replaced by section 4.
 - Contrast spot-check: no yellow text on light backgrounds; navy on yellow
   buttons.
 
-## Open items for Greg
+## Launch
 
-- Hero headline copy (draft above).
-- Whether to deploy straight away after review or hold for copy edits.
+Pushing `main` deploys via Cloudflare Pages. Launch = Greg reviews the running
+redesign locally (dev server) → rebase the branch on the latest `main`
+(episode publishes land there meanwhile) → merge to `main` → push. Nothing is
+pushed before Greg's review.
