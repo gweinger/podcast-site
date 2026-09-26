@@ -3,20 +3,18 @@ import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import HomeSchema from '../components/HomeSchema.astro';
-import Newsletter from '../components/Newsletter.astro';
-import { recentEpisodes } from '../lib/episodes';
-import { headshotFor } from '../lib/headshots';
+import { recentEpisodes, interviewCount } from '../lib/episodes';
+import { collageFor } from '../lib/headshots';
 import type { EpisodeLike } from '../lib/pillars';
+import '../styles/home.css';
 
-const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order);
 const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
-const recent = recentEpisodes(allEpisodes, 6);
-
-// Card image: guest headshot if available, else the episode's resolved thumbnail.
 const headshotFiles = fs
   .readdirSync('public/headshots')
   .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
-const epImage = (e: EpisodeLike) => headshotFor(e.data.guest, headshotFiles) ?? e.data.thumbnail;
+const count = interviewCount(allEpisodes);
+// Hero social proof: the latest interview guests who have a headshot.
+const faces = collageFor(recentEpisodes(allEpisodes, 20), headshotFiles, 5);
 const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
 ---
 <Base
@@ -25,74 +23,32 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
 >
   <HomeSchema slot="head" />
 
-  <section class="hero">
-    <img class="hero-portrait" src="/headshot-hero.webp" alt="Greg Weinger" />
-    <div class="hero-text">
-      <h1>Greg Weinger</h1>
-      <p class="hero-tagline">Helping introverted leaders embrace their underrated, quiet strengths to get promoted and start earning what they deserve.</p>
-      <p class="hero-sub">Host of <strong>The Introverted Leader</strong>.</p>
-      <div class="hero-cta">
-        <a class="btn-gold" href="/podcast/introverted-leader/">Listen to the podcast</a>
+  <div class="home">
+
+  <section class="band band--dark on-dark hero-band">
+    <div class="band-inner hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Host of The Introverted Leader</p>
+        <h1 class="hero-title">Embrace your <span class="hl">quiet strengths</span>.</h1>
+        <p class="hero-lead">I help introverted leaders get promoted and start earning what they deserve — without becoming someone else.</p>
+        <div class="hero-actions">
+          <a class="btn-gold" href="/podcast/introverted-leader/">Listen to the podcast</a>
+          <a class="btn-outline-light" href="/masterclass">Watch the masterclass →</a>
+        </div>
+        <div class="hero-proof">
+          {faces.length > 0 && (
+            <div class="hero-faces">
+              {faces.map((f) => <img src={f.url} alt="" width="40" height="40" loading="lazy" />)}
+            </div>
+          )}
+          <p>{count} conversations with leaders and experts</p>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img class="hero-cutout" src="/headshot-cutout.webp" alt="Greg Weinger" width="900" height="900" fetchpriority="high" />
       </div>
     </div>
   </section>
-
-  <div class="container">
-
-  <section class="masterclass-band">
-    <img class="masterclass-band-img" src="/masterclass-still.webp" alt="Greg Weinger teaching the free masterclass" width="220" height="124" />
-    <div>
-      <p class="masterclass-band-kicker">Free Masterclass · ~30 min</p>
-      <h2>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h2>
-      <p>The 3 Moments That Determine Advancement — a visibility framework built on preparation, not performance.</p>
-      <a class="btn-gold" href="/masterclass">Watch it free →</a>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="home-section-label">Topics</h2>
-    <div class="topic-chip-list">
-      {topics.map((t) => (
-        <a class="card topic-chip" href={`/topics/${t.data.slug}/`}>
-          <span class="topic-chip-name">{t.data.navLabel ?? t.data.title}</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="about-teaser">
-    <img class="about-teaser-img" src="/greg-weinger.webp" alt="Greg Weinger" width="80" height="80" />
-    <div>
-      <h2 class="home-section-label">About Greg</h2>
-      <p>25+ years in leadership — and, yes, I am an introvert. I help quiet professionals rise without becoming someone else. <a href="/about">More about Greg →</a></p>
-    </div>
-  </section>
-
-  <section>
-    <div class="home-section-head">
-      <h2 class="home-section-label">Recent episodes</h2>
-      <a href="/podcast/introverted-leader/">See all →</a>
-    </div>
-    <div class="card-grid">
-      {recent.map((e) => {
-        const img = epImage(e);
-        return (
-          <a class="card episode-card" href={epHref(e.data.slug)}>
-            {img && <img class="episode-card-img" src={img} alt={e.data.guest} loading="lazy" />}
-            <strong>#{e.data.episode} {e.data.title}</strong>
-            <span class="episode-card-guest">{e.data.guest}</span>
-            {e.data.publishDate && (
-              <span class="episode-card-date">
-                {e.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
-              </span>
-            )}
-          </a>
-        );
-      })}
-    </div>
-  </section>
-
-  <Newsletter />
 
   </div>
 </Base>
