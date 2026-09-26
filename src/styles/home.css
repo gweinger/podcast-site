@@ -217,11 +217,12 @@
   font-weight: 600;
   font-size: var(--text-sm);
   text-decoration: none;
+  /* Brand palette, not platform colors: blue → gold on hover. */
+  background: var(--brand-blue);
+  color: #fff;
+  transition: background 0.15s, color 0.15s;
 }
-.latest-bar-platforms a:hover { filter: brightness(1.08); }
-/* Spotify green fails contrast with white text; navy text instead. */
-.latest-bar-platforms .platform-apple { background: #872EC4; color: #fff; }
-.latest-bar-platforms .platform-spotify { background: #1DB954; color: var(--brand-navy); }
+.latest-bar-platforms a:hover { background: var(--brand-gold); color: var(--brand-navy); }
 
 /* ---------- Topics ---------- */
 .topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
