@@ -244,7 +244,6 @@
 .topic-card-cta { font-size: var(--text-sm); font-weight: 700; color: var(--brand-gold); }
 
 /* ---------- Closing CTA ---------- */
-.closing-band { border-top: 1px solid rgba(255, 255, 255, 0.1); }
 .closing-band .band-title { margin-bottom: var(--space-6); }
 .closing-actions { justify-content: center; margin-bottom: 0; }
 
