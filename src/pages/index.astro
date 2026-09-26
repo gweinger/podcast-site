@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import HomeSchema from '../components/HomeSchema.astro';
-import { recentEpisodes, interviewCount } from '../lib/episodes';
+import { recentEpisodes, interviewCount, cardImage, listenLinks, guestName } from '../lib/episodes';
 import { collageFor } from '../lib/headshots';
 import { LINKS } from '../lib/links';
 import type { EpisodeLike } from '../lib/pillars';
@@ -17,6 +17,10 @@ const count = interviewCount(allEpisodes);
 // Hero social proof: the latest interview guests who have a headshot.
 const faces = collageFor(recentEpisodes(allEpisodes, 20), headshotFiles, 5);
 const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
+const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order);
+const featured = recentEpisodes(allEpisodes, 3);
+const latest = featured[0];
+const listen = latest ? listenLinks(latest, LINKS) : { apple: LINKS.apple, spotify: LINKS.spotify };
 ---
 <Base
   title="Greg Weinger — The Introverted Leader"
@@ -89,6 +93,71 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
         <p>What I eventually learned is that the traits I'd treated as liabilities were where my best leadership came from — the listening, the writing, the thoughtful question that changes the conversation.</p>
         <p>I started <em>The Introverted Leader</em> to have the conversations I wish I'd had earlier: with researchers, coaches, and leaders who've figured out how to rise without becoming someone else.</p>
         <p><a href="/about">More about Greg →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white">
+    <div class="band-inner">
+      <div class="band-head-split">
+        <div>
+          <p class="eyebrow">The Introverted Leader</p>
+          <h2 class="band-title">Conversations worth learning from.</h2>
+        </div>
+        <a class="band-link" href="/podcast/introverted-leader/">All {count} episodes →</a>
+      </div>
+      <div class="guest-grid">
+        {featured.map((e) => (
+          <a class="guest-card" href={epHref(e.data.slug)}>
+            <img src={cardImage(e, headshotFiles)} alt={guestName(e.data.guest)} loading="lazy" />
+            <span class="guest-card-tag">#{e.data.episode}</span>
+            <span class="guest-card-body">
+              <strong class="guest-card-name">{guestName(e.data.guest)}</strong>
+              <span class="guest-card-title">{e.data.title}</span>
+              <span class="guest-card-cta">Listen →</span>
+            </span>
+          </a>
+        ))}
+      </div>
+      {latest && (
+        <div class="latest-bar">
+          <a class="latest-bar-ep" href={epHref(latest.data.slug)}>
+            <span class="latest-bar-label">Latest episode · #{latest.data.episode}</span>
+            <span class="latest-bar-title">{latest.data.title}</span>
+          </a>
+          <div class="latest-bar-platforms">
+            <a class="platform-apple" href={listen.apple}>Apple Podcasts</a>
+            <a class="platform-spotify" href={listen.spotify}>Spotify</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="band band--dark on-dark">
+    <div class="band-inner">
+      <div class="band-head">
+        <p class="eyebrow">Explore by topic</p>
+        <h2 class="band-title">Find what you need next.</h2>
+      </div>
+      <div class="topic-grid">
+        {topics.map((t) => (
+          <a class="topic-card" href={`/topics/${t.data.slug}/`}>
+            <span class="topic-card-name">{t.data.navLabel ?? t.data.title}</span>
+            <span class="topic-card-cta">Explore →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--dark on-dark closing-band">
+    <div class="band-inner band-head">
+      <p class="eyebrow">Lead as yourself</p>
+      <h2 class="band-title">Ready to rise without becoming someone else?</h2>
+      <div class="hero-actions closing-actions">
+        <a class="btn-gold" href="/podcast/introverted-leader/">Listen to the podcast</a>
+        <a class="btn-outline-light" href="/masterclass">Watch the masterclass →</a>
       </div>
     </div>
   </section>

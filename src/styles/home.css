@@ -119,3 +119,140 @@
   .about-head-img { width: 88px; height: 88px; }
   .about-cols { columns: 1; }
 }
+
+/* ---------- Podcast ---------- */
+.guest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.guest-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--brand-navy);
+  color: var(--color-on-dark);
+  text-decoration: none;
+}
+.guest-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.3s;
+}
+.guest-card:hover img { transform: scale(1.03); }
+.guest-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 39, 71, 0.95) 0%, rgba(13, 39, 71, 0.6) 35%, transparent 65%);
+}
+.guest-card-tag {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 1;
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.guest-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.guest-card-name { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-on-dark); }
+.guest-card-title {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.85);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.guest-card-cta { font-size: var(--text-sm); font-weight: 700; color: var(--brand-gold); margin-top: var(--space-2); }
+
+.latest-bar { margin-top: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: stretch; }
+.latest-bar-ep {
+  flex: 1 1 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  background: var(--brand-navy);
+  color: var(--color-on-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  text-decoration: none;
+}
+.latest-bar-ep:hover { color: var(--color-on-dark); background: #133461; }
+.latest-bar-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+}
+.latest-bar-title { font-weight: 600; }
+.latest-bar-platforms { flex: 0 0 12rem; display: flex; flex-direction: column; gap: var(--space-2); }
+.latest-bar-platforms a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+.latest-bar-platforms a:hover { filter: brightness(1.08); }
+/* Spotify green fails contrast with white text; navy text instead. */
+.latest-bar-platforms .platform-apple { background: #872EC4; color: #fff; }
+.latest-bar-platforms .platform-spotify { background: #1DB954; color: var(--brand-navy); }
+
+/* ---------- Topics ---------- */
+.topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  min-height: 9rem;
+  padding: var(--space-6);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.topic-card:hover { border-color: var(--brand-gold); background: rgba(255, 255, 255, 0.08); }
+.topic-card-name { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); line-height: 1.25; color: var(--color-on-dark); }
+.topic-card-cta { font-size: var(--text-sm); font-weight: 700; color: var(--brand-gold); }
+
+/* ---------- Closing CTA ---------- */
+.closing-band { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.closing-band .band-title { margin-bottom: var(--space-6); }
+.closing-actions { justify-content: center; margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .guest-grid, .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .guest-grid, .topic-grid { grid-template-columns: 1fr; }
+  .guest-card { aspect-ratio: 4 / 3; }
+  .latest-bar-platforms { flex: 1 1 100%; flex-direction: row; }
+  .latest-bar-platforms a { flex: 1; }
+}
