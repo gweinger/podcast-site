@@ -104,8 +104,9 @@ full-bleed `<section class="band band--dark|light|white">` with an inner
      not hard-coded).
    - Portrait: `podcast-studio/headshot-transparent.PNG` (4000px, 18MB)
      resized to a ~900px-tall transparent webp saved as
-     `public/headshot-cutout.webp`. The existing `headshot-hero.webp` stays in
-     `public/` (other uses/OG) but is no longer on the homepage.
+     `public/headshot-cutout.webp`. The existing `headshot-hero.webp` has no
+     other references in `src/`; it stays in `public/` (harmless, may be linked
+     externally) but is no longer on the homepage.
 
 2. **Two ways to start** — `band--white`. Eyebrow "Start here — free", H2 "Two
    ways to start." Two side-by-side cards (stack on mobile):
