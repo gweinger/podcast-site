@@ -8,6 +8,7 @@ painChips:
   - Stalled advancement
   - Unclear blockers
   - Staying authentic
+featured: [67, 55]
 order: 6
 ---
 

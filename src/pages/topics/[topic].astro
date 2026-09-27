@@ -16,18 +16,20 @@ const t = entry.data;
 const { Content } = await render(entry);
 
 const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
-const { core, secondary, minisodes } = partitionEpisodes(allEpisodes, t.pillar);
+const { featured, core, secondary, minisodes } = partitionEpisodes(allEpisodes, t.pillar, t.featured);
+// Hand-picked episodes lead, then minisodes; both render as one Featured list.
+const featuredList = [...featured, ...minisodes];
 
 // Headshot collage: read the CDN directory once at build time.
 // Filter to image files so stray entries (.DS_Store, .gitkeep) can't match a guest slug.
 const headshotFiles = fs
   .readdirSync('public/headshots')
   .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
-const faces = collageFor([...core, ...secondary, ...minisodes], headshotFiles, 8);
-const totalCount = core.length + secondary.length + minisodes.length;
+const faces = collageFor([...featured, ...core, ...secondary, ...minisodes], headshotFiles, 8);
+const totalCount = featured.length + core.length + secondary.length + minisodes.length;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
-const schemaEpisodes = [...core, ...secondary].map((e) => ({
+const schemaEpisodes = [...featured, ...core, ...secondary].map((e) => ({
   title: e.data.title,
   url: `https://gweinger.com/podcast/introverted-leader/${e.data.slug}/`,
 }));
@@ -76,11 +78,11 @@ const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
     </section>
   )}
 
-  {minisodes.length > 0 && (
+  {featuredList.length > 0 && (
     <section>
-      <div class="topic-section-label">Quick takes</div>
+      <div class="topic-section-label">Featured</div>
       <ul class="episode-list">
-        {minisodes.map((e) => (
+        {featuredList.map((e) => (
           <li class="episode-item">
             {e.data.thumbnail && <img src={e.data.thumbnail} alt={e.data.guest} loading="lazy" />}
             <div>

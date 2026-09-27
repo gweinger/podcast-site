@@ -3,18 +3,17 @@
    A designer can reskin the site by editing :root only.
    ============================================================ */
 :root {
-  /* Brand primitives — Rikyū tea-browns trial (traditional Japanese colours).
-     Names kept from the navy palette so every existing reference re-skins;
-     rename if this palette ships. See docs/palettes/. */
-  --brand-blue:        #6B4423;  /* Kobicha — link buttons, accents */
-  --brand-blue-light:  #826B58;  /* Rikyūcha — gradient partner */
-  --brand-gold:        #E2B13C;  /* Kariyasu — main action */
-  --brand-navy:        #3B3429;  /* Sensaichá — dark bands + text */
+  /* Brand primitives — Rikyū tea browns (traditional Japanese colours).
+     Chosen 2026-09-27 from the palette study in docs/palettes/. */
+  --brand-accent:       #6B4423;  /* Kobicha — link buttons, accents */
+  --brand-accent-soft:  #826B58;  /* Rikyūcha — gradient partner */
+  --brand-gold:         #E2B13C;  /* Kariyasu — main action */
+  --brand-dark:         #3B3429;  /* Sensaichá — dark bands + text */
 
   /* Semantic color tokens */
-  --color-text:          var(--brand-navy);
+  --color-text:          var(--brand-dark);
   --color-text-muted:    #7A6250;
-  --color-accent:        var(--brand-blue);
+  --color-accent:        var(--brand-accent);
   --color-accent-dark:   #57371C;
   --color-accent-light:  #F3E6D8;
   --color-border:        #E6D5C3;
@@ -22,13 +21,13 @@
   --color-surface:       #FAF5EF;
 
   /* Band colors (homepage + site chrome) */
-  --color-band-dark:        var(--brand-navy);
+  --color-band-dark:        var(--brand-dark);
   --color-band-light:       #F3E6D8;
   --color-on-dark:          #FFFFFF;
   --color-on-dark-muted:    rgba(255, 255, 255, 0.75);
-  /* Highlighted phrase + eyebrow color: yellow on dark, blue on light (contrast) */
+  /* Highlighted phrase + eyebrow color: gold on dark, brown on light (contrast) */
   --color-highlight-dark:   var(--brand-gold);
-  --color-highlight-light:  var(--brand-blue);
+  --color-highlight-light:  var(--brand-accent);
 
   /* Typography */
   --font-display: 'Jost', Helvetica, Arial, Lucida, sans-serif;
@@ -101,7 +100,7 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 .container { max-width: var(--maxw); margin: 0 auto; padding: var(--space-6); }
 
 /* ============================================================
-   Header — navy on every page: wordmark · pill nav · CTA
+   Header — dark band on every page: wordmark · pill nav · CTA
    ============================================================ */
 .site-header { background: var(--color-band-dark); }
 .header-inner {
@@ -162,7 +161,7 @@ h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
 }
 
 /* ============================================================
-   Footer — slim navy band
+   Footer — slim dark band
    ============================================================ */
 .site-footer {
   background: var(--color-band-dark);
@@ -222,10 +221,10 @@ main:has(> section.band:last-of-type) + .site-footer { margin-top: 0; }
 .btn-secondary:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
 .btn-gold {
   background: var(--brand-gold);
-  color: var(--brand-navy);
+  color: var(--brand-dark);
   font-weight: 700;
 }
-.btn-gold:hover { background: #C9982A; color: var(--brand-navy); }
+.btn-gold:hover { background: #C9982A; color: var(--brand-dark); }
 .btn-outline-light {
   border: 1.5px solid rgba(255, 255, 255, 0.5);
   color: var(--color-on-dark);
@@ -345,7 +344,7 @@ main:has(> section.band:last-of-type) + .site-footer { margin-top: 0; }
    Newsletter band
    ============================================================ */
 .newsletter-band {
-  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-light) 100%);
+  background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-accent-soft) 100%);
   color: #fff;
   border-radius: var(--radius-lg);
   padding: var(--space-8) var(--space-6);
@@ -356,12 +355,12 @@ main:has(> section.band:last-of-type) + .site-footer { margin-top: 0; }
 .newsletter-band p { color: rgba(255,255,255,0.85); margin: 0 0 var(--space-6); }
 .newsletter-band .btn-primary {
   background: var(--brand-gold);
-  color: var(--brand-navy);
+  color: var(--brand-dark);
   width: 100%;
   max-width: 320px;
   font-weight: 700;
 }
-.newsletter-band .btn-primary:hover { background: #C9982A; color: var(--brand-navy); }
+.newsletter-band .btn-primary:hover { background: #C9982A; color: var(--brand-dark); }
 
 /* ============================================================
    Episode list (podcast index, topic hubs)
@@ -935,10 +934,10 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
 .professional-card-body { flex: 1; min-width: 0; }
 .professional-card-header { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-1); }
 .professional-name { font-weight: 700; font-size: var(--text-base); }
-.featured-badge { font-size: 0.75rem; background: #ede9fe; color: #5b21b6; border-radius: var(--radius-sm); padding: 0.1rem 0.45rem; }
+.featured-badge { font-size: 0.75rem; background: var(--color-accent-light); color: var(--brand-accent); border-radius: var(--radius-sm); padding: 0.1rem 0.45rem; }
 .professional-title { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2); }
 .professional-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-2); }
-.specialty-tag { font-size: 0.75rem; background: var(--color-surface); color: #374151; border-radius: var(--radius-full); padding: 0.1rem 0.5rem; text-transform: capitalize; }
+.specialty-tag { font-size: 0.75rem; background: var(--color-surface); color: var(--color-text); border-radius: var(--radius-full); padding: 0.1rem 0.5rem; text-transform: capitalize; }
 .greg-note-teaser { font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; margin: var(--space-1) 0 0; }
 .episode-badge { font-size: 0.8rem; color: var(--color-accent); margin-top: var(--space-1); display: inline-block; }
 
@@ -957,7 +956,7 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   margin: var(--space-6) 0;
 }
 .greg-note-label { font-size: 0.75rem; font-weight: 700; color: var(--color-accent); letter-spacing: 0.06em; margin-bottom: var(--space-2); }
-.greg-note-quote { margin: 0 0 var(--space-2); font-style: italic; color: #374151; border: none; padding: 0; font-size: var(--text-base); }
+.greg-note-quote { margin: 0 0 var(--space-2); font-style: italic; color: var(--color-text); border: none; padding: 0; font-size: var(--text-base); }
 .greg-note-attribution { font-size: var(--text-sm); color: var(--color-accent); font-weight: 600; }
 .professional-bio p { margin: 0 0 var(--space-4); }
 .episode-backlinks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
@@ -965,8 +964,8 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   display: flex;
   gap: var(--space-4);
   align-items: flex-start;
-  border: 1px solid #ede9fe;
-  background: #f9f7ff;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
 }

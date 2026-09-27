@@ -57,12 +57,22 @@ export function byNewest(a: EpisodeLike, b: EpisodeLike): number {
   return b.data.episode - a.data.episode;
 }
 
-export function partitionEpisodes(episodes: EpisodeLike[], pillar: Pillar) {
+// `featured` is a hand-picked list of episode numbers (from the topic's
+// frontmatter). Those episodes come back in `featured`, in the order given,
+// and are left out of the other groups so nothing is listed twice.
+export function partitionEpisodes(episodes: EpisodeLike[], pillar: Pillar, featuredNumbers: number[] = []) {
+  const byNumber = new Map(episodes.map((e) => [e.data.episode, e]));
+  const featured = featuredNumbers
+    .map((n) => byNumber.get(n))
+    .filter((e): e is EpisodeLike => e !== undefined);
+  const featuredSet = new Set(featured);
+
   const core: EpisodeLike[] = [];
   const secondary: EpisodeLike[] = [];
   const minisodes: EpisodeLike[] = [];
 
   for (const e of episodes) {
+    if (featuredSet.has(e)) continue;
     const { status, pillarPrimary, pillarSecondary } = e.data;
     const touches = pillarPrimary === pillar || pillarSecondary === pillar;
     if (!touches) continue;
@@ -79,5 +89,5 @@ export function partitionEpisodes(episodes: EpisodeLike[], pillar: Pillar) {
   core.sort(byNewest);
   secondary.sort(byNewest);
   minisodes.sort(byNewest);
-  return { core, secondary, minisodes };
+  return { featured, core, secondary, minisodes };
 }

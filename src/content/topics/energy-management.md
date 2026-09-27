@@ -8,6 +8,7 @@ painChips:
   - Overwhelm
   - Burnout
   - Open-plan drain
+featured: [75, 41]
 order: 5
 ---
 

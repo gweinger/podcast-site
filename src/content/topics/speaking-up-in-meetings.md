@@ -8,6 +8,7 @@ painChips:
   - Getting interrupted
   - Fast-moving rooms
   - Idea theft
+featured: [72]
 order: 2
 ---
 

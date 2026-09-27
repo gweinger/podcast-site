@@ -29,7 +29,7 @@
   height: 40px;
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 2px solid var(--brand-navy);
+  border: 2px solid var(--brand-dark);
   margin-left: -10px;
 }
 .hero-faces img:first-child { margin-left: 0; }
@@ -70,7 +70,7 @@
 .start-card p { margin: 0; }
 .start-card .eyebrow { margin: 0; }
 .start-card > a:last-child { margin-top: auto; }
-.start-card--dark { background: var(--brand-navy); color: var(--color-on-dark-muted); }
+.start-card--dark { background: var(--brand-dark); color: var(--color-on-dark-muted); }
 .start-card--dark h3 { color: var(--color-on-dark); }
 .start-card--light { background: var(--color-accent-light); border: 1px solid var(--color-border); }
 .start-card-img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-md); }
@@ -104,7 +104,7 @@
   aspect-ratio: 4 / 5;
   border-radius: 20px;
   overflow: hidden;
-  background: var(--brand-navy);
+  background: var(--brand-dark);
   color: var(--color-on-dark);
   text-decoration: none;
 }
@@ -130,7 +130,7 @@
   left: var(--space-4);
   z-index: 1;
   background: var(--brand-gold);
-  color: var(--brand-navy);
+  color: var(--brand-dark);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.75rem;
@@ -167,7 +167,7 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--space-1);
-  background: var(--brand-navy);
+  background: var(--brand-dark);
   color: var(--color-on-dark);
   border-radius: var(--radius-lg);
   padding: var(--space-4) var(--space-6);
@@ -193,12 +193,12 @@
   font-weight: 600;
   font-size: var(--text-sm);
   text-decoration: none;
-  /* Brand palette, not platform colors: blue → gold on hover. */
-  background: var(--brand-blue);
+  /* Brand palette, not platform colors: brown → gold on hover. */
+  background: var(--brand-accent);
   color: #fff;
   transition: background 0.15s, color 0.15s;
 }
-.latest-bar-platforms a:hover { background: var(--brand-gold); color: var(--brand-navy); }
+.latest-bar-platforms a:hover { background: var(--brand-gold); color: var(--brand-dark); }
 
 /* ---------- Topics ---------- */
 .topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }

@@ -85,4 +85,25 @@ describe('partitionEpisodes', () => {
     const { core } = partitionEpisodes([older, newer], P);
     expect(core.map((e) => e.data.slug)).toEqual(['new', 'old']);
   });
+
+  it('pulls featured episodes out of core/secondary, in the order given', () => {
+    const a = ep({ slug: 'a', episode: 10, pillarPrimary: P });
+    const b = ep({ slug: 'b', episode: 20, pillarPrimary: Q, pillarSecondary: P });
+    const c = ep({ slug: 'c', episode: 30, pillarPrimary: P });
+    const { featured, core, secondary } = partitionEpisodes([a, b, c], P, [20, 10]);
+    expect(featured.map((e) => e.data.slug)).toEqual(['b', 'a']);
+    expect(core.map((e) => e.data.slug)).toEqual(['c']);
+    expect(secondary).toHaveLength(0);
+  });
+
+  it('ignores featured numbers that match no episode', () => {
+    const { featured, core } = partitionEpisodes([ep({ episode: 1, pillarPrimary: P })], P, [999]);
+    expect(featured).toHaveLength(0);
+    expect(core).toHaveLength(1);
+  });
+
+  it('returns an empty featured list by default', () => {
+    const { featured } = partitionEpisodes([ep({ pillarPrimary: P })], P);
+    expect(featured).toEqual([]);
+  });
 });

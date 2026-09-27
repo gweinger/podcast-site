@@ -42,6 +42,8 @@ const topics = defineCollection({
     navLabel: z.string().optional(),
     metaDescription: z.string(),
     painChips: z.array(z.string()).default([]),
+    // Episode numbers shown first on the topic page, in this order.
+    featured: z.array(z.number()).default([]),
     resources: z
       .array(
         z.object({

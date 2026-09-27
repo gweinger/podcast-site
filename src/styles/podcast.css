@@ -85,14 +85,14 @@
 .ep-card-item:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); }
 .ep-card { display: flex; flex-direction: column; flex: 1; color: var(--color-text); text-decoration: none; }
 .ep-card:hover { color: var(--color-text); }
-.ep-card-art { position: relative; display: block; aspect-ratio: 1 / 1; background: var(--brand-navy); }
+.ep-card-art { position: relative; display: block; aspect-ratio: 1 / 1; background: var(--brand-dark); }
 .ep-card-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ep-card-tag {
   position: absolute;
   top: var(--space-3);
   left: var(--space-3);
   background: var(--brand-gold);
-  color: var(--brand-navy);
+  color: var(--brand-dark);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.75rem;

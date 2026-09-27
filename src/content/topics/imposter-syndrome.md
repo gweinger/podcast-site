@@ -8,6 +8,7 @@ painChips:
   - Self-doubt
   - Overthinking
   - Perfectionism
+featured: [74]
 order: 1
 ---
 

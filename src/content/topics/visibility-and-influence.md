@@ -8,6 +8,7 @@ painChips:
   - Invisible work
   - Self-promotion dread
   - Being overlooked
+featured: [82, 61]
 order: 3
 ---
 

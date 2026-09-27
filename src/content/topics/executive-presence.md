@@ -8,6 +8,7 @@ painChips:
   - Executive presence
   - Public speaking
   - Storytelling
+featured: [84, 77]
 order: 4
 ---
 
