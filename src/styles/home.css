@@ -34,12 +34,12 @@
 }
 .hero-faces img:first-child { margin-left: 0; }
 .hero-figure { position: relative; align-self: end; }
-/* Blue glow behind the cut-out so the navy sweater separates from the navy band. */
+/* Warm glow behind the cut-out so the navy sweater separates from the dark band. */
 .hero-figure::before {
   content: '';
   position: absolute;
   inset: 10% 0 0;
-  background: radial-gradient(closest-side, rgba(28, 79, 249, 0.55), rgba(0, 165, 255, 0.18) 60%, transparent);
+  background: radial-gradient(closest-side, rgba(226, 177, 60, 0.45), rgba(226, 190, 159, 0.18) 60%, transparent);
   filter: blur(10px);
 }
 .hero-cutout {
@@ -122,7 +122,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13, 39, 71, 0.95) 0%, rgba(13, 39, 71, 0.6) 35%, transparent 65%);
+  background: linear-gradient(to top, rgba(59, 52, 41, 0.95) 0%, rgba(59, 52, 41, 0.6) 35%, transparent 65%);
 }
 .guest-card-tag {
   position: absolute;
@@ -173,7 +173,7 @@
   padding: var(--space-4) var(--space-6);
   text-decoration: none;
 }
-.latest-bar-ep:hover { color: var(--color-on-dark); background: #133461; }
+.latest-bar-ep:hover { color: var(--color-on-dark); background: #4A4235; }
 .latest-bar-label {
   font-family: var(--font-display);
   font-size: 0.75rem;

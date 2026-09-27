@@ -1,0 +1,276 @@
+<title>Introvert Army Palettes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F6F5F0; --ink:#23261F; --muted:#63665B; --line:#DAD8CC; --card:#FFFFFF;
+  --font-display:'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#181A16; --ink:#ECEBE3; --muted:#A3A597; --line:#34372F; --card:#20231E; color-scheme:dark; }
+}
+:root[data-theme="dark"]{ --bg:#181A16; --ink:#ECEBE3; --muted:#A3A597; --line:#34372F; --card:#20231E; color-scheme:dark; }
+
+body{ background:var(--bg); color:var(--ink); font:15px/1.55 var(--font-body); }
+.wrap{ max-width:1180px; margin:0 auto; padding-inline:20px; padding-block:40px 64px; }
+header.intro{ max-width:68ch; display:grid; gap:10px; margin-bottom:36px; }
+.eyebrow{ font:600 12px/1 var(--font-display); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+h1{ font:700 clamp(28px,4vw,40px)/1.1 var(--font-display); margin:0; text-wrap:balance; }
+header.intro p{ margin:0; color:var(--muted); }
+
+.grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:28px; }
+@media (max-width:420px){ .grid{ grid-template-columns:1fr; } }
+
+.pal{ background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; }
+.pal.ref{ outline:2px dashed var(--line); outline-offset:3px; }
+.meta{ padding:16px 18px 6px; display:grid; gap:4px; }
+.meta .num{ font:600 11px/1 var(--font-display); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+.meta h2{ font:600 20px/1.2 var(--font-display); margin:0; }
+.meta .src{ font-size:12.5px; color:var(--muted); }
+.meta .src a{ color:inherit; }
+
+/* mini site mock: colours are fixed specimens, not themed */
+.mock{ margin:12px 18px; border-radius:6px; overflow:hidden; border:1px solid rgba(0,0,0,.12); font-family:var(--font-display); }
+.m-nav{ display:flex; justify-content:space-between; align-items:center; padding:9px 14px; font-size:12px; font-weight:600; letter-spacing:.04em; }
+.m-nav span:last-child{ opacity:.75; font-weight:500; }
+.pal .mock{ cursor:zoom-in; transition:transform .15s ease, box-shadow .15s ease; }
+.pal:hover .mock{ transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.14); }
+.open-btn{ justify-self:start; margin:0 18px 4px; font:600 12.5px/1 var(--font-display); letter-spacing:.04em; background:none; color:var(--ink); border:1px solid var(--line); border-radius:4px; padding:8px 11px; cursor:pointer; }
+.open-btn:hover{ border-color:var(--muted); }
+.open-btn:focus-visible, .fs-ctl button:focus-visible{ outline:2px solid currentColor; outline-offset:2px; }
+.m-hero{ display:grid; grid-template-columns:1fr 38%; align-items:end; }
+.m-copy{ padding:22px 0 20px 16px; display:grid; gap:10px; }
+.m-fig{ position:relative; align-self:end; }
+.m-fig::before, .fs-fig::before{ content:''; position:absolute; inset:14% 0 0; background:radial-gradient(closest-side, var(--glow), transparent); opacity:.55; filter:blur(8px); }
+.m-fig img, .fs-fig img{ position:relative; display:block; width:100%; height:auto; }
+.hl{ color:var(--hl); }
+
+/* full-screen view */
+dialog.fs{ padding:0; border:0; margin:0; width:100vw; max-width:100vw; height:100%; max-height:100%; background:#fff; overflow:auto; }
+dialog.fs::backdrop{ background:rgba(0,0,0,.6); }
+.fs-ctl{ position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:10px; padding:10px 16px; padding-top:calc(10px + env(safe-area-inset-top, 0px)); background:rgba(20,22,18,.92); color:#fff; font:500 13px/1.2 var(--font-display); backdrop-filter:blur(6px); }
+.fs-ctl .t{ flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.fs-ctl .t b{ font-weight:600; }
+.fs-ctl button{ font:600 13px/1 var(--font-display); background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.25); border-radius:4px; padding:8px 11px; cursor:pointer; }
+.fs-ctl button:hover{ background:rgba(255,255,255,.2); }
+.fs-page{ font-family:var(--font-body); }
+.fs-in{ max-width:1120px; margin:0 auto; padding-inline:24px; }
+.fs-nav .fs-in{ display:flex; justify-content:space-between; align-items:center; gap:16px; padding-block:16px; font:600 14px/1 var(--font-display); letter-spacing:.06em; }
+.fs-nav .links{ display:flex; gap:22px; font-weight:500; letter-spacing:.02em; opacity:.85; flex-wrap:wrap; }
+.fs-hero .fs-in{ display:grid; grid-template-columns:1.1fr 1fr; align-items:end; gap:40px; }
+.fs-copy{ align-self:center; padding-block:64px; display:grid; gap:18px; }
+.fs-eyebrow{ font:600 12.5px/1 var(--font-display); letter-spacing:.16em; text-transform:uppercase; }
+.fs-copy h1{ font:700 clamp(36px,5vw,56px)/1.06 var(--font-display); margin:0; text-wrap:balance; }
+.fs-copy .lead{ font-size:18px; line-height:1.55; max-width:36ch; margin:0; opacity:.9; }
+.fs-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+.fs-btn{ font:600 15px/1 var(--font-display); padding:15px 22px; border-radius:6px; display:inline-block; }
+.fs-fig{ position:relative; align-self:end; }
+.fs-fig img{ max-width:500px; margin-left:auto; }
+.fs-band{ padding-block:64px; }
+.fs-band h2{ font:700 clamp(26px,3vw,34px)/1.15 var(--font-display); margin:6px 0 26px; }
+.fs-cards{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.fs-card{ border-radius:10px; padding:28px; display:grid; gap:12px; align-content:start; }
+.fs-card h3{ font:600 22px/1.2 var(--font-display); margin:0; text-wrap:balance; }
+.fs-card p{ margin:0; line-height:1.55; }
+.fs-card .fs-btn{ justify-self:start; margin-top:6px; }
+.fs-pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.fs-pillar{ border-radius:8px; padding:18px; border:1px solid; display:grid; gap:8px; }
+.fs-pillar span{ font:600 11.5px/1 var(--font-display); letter-spacing:.1em; text-transform:uppercase; }
+.fs-pillar b{ font:600 17px/1.25 var(--font-display); }
+.fs-foot .fs-in{ padding-block:36px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:14px; }
+@media (max-width:820px){
+  .fs-hero .fs-in, .fs-cards{ grid-template-columns:1fr; }
+  .fs-copy{ padding-block:40px 0; }
+  .fs-fig img{ max-width:340px; margin:0 auto; }
+  .fs-pillars{ grid-template-columns:1fr 1fr; }
+  .fs-nav .links{ display:none; }
+}
+@media (max-width:480px){ .fs-pillars{ grid-template-columns:1fr; } .fs-in{ padding-inline:16px; } }
+@media (prefers-reduced-motion:reduce){ .pal .mock{ transition:none; } .pal:hover .mock{ transform:none; } }
+.m-hero .kick{ font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; }
+.m-hero h3{ margin:0; font:700 22px/1.12 var(--font-display); text-wrap:balance; }
+.m-btns{ display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
+.m-btn{ font:600 12.5px/1 var(--font-display); padding:9px 13px; border-radius:4px; }
+.m-band{ padding:16px; display:grid; gap:6px; border-top:1px solid; }
+.m-band b{ font:600 14px/1.2 var(--font-display); }
+.m-band p{ margin:0; font:400 12.5px/1.45 var(--font-body); }
+.m-band .row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.m-tag{ font:600 10.5px/1 var(--font-display); letter-spacing:.08em; text-transform:uppercase; padding:5px 7px; border-radius:3px; }
+.m-foot{ padding:9px 14px; font-size:11px; }
+
+.sw{ display:grid; grid-template-columns:repeat(auto-fit,minmax(88px,1fr)); gap:1px; margin:6px 18px 0; border-radius:6px; overflow:hidden; border:1px solid var(--line); }
+.chip{ display:grid; grid-template-rows:44px auto; background:var(--card); }
+.chip i{ display:block; }
+.chip div{ padding:6px 8px 8px; font-size:11.5px; line-height:1.3; }
+.chip .n{ font-weight:600; }
+.chip .h{ font-family:ui-monospace, 'SF Mono', Menlo, monospace; color:var(--muted); font-variant-numeric:tabular-nums; }
+.chip .r{ color:var(--muted); }
+.notes{ padding:12px 18px 18px; font-size:13px; color:var(--muted); display:grid; gap:6px; }
+.notes p{ margin:0; }
+.notes strong{ color:var(--ink); font-weight:600; }
+
+footer.srcs{ margin-top:44px; max-width:75ch; font-size:13px; color:var(--muted); display:grid; gap:6px; }
+footer.srcs h2{ font:600 14px/1 var(--font-display); letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:0 0 4px; }
+footer.srcs a{ color:inherit; }
+a:focus-visible{ outline:2px solid currentColor; outline-offset:2px; }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="eyebrow">gweinger.com · colour study</span>
+    <h1>Six earth-tone palettes for the Introvert Army</h1>
+    <p>Each card applies one palette to the same slice of the site: nav, hero with your headshot, main action (currently yellow), secondary link button (currently bright blue), light band and footer. Click a card to see that palette on a full home page; use the arrow keys to step through them. Every palette comes from a published source: Sanzo Wada's colour combinations, the US Army brand guide, or the traditional Japanese colour tables. The dashed card is today's navy scheme, shown for comparison.</p>
+  </header>
+
+  <div class="grid" id="grid"></div>
+
+  <dialog class="fs" id="fs" aria-label="Full-page palette preview">
+    <div class="fs-ctl">
+      <button type="button" id="fs-prev" aria-label="Previous palette">←</button>
+      <button type="button" id="fs-next" aria-label="Next palette">→</button>
+      <span class="t" id="fs-title"></span>
+      <button type="button" id="fs-close">Close</button>
+    </div>
+    <div class="fs-page" id="fs-page"></div>
+  </dialog>
+
+  <footer class="srcs">
+    <h2>Sources</h2>
+    <p>Sanzo Wada, <em>A Dictionary of Color Combinations</em> (1933–34, reissued by Seigensha 2010). Hex values from the <a href="https://github.com/mattdesl/dictionary-of-colour-combinations" target="_blank" rel="noopener">mattdesl/dictionary-of-colour-combinations</a> dataset; combination numbers match the book.</p>
+    <p><a href="https://www.mwrbrandcentral.com/application/files/3616/7942/8646/US_Army_Guidelines_09FEB_FINAL_1.pdf" target="_blank" rel="noopener">U.S. Army Brand Guidelines v1.0, March 2023</a>, colour specification pages.</p>
+    <p>Traditional Japanese colours (<em>dentō-shoku</em>): <a href="https://en.wikipedia.org/wiki/Traditional_colors_of_Japan" target="_blank" rel="noopener">Wikipedia, Traditional colors of Japan</a>; names cross-checked against <a href="https://nipponcolors.com/" target="_blank" rel="noopener">nipponcolors.com</a>.</p>
+    <p>The full-screen view follows the layout of the current gweinger.com home page. The glow behind the headshot uses a light colour from each palette, the same way the live site uses a blue glow to separate the navy sweater from the navy hero.</p>
+    <p>Tints marked "derived" are not in the source; they are pale versions of a source colour for page backgrounds.</p>
+  </footer>
+</div>
+
+<script>
+const P = [
+ { num:"Today", glow:"#1c4ff9", name:"Navy & Bright Blue", ref:true,
+   src:"Current gweinger.com tokens (src/styles/global.css)",
+   c:{nav:"#0D2747",navT:"#FFFFFF",hero:"#0D2747",heroT:"#FFFFFF",kick:"#ffc500",act:"#ffc500",actT:"#0D2747",link:"#1c4ff9",linkT:"#FFFFFF",band:"#EEF3F9",bandT:"#0D2747",line:"#D5E5F0",tag:"#0D2747",tagT:"#FFFFFF",foot:"#0D2747",footT:"#FFFFFF"},
+   sw:[["Navy","#0D2747","hero"],["Gold","#ffc500","action"],["Brand blue","#1c4ff9","link"],["Band","#EEF3F9","band"]],
+   notes:["The reference point. Everything below swaps the navy and the blue."] },
+
+ { num:"01", glow:"#F1E4C7", name:"Army Field", src:"U.S. Army Brand Guidelines 2023, primary + secondary palette",
+   c:{nav:"#221F20",navT:"#FFFFFF",hero:"#2F372F",heroT:"#FFFFFF",kick:"#FFCC01",act:"#FFCC01",actT:"#221F20",link:"#727365",linkT:"#FFFFFF",band:"#F1E4C7",bandT:"#221F20",line:"#BFB8A6",tag:"#2F372F",tagT:"#FFCC01",foot:"#221F20",footT:"#F1E4C7"},
+   sw:[["Army Green","#2F372F","hero"],["Army Gold","#FFCC01","action"],["Field 01","#727365","link"],["Tan","#F1E4C7","band"],["Field 02","#BFB8A6","border"],["Army Black","#221F20","text"]],
+   notes:["<strong>Closest to your yellow.</strong> Army Gold is almost the same as your current #ffc500, so the main button barely changes.","Gold on Army Green scores 8.1:1 contrast, and the guide pairs them itself. Because it is the Army's own palette, it can read as an official Army page. Use it as a nod, not a copy."] },
+
+ { num:"02", glow:"#ebd3a2", name:"Wada No. 243", src:"Sanzo Wada, combination 243: Raw Sienna · Ivory Buff · Olive Green · Slate Color",
+   c:{nav:"#34454c",navT:"#ebd3a2",hero:"#6b7140",heroT:"#FFFFFF",kick:"#ebd3a2",act:"#bb7125",actT:"#FFFFFF",link:"#34454c",linkT:"#FFFFFF",band:"#ebd3a2",bandT:"#34454c",line:"#d3b983",tag:"#6b7140",tagT:"#FFFFFF",foot:"#34454c",footT:"#ebd3a2"},
+   sw:[["Olive Green","#6b7140","hero"],["Raw Sienna","#bb7125","action"],["Slate Color","#34454c","link · text"],["Ivory Buff","#ebd3a2","band"]],
+   notes:["<strong>The most organic one:</strong> olive, rust and parchment. Slate replaces the blue, giving you a cool note without a bright one.","Raw Sienna holds only 3.8:1 with white text, which is fine for bold button labels and too low for body text. There's no yellow in this one; Raw Sienna takes over the main button."] },
+
+ { num:"03", glow:"#eeb480", name:"Wada No. 310", src:"Sanzo Wada, combination 310: Sulpher Yellow · Pinkish Cinnamon · Olive · Deep Slate Olive",
+   c:{nav:"#253122",navT:"#f5ecc2",hero:"#253122",heroT:"#f5ecc2",kick:"#eeb480",act:"#eeb480",actT:"#253122",link:"#837e31",linkT:"#FFFFFF",band:"#f5ecc2",bandT:"#253122",line:"#dcd09a",tag:"#837e31",tagT:"#FFFFFF",foot:"#253122",footT:"#f5ecc2"},
+   sw:[["Deep Slate Olive","#253122","hero · text"],["Pinkish Cinnamon","#eeb480","action"],["Olive","#837e31","link"],["Sulpher Yellow","#f5ecc2","band"]],
+   notes:["<strong>A near-black green hero</strong> keeps the weight of the navy. Cream text on it reads 13:1.","The action colour is a warm cinnamon, softer than yellow. Olive replaces the blue at 4.2:1, so keep its labels bold."] },
+
+ { num:"04", glow:"#62c6bf", name:"Wada No. 189", src:"Sanzo Wada, combination 189: Lemon Yellow · Deep Slate Olive · Venice Green",
+   c:{nav:"#253122",navT:"#FFFFFF",hero:"#253122",heroT:"#FFFFFF",kick:"#f8ed43",act:"#f8ed43",actT:"#253122",link:"#62c6bf",linkT:"#253122",band:"#EEF3EC",bandT:"#253122",line:"#cfdccf",tag:"#62c6bf",tagT:"#253122",foot:"#253122",footT:"#FFFFFF"},
+   sw:[["Deep Slate Olive","#253122","hero · text"],["Lemon Yellow","#f8ed43","action"],["Venice Green","#62c6bf","link"],["Band (derived)","#EEF3EC","band"]],
+   notes:["<strong>Swaps the bright blue for a teal.</strong> Choose this one to keep a cool accent while going green overall.","Lemon on dark olive is 11:1. Venice Green needs dark text on it; white text is only 2:1. Wada lists only three colours here, so the band is a derived tint."] },
+
+ { num:"05", glow:"#E2B13C", name:"Rikyū Tea Browns", src:"Traditional Japanese colours: Sensaichá · Rikyūcha · Kobicha · Kariyasu · Torinoko-iro",
+   c:{nav:"#27221F",navT:"#E2BE9F",hero:"#3B3429",heroT:"#FFFFFF",kick:"#E2B13C",act:"#E2B13C",actT:"#3B3429",link:"#6B4423",linkT:"#FFFFFF",band:"#F3E6D8",bandT:"#3B3429",line:"#E2BE9F",tag:"#826B58",tagT:"#FFFFFF",foot:"#27221F",footT:"#E2BE9F"},
+   sw:[["Sensaichá","#3B3429","hero"],["Kariyasu","#E2B13C","action"],["Kobicha","#6B4423","link"],["Rikyūcha","#826B58","tag"],["Torinoko-iro","#E2BE9F","border"],["Band (derived)","#F3E6D8","band"]],
+   notes:["<strong>The khaki-and-brown direction.</strong> Rikyūcha is named for the tea master Sen no Rikyū: quiet, earthy, understated. It suits a show about quiet strength.","Kariyasu (a dye-grass yellow) is a muted gold rather than a bright one. Kobicha brown replaces the blue at 8.5:1."] },
+
+ { num:"06", glow:"#9C8A4D", name:"Uguisu Greens", src:"Traditional Japanese colours: Chitosemidori · Uguisu-iro · Koke-iro · Yanagi-iro · Yamabuki-iro",
+   c:{nav:"#374231",navT:"#FFFFFF",hero:"#374231",heroT:"#FFFFFF",kick:"#FFA400",act:"#FFA400",actT:"#374231",link:"#645530",linkT:"#FFFFFF",band:"#F1EEDF",bandT:"#374231",line:"#d6cfae",tag:"#8B7D3A",tagT:"#FFFFFF",foot:"#374231",footT:"#FFFFFF"},
+   sw:[["Chitosemidori","#374231","hero"],["Yamabuki","#FFA400","action"],["Uguisu-iro","#645530","link"],["Koke-iro","#8B7D3A","tag"],["Yanagi-iro","#9C8A4D","accent"],["Band (derived)","#F1EEDF","band"]],
+   notes:["<strong>The most army-green of the Japanese sets.</strong> Chitosemidori means 'thousand-year green' (pine), Uguisu is the bush-warbler olive, and Koke is moss.","Yamabuki (kerria flower) is a warmer, orange-leaning yellow than your current gold. Uguisu olive-brown replaces the blue at 7.3:1."] }
+];
+
+const IMG = 'headshot-cutout.webp';
+const vars = p => `--glow:${p.glow};--hl:${p.c.kick}`;
+
+const g = document.getElementById('grid');
+g.innerHTML = P.map((p, i) => { const c = p.c; return `
+<article class="pal${p.ref?' ref':''}" data-i="${i}">
+  <div class="meta"><span class="num">${p.num==='Today'?'Reference':'Palette '+p.num}</span><h2>${p.name}</h2><span class="src">${p.src}</span></div>
+  <div class="mock" style="${vars(p)}" aria-hidden="true">
+    <div class="m-nav" style="background:${c.nav};color:${c.navT}"><span>GREG WEINGER</span><span>Podcast · About</span></div>
+    <div class="m-hero" style="background:${c.hero};color:${c.heroT}">
+      <div class="m-copy">
+        <span class="kick" style="color:${c.kick}">Host of The Introverted Leader</span>
+        <h3>Embrace your <span class="hl">quiet strengths</span></h3>
+        <div class="m-btns">
+          <span class="m-btn" style="background:${c.act};color:${c.actT}">Listen</span>
+          <span class="m-btn" style="background:${c.link};color:${c.linkT}">Masterclass</span>
+        </div>
+      </div>
+      <div class="m-fig"><img src="${IMG}" alt="" width="900" height="900"></div>
+    </div>
+    <div class="m-band" style="background:${c.band};color:${c.bandT};border-color:${c.line}">
+      <div class="row"><span class="m-tag" style="background:${c.tag};color:${c.tagT}">Pillar 3</span><b>Increase Visibility &amp; Influence</b></div>
+      <p>Weekly episodes for introverted leaders who want to be seen without performing extroversion.</p>
+    </div>
+    <div class="m-foot" style="background:${c.foot};color:${c.footT}">© 2026 Greg Weinger</div>
+  </div>
+  <button type="button" class="open-btn" data-i="${i}">View full screen ↗</button>
+  <div class="sw">${p.sw.map(([n,h,r]) => `<div class="chip"><i style="background:${h}"></i><div><div class="n">${n}</div><div class="h">${h.toUpperCase()}</div><div class="r">${r}</div></div></div>`).join('')}</div>
+  <div class="notes">${p.notes.map(n=>`<p>${n}</p>`).join('')}</div>
+</article>`}).join('');
+
+const PILLARS = ["Beat Imposter Syndrome","Speak Up in Meetings with Quiet Authority","Increase Visibility & Influence Authentically","Communicate Like a Leader","Manage Your Energy & Thrive in Extroverted Cultures","Get Promoted Without Becoming Someone Else"];
+
+function page(p){ const c = p.c; return `
+<div style="${vars(p)}">
+  <div class="fs-nav" style="background:${c.nav};color:${c.navT}"><div class="fs-in"><span>GREG WEINGER</span><span class="links"><span>Podcast</span><span>Masterclass</span><span>Newsletter</span><span>About</span></span></div></div>
+  <section class="fs-hero" style="background:${c.hero};color:${c.heroT}"><div class="fs-in">
+    <div class="fs-copy">
+      <span class="fs-eyebrow" style="color:${c.kick}">Host of The Introverted Leader</span>
+      <h1>Embrace your <span class="hl">quiet strengths</span></h1>
+      <p class="lead">I help introverted leaders get promoted and start earning what they deserve, without becoming someone else.</p>
+      <div class="fs-actions">
+        <span class="fs-btn" style="background:${c.act};color:${c.actT}">Listen to the podcast</span>
+        <span class="fs-btn" style="background:${c.link};color:${c.linkT}">Watch the masterclass →</span>
+      </div>
+    </div>
+    <div class="fs-fig"><img src="${IMG}" alt="Greg Weinger" width="900" height="900"></div>
+  </div></section>
+  <section class="fs-band" style="background:#FFFFFF;color:${c.bandT}"><div class="fs-in">
+    <span class="fs-eyebrow" style="color:${c.hero}">Start here</span>
+    <h2>Two ways to start.</h2>
+    <div class="fs-cards">
+      <article class="fs-card" style="background:${c.hero};color:${c.heroT}">
+        <span class="fs-eyebrow" style="color:${c.kick}">Free masterclass · ~30 min</span>
+        <h3>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h3>
+        <p style="opacity:.88">The 3 Moments That Determine Advancement: a visibility framework built on preparation, not performance.</p>
+        <span class="fs-btn" style="background:${c.act};color:${c.actT}">Watch it free →</span>
+      </article>
+      <article class="fs-card" style="background:${c.band};color:${c.bandT};border:1px solid ${c.line}">
+        <span class="fs-eyebrow" style="color:${c.hero}">Weekly newsletter</span>
+        <h3>Quiet-strength leadership in your inbox</h3>
+        <p>One idea a week for introverted leaders: what to say, when to speak up, and how to get credit for the work you already do.</p>
+        <span class="fs-btn" style="background:${c.link};color:${c.linkT}">Subscribe</span>
+      </article>
+    </div>
+  </div></section>
+  <section class="fs-band" style="background:${c.band};color:${c.bandT}"><div class="fs-in">
+    <span class="fs-eyebrow" style="color:${c.hero}">Join the Introvert Army</span>
+    <h2>Six fronts, one quiet campaign.</h2>
+    <div class="fs-pillars">${PILLARS.map((t,k)=>`<div class="fs-pillar" style="background:#FFFFFF;border-color:${c.line}"><span style="color:${c.hero}">Pillar ${k+1}</span><b>${t.replace('&','&amp;')}</b></div>`).join('')}</div>
+  </div></section>
+  <footer class="fs-foot" style="background:${c.foot};color:${c.footT}"><div class="fs-in"><span>© 2026 Greg Weinger · The Introverted Leader</span><span>Apple Podcasts · Spotify · YouTube</span></div></footer>
+</div>`; }
+
+const dlg = document.getElementById('fs');
+let cur = 0;
+function show(i){
+  cur = (i + P.length) % P.length; const p = P[cur];
+  document.getElementById('fs-title').innerHTML = `<b>${p.num==='Today'?'Reference':'Palette '+p.num}: ${p.name}</b> <span style="opacity:.7">(${cur+1} of ${P.length})</span>`;
+  document.getElementById('fs-page').innerHTML = page(p);
+  dlg.scrollTop = 0;
+}
+function open(i){ show(i); if(!dlg.open){ try{ dlg.showModal(); }catch(e){ dlg.setAttribute('open',''); } } document.documentElement.style.overflow='hidden'; }
+function close(){ dlg.close(); }
+dlg.addEventListener('close', () => { document.documentElement.style.overflow=''; g.querySelector(`.open-btn[data-i="${cur}"]`)?.focus(); });
+g.addEventListener('click', e => { const t = e.target.closest('.mock, .open-btn'); if(t) open(+t.closest('.pal').dataset.i); });
+document.getElementById('fs-prev').onclick = () => show(cur-1);
+document.getElementById('fs-next').onclick = () => show(cur+1);
+document.getElementById('fs-close').onclick = close;
+document.addEventListener('keydown', e => { if(!dlg.open) return; if(e.key==='ArrowLeft') show(cur-1); if(e.key==='ArrowRight') show(cur+1); });
+</script>
