@@ -16,39 +16,41 @@ import '../styles/pages.css';
 
   <section class="band band--light">
     <div class="band-inner contact-grid">
-      <section class="contact-card">
-        <h2>Send me a message</h2>
-
-        <div id="contact-success" class="contact-success" style="display:none">
-          <p>Message sent — I'll get back to you soon.</p>
-        </div>
-
-        <div id="contact-error" class="contact-error" style="display:none"></div>
-
-        <form id="contact-form" class="contact-form">
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your name" />
-          </div>
-          <div class="form-field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com" />
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required rows="6" placeholder="What's on your mind?"></textarea>
-          </div>
-          <button type="submit" class="btn-primary contact-submit">Send message</button>
-        </form>
-      </section>
-
-      <aside class="contact-side">
+      <div class="contact-main">
         <div class="contact-help">
           <h2 class="eyebrow">Stuck at work?</h2>
           <p>Doing great work and still getting passed over? Answer six quick questions. If I think I can help, I'll reach out personally.</p>
           <a class="btn-gold" href="/questionnaire/?from=contact">Answer six quick questions →</a>
         </div>
 
+        <section class="contact-card">
+          <h2>Send me a message</h2>
+
+          <div id="contact-success" class="contact-success" style="display:none">
+            <p>Message sent — I'll get back to you soon.</p>
+          </div>
+
+          <div id="contact-error" class="contact-error" style="display:none"></div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your name" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required rows="6" placeholder="What's on your mind?"></textarea>
+            </div>
+            <button type="submit" class="btn-primary contact-submit">Send message</button>
+          </form>
+        </section>
+      </div>
+
+      <aside class="contact-side">
         <h2 class="eyebrow">Find me here</h2>
         <div class="band-actions link-buttons">
           <a class="btn-primary" href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>

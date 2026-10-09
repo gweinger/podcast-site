@@ -84,7 +84,7 @@
 .contact-side .contact-reasons { margin: 0; }
 .contact-help {
   padding: var(--space-6);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-left: 4px solid var(--brand-gold);
