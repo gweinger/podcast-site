@@ -4,15 +4,32 @@
 // instead of to the form: GA4 records the page_view with its campaign tags,
 // then the page forwards to the form. Noindexed and out of the sitemap — it's
 // a redirect, not content.
+//
+// No meta refresh, on purpose: link-preview crawlers (LinkedIn's above all)
+// don't run JS but do follow a meta refresh, which sent them to Google Forms
+// and left LinkedIn with no preview, so it refused the link. Crawlers stop
+// here and read the OG tags; people get the JS redirect, and the visible
+// link below covers anyone without JS.
 import Base from '../layouts/Base.astro';
 
 const FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSckqgAX1Wzi_1Rg_29d-s5Ei2dvsy30_n3YzMA7wwtwc9Daog/viewform';
+const OG_IMAGE = new URL('/og-questionnaire.png', Astro.site).href;
 ---
-<Base title="Six quick questions | Greg Weinger" minimalHeader>
+<Base
+  title="Stuck at work? Six quick questions | Greg Weinger"
+  description="Doing great work and still getting passed over? Going quiet in the meetings that decide your reputation? Answer six quick questions. If I think I can help, I'll reach out personally."
+  minimalHeader
+>
   <Fragment slot="head">
     <meta name="robots" content="noindex" />
-    <noscript><meta http-equiv="refresh" content={`0; url=${FORM_URL}`} /></noscript>
+    <meta property="og:url" content={new URL('/questionnaire/', Astro.site).href} />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="Stuck at work? Six quick questions — Greg Weinger, The Introverted Leader" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={OG_IMAGE} />
   </Fragment>
   <div class="container">
     <h1>Six quick questions</h1>
