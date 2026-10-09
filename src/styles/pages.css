@@ -82,6 +82,16 @@
 .contact-card h2 { margin-top: 0; }
 .contact-card .contact-form { max-width: none; }
 .contact-side .contact-reasons { margin: 0; }
+.contact-help {
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--brand-gold);
+  border-radius: 12px;
+}
+.contact-help .eyebrow { margin-top: 0; }
+.contact-help p { margin: 0 0 var(--space-4); }
 .contact-side .link-buttons { justify-content: flex-start; margin-bottom: var(--space-8); }
 
 @media (max-width: 900px) {

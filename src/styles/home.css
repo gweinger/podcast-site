@@ -220,7 +220,8 @@
 .topic-card-cta { font-size: var(--text-sm); font-weight: 700; color: var(--brand-gold); }
 
 /* ---------- Closing CTA ---------- */
-.closing-band .band-title { margin-bottom: var(--space-6); }
+.closing-band .band-title { margin-bottom: var(--space-4); }
+.closing-lead { max-width: 40rem; margin: 0 auto var(--space-6); }
 .closing-actions { justify-content: center; margin-bottom: 0; }
 
 @media (max-width: 900px) {
