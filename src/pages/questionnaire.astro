@@ -1,0 +1,33 @@
+---
+// Trackable front door for the October 2026 questionnaire (a Google Form).
+// Google Forms can't run GA4, so every surface links here with its own UTMs
+// instead of to the form: GA4 records the page_view with its campaign tags,
+// then the page forwards to the form. Noindexed and out of the sitemap — it's
+// a redirect, not content.
+import Base from '../layouts/Base.astro';
+
+const FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSckqgAX1Wzi_1Rg_29d-s5Ei2dvsy30_n3YzMA7wwtwc9Daog/viewform';
+---
+<Base title="Six quick questions | Greg Weinger" minimalHeader>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+    <noscript><meta http-equiv="refresh" content={`0; url=${FORM_URL}`} /></noscript>
+  </Fragment>
+  <div class="container">
+    <h1>Six quick questions</h1>
+    <p class="lead">Taking you to the questionnaire…</p>
+    <p><a href={FORM_URL}>Click here if it doesn't open.</a></p>
+  </div>
+  <script is:inline define:vars={{ FORM_URL }}>
+    // Give GA4 a moment to send the page_view before leaving. The event
+    // callback fires once the hit is out; the timeout covers blocked or
+    // slow gtag so nobody is ever stuck on this page.
+    var gone = false;
+    function go() { if (!gone) { gone = true; location.replace(FORM_URL); } }
+    setTimeout(go, 1200);
+    if (typeof gtag === 'function') {
+      gtag('event', 'questionnaire_redirect', { event_callback: go, event_timeout: 1000 });
+    }
+  </script>
+</Base>
