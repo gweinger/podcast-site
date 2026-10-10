@@ -1,0 +1,242 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import type { EpisodeLike } from '../lib/pillars';
+import '../styles/bands.css';
+import '../styles/home.css';
+import '../styles/sprint.css';
+
+// Booking is gated (day-job precaution): no public booking link on this page.
+// Every call to action goes to the questionnaire or the contact form, and Greg
+// sends a booking link by hand after he replies.
+const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
+// The latest episode number: what listeners see in the feed.
+const episodeCount = Math.max(...allEpisodes.map((e) => Number(e.data.episode) || 0));
+const ask = (from: string) => `/questionnaire/?from=sprint-${from}`;
+
+const pains = [
+  'You do great work, and someone louder gets the promotion.',
+  'You go quiet in the meetings that decide your reputation.',
+  'Your manager says "keep doing what you\'re doing," and nothing changes.',
+  'You dread the conversation where you\'re supposed to make your own case.',
+  'You\'re not sure what\'s actually blocking you, so you just work harder.',
+];
+
+const calls = [
+  {
+    when: 'Before week 1',
+    title: 'Get set up',
+    step: 'Onboarding',
+    body: 'A few questions in writing: your role, the title you want, who decides, what your last review said, and what\'s coming in the next 90 days.',
+  },
+  {
+    when: 'Week 1',
+    title: 'Promote yourself',
+    step: 'Steps 1–2',
+    body: 'Decide you want it and believe you deserve it. Write your Promotion Declaration, research your value, and plan three to five short conversations with the people who see your work.',
+  },
+  {
+    when: 'Week 3',
+    title: 'Bridge the gap',
+    step: 'Step 3',
+    body: 'Compare how you\'re seen with what you can do. Pick two or three skills to show, and build a visibility plan around the moments that matter, with preparation instead of performance.',
+  },
+  {
+    when: 'Week 6',
+    title: 'Make the case',
+    step: 'Step 4',
+    body: 'Draft and rehearse the conversation with your boss: why you\'re ready, your vision for the role, and a written 90-day plan they can take to whoever signs off.',
+  },
+  {
+    when: 'Week 12',
+    title: 'Ask for the title',
+    step: 'Step 5',
+    body: 'Review your wins, prepare the title and salary conversation, and know your next move if the answer is "not yet."',
+  },
+];
+
+const included = [
+  'Four 1:1 video calls, 45–60 minutes each, spread over 90 days',
+  'Email support between calls when you get stuck',
+  'A shared plan document we keep up to date together',
+  'The ebook, Secure Your Next Promotion in 90 Days',
+];
+
+const faqs = [
+  {
+    q: 'What happens after I answer the questions?',
+    a: 'I read every answer and reply personally. If the sprint looks like a fit, I\'ll suggest a time for a short call to talk it through. If it isn\'t, I\'ll tell you, and point you somewhere better.',
+  },
+  {
+    q: 'Will I be promoted in 90 days?',
+    a: 'Nobody can promise that, but what I can promise is what you\'ll have built: a clear case, a written plan in your manager\'s hands, and 90 days of operating at the next level on the record. The title follows your company\'s cycle. If the answer is "not yet," you\'ll know exactly why and what to do next.',
+  },
+  {
+    q: 'Can my company pay for it?',
+    a: 'Often, yes. Many people use a learning or development budget. I\'ll send an invoice and a short description of the program you can share with whoever approves it.',
+  },
+  {
+    q: 'Do I have to be an introvert?',
+    a: 'No. The sprint is built for people whose best work is quiet: thoughtful, prepared and easy to overlook. Most of them call themselves introverts, but the label isn\'t a requirement.',
+  },
+  {
+    q: 'Who is this not for?',
+    a: 'It isn\'t a job search, a résumé rewrite, or general life coaching. It\'s highly focused strategy, skills, action planning, and troubleshooting support for people who are ready to move up now and willing to do the work between calls. If you need someone in your corner to get you to that next level, this is it.',
+  },
+  {
+    q: 'Is what I share confidential?',
+    a: 'Yes. What you tell me about you, your manager and your company stays between us.',
+  },
+];
+---
+<Base
+  title="The 90-Day Promotion Sprint — Greg Weinger"
+  description="1:1 coaching for introverted leaders who are doing great work and still getting passed over. Four calls over 90 days to build your promotion case and make the ask."
+>
+  <div class="home sprint">
+
+  <section class="band band--dark on-dark hero-band">
+    <div class="band-inner hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">1:1 coaching · 90 days</p>
+        <h1 class="hero-title">Secure your next promotion in <span class="hl">90 days</span></h1>
+        <p class="hero-lead">A coaching sprint for introverted leaders who are doing great work and still getting passed over. Four calls, one plan, and someone to hold you to it, without becoming someone else.</p>
+        <div class="hero-actions">
+          <a class="btn-gold" href="#how">See how it works ↓</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img class="hero-cutout" src="/headshot-cutout.webp" alt="Greg Weinger" width="900" height="900" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white">
+    <div class="band-inner">
+      <div class="band-head">
+        <p class="eyebrow">Sound familiar?</p>
+        <h2 class="band-title">Good work alone isn't getting you promoted.</h2>
+      </div>
+      <ul class="pain-list">
+        {pains.map((p) => <li>{p}</li>)}
+      </ul>
+      <p class="sprint-bridge">None of that is a confidence problem. It's a strategy problem, and strategy is something you can learn.</p>
+    </div>
+  </section>
+
+  <section class="band band--light">
+    <div class="band-inner">
+      <div class="band-head">
+        <p class="eyebrow">The outcome</p>
+        <h2 class="band-title">Where you'll be in <span class="hl">90 days</span>.</h2>
+      </div>
+      <div class="outcome-grid">
+        <article class="outcome-card">
+          <span class="outcome-num">1</span>
+          <h3>Your case is built</h3>
+          <p>You know your value, what's in the way, and the two or three things that will change how you're seen.</p>
+        </article>
+        <article class="outcome-card">
+          <span class="outcome-num">2</span>
+          <h3>Your manager has your plan</h3>
+          <p>You've had the conversation and left a written 90-day plan they can take to whoever signs off.</p>
+        </article>
+        <article class="outcome-card">
+          <span class="outcome-num">3</span>
+          <h3>You're working at the next level</h3>
+          <p>On the record, in the meetings that count. When the next promotion cycle comes, the evidence is already there.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white" id="how">
+    <div class="band-inner">
+      <div class="band-head">
+        <p class="eyebrow">How it works</p>
+        <h2 class="band-title">Four calls. Five steps. Ninety days.</h2>
+        <p class="sprint-sub">The calls are spaced across the 90 days and placed where people get stuck. Between calls you do the work, and I'm a short email away.</p>
+      </div>
+      <ol class="call-timeline">
+        {calls.map((c, i) => (
+          <li class="call-item">
+            <span class="call-marker">{i === 0 ? '·' : i}</span>
+            <div class="call-body">
+              <p class="call-when">{c.when} · {c.step}</p>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band--light">
+    <div class="band-inner">
+      <div class="about-head">
+        <img class="about-head-img" src="/greg-weinger.webp" alt="Greg Weinger" width="128" height="128" loading="lazy" />
+        <div>
+          <p class="eyebrow">Your coach</p>
+          <h2 class="band-title">I've spent <span class="hl">25 years</span> in leadership, as an introvert.</h2>
+        </div>
+      </div>
+      <div class="about-cols">
+        <p>I went from engineer to manager to SVP. Early on, I was told I didn't have the temperament to be a director. I believed it for a while, and I spent years performing a version of leadership that wasn't mine.</p>
+        <p>What got me promoted wasn't learning to be louder. It was learning to make my case on my own terms: preparing for the moments that matter, making my work visible, and asking clearly for what I'd earned.</p>
+        <p>I also host <em>The Introverted Leader</em>, the top Apple Podcasts result for "introverted leader," with over 1 million downloads. Across {episodeCount} episodes, I've talked with researchers, executives and authors about how quiet people rise.</p>
+        <p>The sprint is that experience, condensed into five steps and four calls.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white" id="price">
+    <div class="band-inner">
+      <div class="band-head">
+        <p class="eyebrow">Investment</p>
+        <h2 class="band-title">One sprint, one price.</h2>
+      </div>
+      <article class="start-card start-card--dark on-dark price-card">
+        <p class="eyebrow">The 90-Day Promotion Sprint</p>
+        <p class="price-line">
+          <s class="price-was">$1,000</s>
+          <span class="price-amount">$750</span>
+          <span class="price-tag">2 spots left at the founding rate</span>
+        </p>
+        <ul class="price-list">
+          {included.map((i) => <li>{i}</li>)}
+        </ul>
+        <a class="btn-gold" href={ask('price')}>Let's see if it's a fit →</a>
+        <p class="price-note">Six quick questions, and I reply to every answer personally. If it's a fit, we'll set up a short call.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="band band--light">
+    <div class="band-inner band-read sprint-faq">
+      <div class="band-head">
+        <p class="eyebrow">Questions</p>
+        <h2 class="band-title">Before you ask.</h2>
+      </div>
+      {faqs.map((f) => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="band band--white closing-band">
+    <div class="band-inner band-head">
+      <p class="eyebrow">Lead as yourself</p>
+      <h2 class="band-title">Ready to make your case?</h2>
+      <p class="closing-lead">Answer six quick questions, and I'll reply personally.</p>
+      <div class="hero-actions closing-actions">
+        <a class="btn-gold" href={ask('closing')}>Let's see if it's a fit →</a>
+      </div>
+    </div>
+  </section>
+
+  </div>
+</Base>

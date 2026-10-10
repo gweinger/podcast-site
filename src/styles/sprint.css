@@ -1,0 +1,147 @@
+/* Promotion Sprint offer page. Hero, start cards, about and closing
+   come from home.css; band scaffold from bands.css. */
+
+.sprint-sub, .sprint-bridge { max-width: 40rem; margin: 0 auto; }
+.sprint .band-head .band-title:has(+ .sprint-sub) { margin-bottom: var(--space-4); }
+.sprint-sub { margin-bottom: var(--space-8); }
+
+/* ---------- Pains ---------- */
+.pain-list {
+  list-style: none;
+  max-width: 44rem;
+  margin: 0 auto var(--space-8);
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.pain-list li {
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-band-light);
+  border-left: 4px solid var(--brand-gold);
+  border-radius: 12px;
+  font-size: var(--text-lg);
+}
+.sprint-bridge {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+}
+
+/* ---------- Outcome ---------- */
+.outcome-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.outcome-card {
+  padding: var(--space-8);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+.outcome-card h3 { font-size: var(--text-xl); line-height: 1.25; margin: var(--space-4) 0 var(--space-2); }
+.outcome-card p { margin: 0; }
+.outcome-num, .call-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background: var(--brand-gold);
+  color: var(--brand-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* ---------- Timeline ---------- */
+.call-timeline { list-style: none; max-width: 44rem; margin: 0 auto; padding: 0; }
+.call-item { position: relative; display: flex; gap: var(--space-6); padding-bottom: var(--space-8); }
+.call-item:last-child { padding-bottom: 0; }
+/* Rule joining the markers. */
+.call-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: calc(1.25rem - 1px);
+  top: 2.5rem;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+.call-marker { flex: 0 0 auto; }
+.call-item:first-child .call-marker { background: var(--color-band-light); }
+.call-body h3 { font-size: var(--text-xl); margin: 0 0 var(--space-2); }
+.call-body p { margin: 0; }
+.call-when {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-1) !important;
+}
+
+/* ---------- Price ---------- */
+.price-card { max-width: 40rem; margin: 0 auto; }
+.price-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.price-was {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  color: var(--color-on-dark-muted);
+  text-decoration-thickness: 2px;
+}
+.price-amount {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 3.25rem);
+  line-height: 1;
+  color: var(--color-on-dark);
+}
+.price-tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--brand-gold);
+  color: var(--brand-dark);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.price-list { margin: var(--space-2) 0 var(--space-4); padding-left: 1.2em; }
+.price-list li { margin-bottom: var(--space-2); }
+.price-card > a:last-child { margin-top: 0; }
+.price-card .btn-gold { margin-top: auto; }
+.price-note { font-size: var(--text-sm); }
+
+/* ---------- FAQ ---------- */
+.faq-item {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  margin-bottom: var(--space-3);
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; color: var(--color-accent); font-weight: 700; }
+.faq-item[open] summary::after { content: '–'; }
+.faq-item p { margin: 0; padding: 0 var(--space-6) var(--space-4); }
+.sprint-faq { margin: 0 auto; }
+
+@media (max-width: 900px) {
+  .outcome-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .outcome-card { padding: var(--space-6); }
+  .call-item { gap: var(--space-4); }
+  .pain-list li { padding: var(--space-4); font-size: var(--text-base); }
+}
