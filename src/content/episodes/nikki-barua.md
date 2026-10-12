@@ -23,6 +23,7 @@ urls:
   youtube: https://youtu.be/nDTPbjUNX84
   apple: https://podcasts.apple.com/us/podcast/87-authentic-leadership-why-fitting-in-makes-you-invisible/id1794604735?i=1000795903059&uo=4
   spotify: https://open.spotify.com/episode/4FrCpC5bksRCMHtBY313pW
+  substack: https://www.powerfulintrovertpodcast.com/p/what-one-ceo-learned-when-she-stopped
 pullQuotes:
 - What makes you different is what makes you powerful.
 - I felt like the more I became like everyone else, the less there was of me to see.
