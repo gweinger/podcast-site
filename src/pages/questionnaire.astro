@@ -17,8 +17,8 @@ const FORM_URL =
 const OG_IMAGE = new URL('/og-questionnaire.png', Astro.site).href;
 ---
 <Base
-  title="Stuck at work? Six quick questions | Greg Weinger"
-  description="Doing great work and still getting passed over? Answer six quick questions, and I'll reply personally."
+  title="Stuck at work? Tell me where | Greg Weinger"
+  description="Doing great work and still getting passed over? Leave your email, and I'll reply personally."
   minimalHeader
 >
   <Fragment slot="head">
@@ -27,13 +27,13 @@ const OG_IMAGE = new URL('/og-questionnaire.png', Astro.site).href;
     <meta property="og:image" content={OG_IMAGE} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="627" />
-    <meta property="og:image:alt" content="Stuck at work? Six quick questions — Greg Weinger, The Introverted Leader" />
+    <meta property="og:image:alt" content="Stuck at work? Tell me where you're stuck — Greg Weinger, The Introverted Leader" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={OG_IMAGE} />
   </Fragment>
   <div class="container">
-    <h1>Six quick questions</h1>
-    <p class="lead">Taking you to the questionnaire…</p>
+    <h1>Tell me where you're stuck</h1>
+    <p class="lead">Taking you to the form…</p>
     <p><a href={FORM_URL}>Click here if it doesn't open.</a></p>
   </div>
   <script is:inline define:vars={{ FORM_URL }}>
