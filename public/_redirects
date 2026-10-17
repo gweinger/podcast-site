@@ -91,3 +91,6 @@
 
 # Spoken podcast CTA, one link for every episode (trial from #89, Oct 2026)
 /stuck /get-unstuck/?utm_source=podcast&utm_medium=audio&utm_campaign=get-unstuck 302
+
+# #90 (Ryan Latta) CTA: the open-source skills repo (302 so it can move to a site page later)
+/ai-skills https://github.com/powerful-introvert/powerful-introvert-skills 302
