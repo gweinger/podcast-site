@@ -1,0 +1,64 @@
+---
+// The hand-raise page (October 2026 plan). Replaced the six-question Google
+// Form on 2026-10-17: a visitor tells Greg what's going on, and he writes back
+// personally with one thing to try. The form is the contact form's, posted to
+// the same worker, so submissions land in Greg's inbox tagged with this page
+// and the visitor's ?from= / UTM tags. /questionnaire/ 301s here
+// (public/_redirects), so the old links in show notes and YouTube still work.
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import MessageForm from '../components/MessageForm.astro';
+import '../styles/pages.css';
+
+const OG_IMAGE = new URL('/og-get-unstuck.png', Astro.site).href;
+---
+<Base
+  title="Get unstuck — Greg Weinger"
+  description="Doing great work and still getting passed over? Tell me what's going on at work, and I'll write back personally with one thing I'd try in your shoes."
+>
+  <Fragment slot="head">
+    <meta property="og:url" content={new URL('/get-unstuck/', Astro.site).href} />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="Stuck at work? Tell me what's going on — Greg Weinger, The Introverted Leader" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={OG_IMAGE} />
+  </Fragment>
+
+  <PageHero
+    eyebrow="Get unstuck"
+    title="Tell me what's going on at work."
+    lead="A few sentences is plenty. I read every one and write back personally, with one thing I'd try in your shoes."
+  />
+
+  <section class="band band--light">
+    <div class="band-inner contact-grid">
+      <div class="contact-main">
+        <section class="contact-card">
+          <MessageForm
+            source="get-unstuck"
+            messageFirst
+            messageLabel="Where are you stuck?"
+            messagePlaceholder="For example: I keep hearing I need more executive presence, and nobody can tell me what that means."
+            button="Send it to Greg →"
+            success="Got it, thank you. I'll read it myself and write back within a few days. — Greg"
+          />
+        </section>
+      </div>
+
+      <aside class="contact-side">
+        <h2 class="eyebrow">This is for you if you're</h2>
+        <ul class="contact-reasons">
+          <li>Doing great work and still getting passed over</li>
+          <li>Going quiet in the meetings that decide your reputation</li>
+          <li>Dreading the conversation where you're supposed to make your own case</li>
+        </ul>
+
+        <h2 class="eyebrow">What happens next</h2>
+        <p>I write back within a few days with one thing I'd try in your shoes. If it sounds like we should talk, I'll say so.</p>
+        <p>It comes straight to my inbox. No mailing list.</p>
+      </aside>
+    </div>
+  </section>
+</Base>

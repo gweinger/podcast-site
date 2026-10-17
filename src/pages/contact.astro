@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import MessageForm from '../components/MessageForm.astro';
 import { LINKS } from '../lib/links';
 import '../styles/pages.css';
 ---
@@ -11,7 +12,7 @@ import '../styles/pages.css';
   <PageHero
     eyebrow="Contact"
     title="Stuck in your career? Let's talk."
-    lead="Tell me where you're stuck, and I'll reply personally. Guest ideas, questions about the show and everything else go through the form below."
+    lead="Career help has its own page. Guest ideas, questions about the show and everything else go through the form below."
   />
 
   <section class="band band--light">
@@ -19,34 +20,14 @@ import '../styles/pages.css';
       <div class="contact-main">
         <div class="contact-help">
           <h2 class="eyebrow">Stuck at work?</h2>
-          <p>Doing great work and still getting passed over? Leave your name and email, and I'll reply personally.</p>
-          <a class="btn-gold" href="/questionnaire/?from=contact">Tell me where you're stuck →</a>
+          <p>Doing great work and still getting passed over? Tell me what's going on, and I'll write back personally.</p>
+          <a class="btn-gold" href="/get-unstuck/?from=contact">Tell me where you're stuck →</a>
         </div>
 
         <section class="contact-card">
           <h2>Send me a message</h2>
 
-          <div id="contact-success" class="contact-success" style="display:none">
-            <p>Message sent — I'll get back to you soon.</p>
-          </div>
-
-          <div id="contact-error" class="contact-error" style="display:none"></div>
-
-          <form id="contact-form" class="contact-form">
-            <div class="form-field">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required placeholder="Your name" />
-            </div>
-            <div class="form-field">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com" />
-            </div>
-            <div class="form-field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required rows="6" placeholder="What's on your mind?"></textarea>
-            </div>
-            <button type="submit" class="btn-primary contact-submit">Send message</button>
-          </form>
+          <MessageForm source="contact" />
         </section>
       </div>
 
@@ -72,39 +53,4 @@ import '../styles/pages.css';
     </div>
   </section>
 
-  <script is:inline>
-    const form = document.getElementById('contact-form');
-    const successEl = document.getElementById('contact-success');
-    const errorEl = document.getElementById('contact-error');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      errorEl.style.display = 'none';
-
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          body: new FormData(form),
-        });
-        const data = await res.json();
-        if (data.ok) {
-          form.style.display = 'none';
-          successEl.style.display = 'block';
-        } else {
-          errorEl.textContent = data.error || 'Something went wrong. Please try again.';
-          errorEl.style.display = 'block';
-          btn.disabled = false;
-          btn.textContent = 'Send message';
-        }
-      } catch {
-        errorEl.textContent = 'Network error. Please try again.';
-        errorEl.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'Send message';
-      }
-    });
-  </script>
 </Base>

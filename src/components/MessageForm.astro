@@ -1,0 +1,96 @@
+---
+// One message form, posted to the contact worker (workers/contact, routed at
+// /api/contact), which emails it to Greg. Used by /contact and /get-unstuck.
+// The worker only reads name, email and message, so the page the form sits
+// on and the visitor's ?from= / UTM tags are appended to the message body:
+// that's how a reply in Gmail says where the lead came from.
+interface Props {
+  source: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  messageFirst?: boolean;
+  rows?: number;
+  button?: string;
+  success?: string;
+}
+const {
+  source,
+  messageLabel = 'Message',
+  messagePlaceholder = "What's on your mind?",
+  messageFirst = false,
+  rows = 6,
+  button = 'Send message',
+  success = "Message sent — I'll get back to you soon.",
+} = Astro.props;
+---
+<div class="message-form" data-source={source}>
+  <div class="contact-success" data-success style="display:none">
+    <p>{success}</p>
+  </div>
+  <div class="contact-error" data-error style="display:none"></div>
+
+  <form class="contact-form" data-button={button}>
+    {messageFirst && (
+      <div class="form-field">
+        <label for={`${source}-message`}>{messageLabel}</label>
+        <textarea id={`${source}-message`} name="message" required rows={rows} placeholder={messagePlaceholder}></textarea>
+      </div>
+    )}
+    <div class="form-field">
+      <label for={`${source}-name`}>Name</label>
+      <input type="text" id={`${source}-name`} name="name" required placeholder="Your name" />
+    </div>
+    <div class="form-field">
+      <label for={`${source}-email`}>Email address</label>
+      <input type="email" id={`${source}-email`} name="email" required placeholder="you@example.com" />
+    </div>
+    {!messageFirst && (
+      <div class="form-field">
+        <label for={`${source}-message`}>{messageLabel}</label>
+        <textarea id={`${source}-message`} name="message" required rows={rows} placeholder={messagePlaceholder}></textarea>
+      </div>
+    )}
+    <button type="submit" class="btn-primary contact-submit">{button}</button>
+  </form>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.message-form').forEach((wrap) => {
+    const form = wrap.querySelector('form')!;
+    const successEl = wrap.querySelector<HTMLElement>('[data-success]')!;
+    const errorEl = wrap.querySelector<HTMLElement>('[data-error]')!;
+    const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const label = form.dataset.button || 'Send message';
+    const source = wrap.dataset.source || 'site';
+
+    const fail = (text: string) => {
+      errorEl.textContent = text;
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = label;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      errorEl.style.display = 'none';
+
+      const data = new FormData(form);
+      const tags = location.search ? ` ${location.search}` : '';
+      data.set('message', `${data.get('message')}\n\n— Sent from /${source}/${tags}`);
+
+      try {
+        const res = await fetch('/api/contact', { method: 'POST', body: data });
+        const body = await res.json();
+        if (!body.ok) return fail(body.error || 'Something went wrong. Please try again.');
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+        const gtag = (window as any).gtag;
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_source: source });
+      } catch {
+        fail('Network error. Please try again.');
+      }
+    });
+  });
+</script>

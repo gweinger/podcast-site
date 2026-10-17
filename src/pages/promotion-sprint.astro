@@ -7,12 +7,12 @@ import '../styles/home.css';
 import '../styles/sprint.css';
 
 // Booking is gated (day-job precaution): no public booking link on this page.
-// Every call to action goes to the questionnaire or the contact form, and Greg
+// Every call to action goes to /get-unstuck/ or the contact form, and Greg
 // sends a booking link by hand after he replies.
 const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[];
 // The latest episode number: what listeners see in the feed.
 const episodeCount = Math.max(...allEpisodes.map((e) => Number(e.data.episode) || 0));
-const ask = (from: string) => `/questionnaire/?from=sprint-${from}`;
+const ask = (from: string) => `/get-unstuck/?from=sprint-${from}`;
 
 const pains = [
   'You do great work, and someone louder gets the promotion.',
@@ -208,7 +208,7 @@ const faqs = [
           {included.map((i) => <li>{i}</li>)}
         </ul>
         <a class="btn-gold" href={ask('price')}>Let's see if it's a fit →</a>
-        <p class="price-note">Leave your name and email, and I'll reply personally. If it's a fit, we'll set up a short call.</p>
+        <p class="price-note">Tell me what's going on, and I'll write back personally. If it's a fit, we'll set up a short call.</p>
       </article>
     </div>
   </section>
@@ -232,7 +232,7 @@ const faqs = [
     <div class="band-inner band-head">
       <p class="eyebrow">Lead as yourself</p>
       <h2 class="band-title">Ready to make your case?</h2>
-      <p class="closing-lead">Leave your name and email, and I'll reply personally.</p>
+      <p class="closing-lead">Tell me what's going on, and I'll write back personally.</p>
       <div class="hero-actions closing-actions">
         <a class="btn-gold" href={ask('closing')}>Let's see if it's a fit →</a>
       </div>

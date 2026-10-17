@@ -82,6 +82,7 @@
 .contact-card h2 { margin-top: 0; }
 .contact-card .contact-form { max-width: none; }
 .contact-side .contact-reasons { margin: 0; }
+.contact-side .contact-reasons + .eyebrow { margin-top: var(--space-8); }
 .contact-help {
   padding: var(--space-6);
   margin-bottom: var(--space-6);
