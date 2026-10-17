@@ -85,3 +85,6 @@
 # Oct 2026 hand-raise: the six-question Google Form became a page on the site
 /questionnaire /get-unstuck/ 301
 /questionnaire/ /get-unstuck/ 301
+
+# Short link for LinkedIn comments (302 so it can be repointed per campaign)
+/unstuck /get-unstuck/?utm_source=linkedin&utm_medium=comment&utm_campaign=boost-gap-fix 302
