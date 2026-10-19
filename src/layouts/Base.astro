@@ -44,7 +44,9 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
                 <a href={n.href} aria-current={isCurrent(path, n.href) ? 'page' : undefined}>{n.label}</a>
               ))}
             </nav>
-            <a class="btn-gold header-cta" href="/masterclass">Free Masterclass</a>
+            {!path.startsWith('/get-unstuck') && (
+              <a class="btn-gold header-cta" href="/get-unstuck/?from=nav">Get unstuck</a>
+            )}
           </>
         )}
       </div>
