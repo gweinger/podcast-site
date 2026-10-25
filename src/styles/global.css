@@ -576,6 +576,13 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   color: var(--color-text);
 }
 
+.form-field label .form-optional {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
 .form-field input,
 .form-field textarea {
   font-family: var(--font-body);

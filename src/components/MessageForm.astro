@@ -3,12 +3,15 @@
 // /api/contact), which emails it to Greg. Used by /contact and /get-unstuck.
 // The worker only reads name, email and message, so the page the form sits
 // on and the visitor's ?from= / UTM tags are appended to the message body:
-// that's how a reply in Gmail says where the lead came from.
+// that's how a reply in Gmail says where the lead came from. An optional
+// "when" field (whenLabel) is folded into the message body the same way.
 interface Props {
   source: string;
   messageLabel?: string;
   messagePlaceholder?: string;
   messageFirst?: boolean;
+  whenLabel?: string;
+  whenPlaceholder?: string;
   rows?: number;
   button?: string;
   success?: string;
@@ -18,6 +21,8 @@ const {
   messageLabel = 'Message',
   messagePlaceholder = "What's on your mind?",
   messageFirst = false,
+  whenLabel,
+  whenPlaceholder = '',
   rows = 6,
   button = 'Send message',
   success = "Message sent — I'll get back to you soon.",
@@ -34,6 +39,12 @@ const {
       <div class="form-field">
         <label for={`${source}-message`}>{messageLabel}</label>
         <textarea id={`${source}-message`} name="message" required rows={rows} placeholder={messagePlaceholder}></textarea>
+      </div>
+    )}
+    {whenLabel && (
+      <div class="form-field">
+        <label for={`${source}-when`}>{whenLabel} <span class="form-optional">(optional)</span></label>
+        <input type="text" id={`${source}-when`} name="when" placeholder={whenPlaceholder} />
       </div>
     )}
     <div class="form-field">
@@ -78,7 +89,10 @@ const {
 
       const data = new FormData(form);
       const tags = location.search ? ` ${location.search}` : '';
-      data.set('message', `${data.get('message')}\n\n— Sent from /${source}/${tags}`);
+      const when = String(data.get('when') || '').trim();
+      data.delete('when');
+      const whenLine = when ? `\n\nWhy now: ${when}` : '';
+      data.set('message', `${data.get('message')}${whenLine}\n\n— Sent from /${source}/${tags}`);
 
       try {
         const res = await fetch('/api/contact', { method: 'POST', body: data });
