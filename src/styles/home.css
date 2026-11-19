@@ -74,8 +74,6 @@
 .start-card--dark h3 { color: var(--color-on-dark); }
 .start-card--light { background: var(--color-accent-light); border: 1px solid var(--color-border); }
 .start-card-img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-md); }
-/* Square channel art in the 16:9 slot: show all of it, padded with the art's own blue. */
-.start-card-img--contain { object-fit: contain; background: #4246df; }
 .start-card-img-link { display: block; }
 
 /* ---------- About ---------- */
