@@ -26,6 +26,7 @@ urls:
   youtube: https://youtu.be/hlNV6L1mioc
   apple: https://podcasts.apple.com/us/podcast/91-executive-presence-for-introverts-own-the-room-you/id1794604735?i=1000800723245&uo=4
   spotify: https://open.spotify.com/episode/3pDfqx8lRJI67yzJctRa5Z
+  substack: https://www.powerfulintrovertpodcast.com/p/executive-presence-for-introverts
 pullQuotes:
 - Courage is not the absence of fear, it's being able to act in the presence of fear.
 - for anyone that's introverted, that preparation breeds confidence
