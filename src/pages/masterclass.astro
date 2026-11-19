@@ -6,23 +6,30 @@ import Base from '../layouts/Base.astro';
 // masterclass_signup. Success behavior in Kit: redirect to /masterclass/watch.
 const KIT_FORM_ID = '9756893';
 const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
+
+// Copy source: podcast-studio/_showrunner/masterclass/masterclass-landing-page-v2.md.
+// The current cut runs ~30 min. Change to 26 when the Nov 2026 re-edit
+// (masterclass-reedit-2026-11.md) replaces the video on the watch page.
+const VIDEO_MINUTES = 30;
+const VIDEO_TITLE = "Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong";
 ---
 <Base
-  title="Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong | Greg Weinger"
-  description="A free masterclass for introverted leaders: why the standard advice fails you, and the three career moments where quiet preparation beats performing. ~30 minutes."
+  title="Free Masterclass for Introverted Leaders: Get Your Best Work Seen | Greg Weinger"
+  description={`A free ${VIDEO_MINUTES}-minute masterclass for introverted leaders whose best work goes unseen: why it isn't a confidence problem, and the 3 moments that decide who gets ahead.`}
   minimalHeader
 >
   <section class="labs-hero">
-    <p class="masterclass-kicker">Free Masterclass · ~30 min</p>
-    <h1>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h1>
-    <p class="lead">You don't have a confidence problem. You have a strategy problem — and this session shows you the difference.</p>
+    <p class="masterclass-kicker">Free masterclass · {VIDEO_MINUTES} minutes</p>
+    <h1>Your work is great. So why does it keep going unseen?</h1>
+    <p class="lead">If you've been told to speak up more, be more visible, or work on your executive presence, the problem isn't you. You've been handed a playbook written for someone else. This masterclass gives you one that fits how you already work.</p>
   </section>
 
   <div class="container">
 
+    <p class="masterclass-still-title">The masterclass: <em>{VIDEO_TITLE}</em></p>
     <figure class="masterclass-still">
       <img src="/masterclass-still.webp" alt="Greg Weinger teaching the masterclass" width="1200" height="676" />
-      <figcaption class="masterclass-still-badge">30 min</figcaption>
+      <figcaption class="masterclass-still-badge">{VIDEO_MINUTES} min</figcaption>
     </figure>
 
     {/* Above-the-fold capture. Only ~21% of visitors scrolled far enough to
@@ -37,17 +44,29 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
     </div>
 
     <section>
-      <h2 class="home-section-label">What you'll learn</h2>
-      <ul class="masterclass-bullets">
-        <li><strong>The real reason you're overlooked</strong> — it's not confidence, charisma, or executive presence. It's a system mismatch, and the three lies that system tells introverted leaders.</li>
-        <li><strong>The 3 Moments That Determine Advancement</strong> — a visibility framework built on preparation, precision, and depth. No performing, no becoming someone else.</li>
-        <li><strong>The four things holding introverted leaders back</strong> — the full map, and where each one actually shows up in your day.</li>
+      <h2 class="home-section-label">Sound familiar?</h2>
+      <ul class="masterclass-bullets masterclass-pains">
+        <li>You had the point. By the time there was room to say it, someone else said it, and it landed as theirs.</li>
+        <li>Your review says "speak up more" or "work on your executive presence," and it's not clear what that would even look like.</li>
+        <li>You deliver, quarter after quarter, while louder colleagues get the stretch projects and the promotions.</li>
+        <li>And somewhere in there, a quieter voice starts asking: <em>maybe they're right. Maybe I'm not leadership material.</em></li>
       </ul>
+      <p class="masterclass-cost"><strong>The cost is real.</strong> Introverts earn up to $500,000 less over a career. Not because the work is worse. Because it isn't seen.</p>
+    </section>
+
+    <section>
+      <h2 class="home-section-label">After you watch, you'll</h2>
+      <ul class="masterclass-bullets">
+        <li><strong>Quiet the imposter voice.</strong> Being overlooked, and the knot in your stomach before a big meeting, aren't proof you don't belong. You'll see the three lies that make them feel that way, and why the quiet strengths you've been told to fix are where your best work comes from.</li>
+        <li><strong>Know the 3 moments that decide whether you advance.</strong> The performance conversation, the cross-functional room, and the one-on-one, with one weekly habit for each.</li>
+        <li><strong>Have your next moment picked out.</strong> You'll leave knowing which one is already on your calendar, and how to prepare for it.</li>
+      </ul>
+      <p class="masterclass-cost">No performing. No being "on" all the time. You pick your moments and show up ready.</p>
     </section>
 
     <section id="signup" class="contact-form-section">
       <h2 class="home-section-label">Watch it free</h2>
-      <p class="labs-next-reminder">Enter your email and the masterclass starts immediately.</p>
+      <p class="labs-next-reminder">Enter your email and the masterclass starts right away. {VIDEO_MINUTES} minutes, no slides.</p>
       <form class="contact-form" id="mc-signup-main" method="post" action={KIT_FORM_ACTION}>
         <div class="form-field">
           <label for="email_address">Email address</label>
@@ -61,11 +80,14 @@ const KIT_FORM_ACTION = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`
       <img class="about-teaser-img" src="/greg-weinger.webp" alt="Greg Weinger" width="80" height="80" />
       <div>
         <h2 class="home-section-label">About Your Host</h2>
-        <p>I'm Greg Weinger. I spent over 25 years rising to the executive level of software companies as an introvert — most of those years in denial about it. For the past two years I've been interviewing the most effective introverted leaders and experts I could find on <strong>The Introverted Leader</strong> podcast. This masterclass is what I wish someone had told me earlier in my career.</p>
+        <p>I'm Greg Weinger. I spent over 25 years rising to the executive level of software companies as an introvert, most of those years in denial about it. For the past two years I've interviewed the most effective introverted leaders and experts I could find on <strong>The Introverted Leader</strong> podcast. This masterclass is what I wish someone had told me earlier in my career.</p>
       </div>
     </section>
 
-    <p class="pull-quote">You're not wrong and you're not flawed. You're just running the wrong play.</p>
+    <blockquote class="pull-quote">
+      "I didn't become more extroverted. I became more intentional."
+      <cite class="pull-quote-cite">Lissa Appiah, promoted five times in eight years</cite>
+    </blockquote>
 
   </div>
 </Base>

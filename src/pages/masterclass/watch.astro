@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import MessageForm from '../../components/MessageForm.astro';
 
 // Unlisted YouTube upload of the masterclass. The page is only reachable
 // via the Kit form's success redirect, and is noindexed — the email gate
@@ -44,11 +45,26 @@ const CHAPTERS = [
       </ol>
     </section>
 
-    <section class="masterclass-next-step">
-      <h2 class="home-section-label">Your next step</h2>
-      <p>The masterclass covers Visibility — one of the four things holding introverted leaders back. I'm recording the other three now: Identity, Inner Knowing, and Discomfort. They land in your inbox as they go live, so there's nothing to sign up for twice.</p>
-      <p>In the meantime, there's a new conversation every week on the podcast — people who've worked out a piece of this and are willing to say how.</p>
-      <a class="btn-gold" href="/podcast/introverted-leader/">Listen to the podcast →</a>
+    {/* Next step = the free 30-minute call, framed around the video's own
+        homework (pause, open your calendar, find the moment). The form posts
+        to the contact worker like /get-unstuck/, tagged source "masterclass"
+        so requests from viewers are countable. The Nov 2026 re-edit ends on a
+        gweinger.com/call end card that lands on /get-unstuck/. */}
+    <section class="masterclass-next-step" id="call">
+      <h2 class="home-section-label">Found your moment?</h2>
+      <p>At the end of the masterclass, I ask you to find one moment on your calendar that matters: a review, a big meeting, a conversation you've been putting off. Tell me what it is, and we'll prepare for it together on a free 30-minute call.</p>
+      <p>I read every message myself and reply within a day with a few times to talk.</p>
+      <MessageForm
+        source="masterclass"
+        messageFirst
+        messageLabel="What's the moment?"
+        messagePlaceholder="For example: my review is next month, and I want to make the case for the next level."
+        whenLabel="When is it?"
+        whenPlaceholder="For example: Dec 4"
+        rows={4}
+        button="Request my free call →"
+        success="Got it. I'll read it myself and reply within a day with a few times to talk. — Greg"
+      />
     </section>
   </div>
 </Base>

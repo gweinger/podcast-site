@@ -867,6 +867,23 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   gap: var(--space-3);
 }
 .masterclass-bullets strong { color: var(--color-accent); }
+.masterclass-pains { gap: var(--space-2); }
+.masterclass-cost { margin: var(--space-4) 0 var(--space-6); }
+.masterclass-still-title {
+  max-width: 640px;
+  margin: 0 auto var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+.pull-quote-cite {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+.pull-quote-cite::before { content: "— "; }
 
 .masterclass-player {
   position: relative;
