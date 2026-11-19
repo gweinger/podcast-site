@@ -22,6 +22,7 @@ urls:
   youtube: https://youtu.be/ZcbOx6vMQZs
   apple: https://podcasts.apple.com/us/podcast/92-how-to-overcome-imposter-syndrome-rewire-your-subconscious/id1794604735?i=1000802203336&uo=4
   spotify: https://open.spotify.com/episode/3xX5O1vTbhoAm6974cn5S2
+  substack: https://www.powerfulintrovertpodcast.com/p/how-to-overcome-imposter-syndrome
 pullQuotes:
 - If you want something different, you have to do different.
 - I'm gonna tell you probably 80%, they don't even belong to you.
