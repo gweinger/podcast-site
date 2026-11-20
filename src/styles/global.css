@@ -3,29 +3,29 @@
    A designer can reskin the site by editing :root only.
    ============================================================ */
 :root {
-  /* Brand primitives — Rikyū tea browns (traditional Japanese colours).
-     Chosen 2026-09-27 from the palette study in docs/palettes/. */
-  --brand-accent:       #6B4423;  /* Kobicha — link buttons, accents */
-  --brand-accent-soft:  #826B58;  /* Rikyūcha — gradient partner */
-  --brand-gold:         #E2B13C;  /* Kariyasu — main action */
-  --brand-dark:         #3B3429;  /* Sensaichá — dark bands + text */
+  /* Brand primitives — navy & bright blue (official brand palette).
+     Restored 2026-11-19, replacing the Rikyū tea browns (docs/palettes/). */
+  --brand-accent:       #1c4ff9;  /* bright blue — link buttons, accents */
+  --brand-accent-soft:  #00a5ff;  /* light blue — gradient partner */
+  --brand-gold:         #ffc500;  /* yellow — main action */
+  --brand-dark:         #0D2747;  /* navy — dark bands + text */
 
   /* Semantic color tokens */
   --color-text:          var(--brand-dark);
-  --color-text-muted:    #7A6250;
+  --color-text-muted:    #5B7A9A;
   --color-accent:        var(--brand-accent);
-  --color-accent-dark:   #57371C;
-  --color-accent-light:  #F3E6D8;
-  --color-border:        #E6D5C3;
+  --color-accent-dark:   #1640d0;
+  --color-accent-light:  #E7F0FF;
+  --color-border:        #D5E5F0;
   --color-bg:            #FFFFFF;
-  --color-surface:       #FAF5EF;
+  --color-surface:       #F4F9FD;
 
   /* Band colors (homepage + site chrome) */
   --color-band-dark:        var(--brand-dark);
-  --color-band-light:       #F3E6D8;
+  --color-band-light:       #EEF3F9;
   --color-on-dark:          #FFFFFF;
   --color-on-dark-muted:    rgba(255, 255, 255, 0.75);
-  /* Highlighted phrase + eyebrow color: gold on dark, brown on light (contrast) */
+  /* Highlighted phrase + eyebrow color: yellow on dark, blue on light (contrast) */
   --color-highlight-dark:   var(--brand-gold);
   --color-highlight-light:  var(--brand-accent);
 
@@ -57,8 +57,8 @@
   --radius-full: 999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(59, 52, 41, 0.08);
-  --shadow-md: 0 4px 12px rgba(59, 52, 41, 0.12);
+  --shadow-sm: 0 1px 3px rgba(13, 39, 71, 0.08);
+  --shadow-md: 0 4px 12px rgba(13, 39, 71, 0.12);
 
   /* Layout */
   --maxw: 720px;
@@ -224,7 +224,7 @@ main:has(> section.band:last-of-type) + .site-footer { margin-top: 0; }
   color: var(--brand-dark);
   font-weight: 700;
 }
-.btn-gold:hover { background: #C9982A; color: var(--brand-dark); }
+.btn-gold:hover { background: #e0a400; color: var(--brand-dark); }
 .btn-outline-light {
   border: 1.5px solid rgba(255, 255, 255, 0.5);
   color: var(--color-on-dark);
@@ -360,7 +360,7 @@ main:has(> section.band:last-of-type) + .site-footer { margin-top: 0; }
   max-width: 320px;
   font-weight: 700;
 }
-.newsletter-band .btn-primary:hover { background: #C9982A; color: var(--brand-dark); }
+.newsletter-band .btn-primary:hover { background: #e0a400; color: var(--brand-dark); }
 
 /* ============================================================
    Episode list (podcast index, topic hubs)
@@ -556,7 +556,7 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
 }
 
 .contact-notice {
-  background: #FBF3E0;
+  background: #fffbea;
   border: 1px solid var(--brand-gold);
   border-radius: var(--radius-md);
   padding: var(--space-4);
@@ -792,7 +792,7 @@ details.transcript summary { cursor: pointer; font-weight: 600; }
   right: var(--space-3);
   bottom: var(--space-3);
   padding: 2px 8px;
-  background: rgba(59, 52, 41, 0.85);
+  background: rgba(13, 39, 71, 0.85);
   color: #fff;
   font-size: var(--text-sm);
   border-radius: var(--radius-sm);
