@@ -7,14 +7,16 @@ import MessageForm from '../../components/MessageForm.astro';
 // is the front door.
 const YOUTUBE_VIDEO_ID = '33zjFxKqkKE';
 
-// Real timestamps from the final cut (2026-08-02). The same numbers go in
-// the YouTube description to enable player chapters.
+// Timestamps from the current cut (2026-08-02). The Four Themes / Labs
+// section (23:54-27:37) is left out of the list; the Nov 2026 re-edit
+// (_showrunner/masterclass/masterclass-reedit-2026-11.md) cuts it from the
+// video, after which the last chapter moves to ~23:55 and VIDEO_MINUTES in
+// masterclass.astro becomes 26.
 const CHAPTERS = [
   { time: '00:00', title: 'The Meeting You Lost (And Why)' },
   { time: '04:38', title: "The Real Problem Isn't Confidence" },
-  { time: '13:28', title: 'Strategic Visibility: The 3 Moments' },
-  { time: '23:54', title: 'The Full Map: Four Themes' },
-  { time: '27:05', title: 'Your Next Step' },
+  { time: '13:28', title: 'The 3 Moments That Get Your Work Seen' },
+  { time: '27:37', title: 'The Quiet Leader Who Saved the Company' },
 ];
 ---
 <Base
