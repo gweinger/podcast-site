@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import HomeSchema from '../components/HomeSchema.astro';
-import { recentEpisodes, interviewCount, cardImage, listenLinks, guestName } from '../lib/episodes';
+import { recentEpisodes, latestEpisodeNumber, cardImage, listenLinks, guestName } from '../lib/episodes';
 import { collageFor } from '../lib/headshots';
 import { LINKS } from '../lib/links';
 import type { EpisodeLike } from '../lib/pillars';
@@ -14,7 +14,7 @@ const allEpisodes = (await getCollection('episodes')) as unknown as EpisodeLike[
 const headshotFiles = fs
   .readdirSync('public/headshots')
   .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
-const count = interviewCount(allEpisodes);
+const count = latestEpisodeNumber(allEpisodes);
 // Hero social proof: the latest interview guests who have a headshot.
 const faces = collageFor(recentEpisodes(allEpisodes, 20), headshotFiles, 5);
 const epHref = (slug: string) => `/podcast/introverted-leader/${slug}/`;
@@ -47,7 +47,7 @@ const listen = latest ? listenLinks(latest, LINKS) : { apple: LINKS.apple, spoti
               {faces.map((f) => <img src={f.url} alt="" width="40" height="40" loading="lazy" />)}
             </div>
           )}
-          <p>{count} conversations with leaders and experts</p>
+          <p>{count}+ conversations with leaders and experts</p>
         </div>
       </div>
       <div class="hero-figure">

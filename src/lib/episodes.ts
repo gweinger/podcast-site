@@ -13,9 +13,11 @@ export function recentEpisodes(episodes: EpisodeLike[], n: number): EpisodeLike[
     .slice(0, n);
 }
 
-// Number of interview episodes (the homepage "N conversations" line).
-export function interviewCount(episodes: EpisodeLike[]): number {
-  return episodes.filter((e) => e.data.status === 'interview').length;
+// Latest episode number, for the homepage "N+ conversations" line. Uses the
+// highest episode number rather than a file count, so solo episodes missing from
+// the site don't hold it back. It rises each time a new episode is published.
+export function latestEpisodeNumber(episodes: EpisodeLike[]): number {
+  return episodes.reduce((max, e) => Math.max(max, e.data.episode ?? 0), 0);
 }
 
 // Guest headshot, else episode thumbnail, else the show cover.

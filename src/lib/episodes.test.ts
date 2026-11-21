@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { recentEpisodes, interviewCount, cardImage, listenLinks, guestName, SHOW_COVER } from './episodes';
+import { recentEpisodes, latestEpisodeNumber, cardImage, listenLinks, guestName, SHOW_COVER } from './episodes';
 import type { EpisodeLike } from './pillars';
 
 const ep = (over: Partial<EpisodeLike['data']>): EpisodeLike => ({
@@ -47,14 +47,13 @@ describe('recentEpisodes', () => {
   });
 });
 
-describe('interviewCount', () => {
-  it('counts interviews and ignores minisodes', () => {
-    const eps = [
-      ep({ status: 'interview' }),
-      ep({ status: 'minisode' }),
-      ep({ status: 'interview' }),
-    ];
-    expect(interviewCount(eps)).toBe(2);
+describe('latestEpisodeNumber', () => {
+  it('returns the highest episode number, not the file count', () => {
+    const eps = [ep({ episode: 90 }), ep({ episode: 92, status: 'minisode' }), ep({ episode: 3 })];
+    expect(latestEpisodeNumber(eps)).toBe(92);
+  });
+  it('is 0 with no episodes', () => {
+    expect(latestEpisodeNumber([])).toBe(0);
   });
 });
 
