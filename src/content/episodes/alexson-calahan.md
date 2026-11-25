@@ -25,6 +25,7 @@ urls:
   youtube: https://youtu.be/FqM2c3Xkif8
   apple: https://podcasts.apple.com/us/podcast/93-quiet-leadership-how-to-be-visible-when-youd-rather-not/id1794604735?i=1000803549447&uo=4
   spotify: https://open.spotify.com/episode/3KpkdnQypQsFdHQHpPSv6F
+  substack: https://www.powerfulintrovertpodcast.com/p/you-need-to-be-more-visible-but-what
 pullQuotes:
 - I always think that I have not become so successful in public relations by overcoming
   being an introvert. I became successful because I leaned into it
