@@ -5,18 +5,15 @@ import MessageForm from '../../components/MessageForm.astro';
 // Unlisted YouTube upload of the masterclass. The page is only reachable
 // via the Kit form's success redirect, and is noindexed — the email gate
 // is the front door.
-const YOUTUBE_VIDEO_ID = '33zjFxKqkKE';
+const YOUTUBE_VIDEO_ID = 'jONP2b3XG3U';
 
-// Timestamps from the current cut (2026-08-02). The Four Themes / Labs
-// section (23:54-27:37) is left out of the list; the Nov 2026 re-edit
-// (_showrunner/masterclass/masterclass-reedit-2026-11.md) cuts it from the
-// video, after which the last chapter moves to ~23:55 and VIDEO_MINUTES in
-// masterclass.astro becomes 26.
+// Nov 2026 re-edit (_showrunner/masterclass/masterclass-reedit-2026-11.md):
+// the Four Themes / Labs section is cut. Timestamps from the 26:31 export.
 const CHAPTERS = [
   { time: '00:00', title: 'The Meeting You Lost (And Why)' },
-  { time: '04:38', title: "The Real Problem Isn't Confidence" },
-  { time: '13:28', title: 'The 3 Moments That Get Your Work Seen' },
-  { time: '27:37', title: 'The Quiet Leader Who Saved the Company' },
+  { time: '04:51', title: "The Real Problem Isn't Confidence" },
+  { time: '13:45', title: 'The 3 Moments That Get Your Work Seen' },
+  { time: '24:11', title: 'The Quiet Leader Who Saved the Company' },
 ];
 ---
 <Base
@@ -27,7 +24,7 @@ const CHAPTERS = [
   <meta slot="head" name="robots" content="noindex" />
   <div class="container">
     <h1>Why Everything You've Been Told About Getting Ahead as an Introvert Is Wrong</h1>
-    <p class="lead">You're in — press play. About 30 minutes, best watched in one sitting.</p>
+    <p class="lead">You're in — press play. About 26 minutes, best watched in one sitting.</p>
 
     <div class="masterclass-player">
       <iframe
@@ -50,8 +47,7 @@ const CHAPTERS = [
     {/* Next step = the free 30-minute call, framed around the video's own
         homework (pause, open your calendar, find the moment). The form posts
         to the contact worker like /get-unstuck/, tagged source "masterclass"
-        so requests from viewers are countable. The Nov 2026 re-edit ends on a
-        gweinger.com/call end card that lands on /get-unstuck/. */}
+        so requests from viewers are countable. */}
     <section class="masterclass-next-step" id="call">
       <h2 class="home-section-label">Found your moment?</h2>
       <p>At the end of the masterclass, I ask you to find one moment on your calendar that matters: a review, a big meeting, a conversation you've been putting off. Tell me what it is, and we'll prepare for it together on a free 30-minute call.</p>
