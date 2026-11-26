@@ -5,6 +5,15 @@ interface Env {
   SEND_EMAIL: SendEmail;
 }
 
+// Subject prefix per form, keyed by the `source` field MessageForm posts.
+// An allowlist, so a forged source can't put arbitrary text in the subject;
+// an unknown or missing source falls back to the general contact label.
+const SUBJECT_PREFIX: Record<string, string> = {
+  contact: 'Contact form',
+  'get-unstuck': 'Get unstuck',
+  masterclass: 'Masterclass',
+};
+
 const json = (body: unknown, status = 200) =>
   Response.json(body, { status });
 
@@ -30,7 +39,9 @@ export default {
       const msg = createMimeMessage();
       msg.setSender({ name: 'gweinger.com contact form', addr: 'contact@gweinger.com' });
       msg.setRecipient('gweinger@gmail.com');
-      msg.setSubject(`Contact form: ${name}`);
+      const source = String(form.get('source') ?? '').trim();
+      const prefix = SUBJECT_PREFIX[source] ?? SUBJECT_PREFIX.contact;
+      msg.setSubject(`${prefix}: ${name}`);
       msg.addMessage({
         contentType: 'text/plain',
         data: `Name: ${name}\nEmail: ${email}\n\n${message}`,

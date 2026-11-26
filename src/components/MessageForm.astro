@@ -1,7 +1,8 @@
 ---
 // One message form, posted to the contact worker (workers/contact, routed at
 // /api/contact), which emails it to Greg. Used by /contact and /get-unstuck.
-// The worker only reads name, email and message, so the page the form sits
+// The worker reads name, email, message and source (source only picks the
+// email subject: "Get unstuck: <name>", "Contact form: <name>"), so the page the form sits
 // on and the visitor's ?from= / UTM tags are appended to the message body:
 // that's how a reply in Gmail says where the lead came from. An optional
 // "when" field (whenLabel) is folded into the message body the same way.
@@ -93,6 +94,7 @@ const {
       data.delete('when');
       const whenLine = when ? `\n\nWhy now: ${when}` : '';
       data.set('message', `${data.get('message')}${whenLine}\n\n— Sent from /${source}/${tags}`);
+      data.set('source', source); // the worker picks the email subject from this
 
       try {
         const res = await fetch('/api/contact', { method: 'POST', body: data });
